@@ -90,14 +90,12 @@
                 android:layout_height="138.1dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="25dp"
-                app:error_image="@color/black"
                 app:iss_auto_cycle="true"
                 app:iss_delay="0"
                 app:iss_period="2000"
                 app:iss_text_align="CENTER"
                 app:layout_constraintTop_toTopOf="parent"
-                app:placeholder="@color/black"
-
+                app:iss_placeholder="@color/black"
                 />
 
         </RelativeLayout>
@@ -251,9 +249,7 @@
                                         android:textColor="#900E0E"
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
-                                        app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                        app:iconPadding="0dp"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -290,9 +286,7 @@
                                         android:textColor="#900E0E"
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
-                                        app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                        app:iconPadding="0dp"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -329,9 +323,7 @@
                                         android:textColor="#900E0E"
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
-                                        app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                        app:iconPadding="0dp"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -368,9 +360,7 @@
                                         android:textColor="#900E0E"
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
-                                        app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                        app:iconPadding="0dp"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -407,9 +397,7 @@
                                         android:textColor="#900E0E"
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
-                                        app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                        app:iconPadding="0dp"/>
                                 </LinearLayout>
                             </LinearLayout>
                         </HorizontalScrollView>
@@ -483,8 +471,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -522,8 +509,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -561,8 +547,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -600,8 +585,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -639,8 +623,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
                             </LinearLayout>
                         </HorizontalScrollView>
@@ -714,8 +697,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -753,8 +735,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -792,8 +773,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -831,8 +811,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -870,8 +849,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
                             </LinearLayout>
                         </HorizontalScrollView>
@@ -945,8 +923,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -984,8 +961,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1023,8 +999,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1062,8 +1037,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -1101,8 +1075,7 @@
                                         android:textSize="9sp"
                                         app:backgroundTint="#FD999B"
                                         app:iconPadding="0dp"
-                                        app:insetBottom="0dp"
-                                        app:insetTop="0dp" />
+                                         />
                                 </LinearLayout>
                             </LinearLayout>
                         </HorizontalScrollView>
