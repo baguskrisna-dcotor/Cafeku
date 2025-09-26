@@ -4,6 +4,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.google.android.material.slider.Slider;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,18 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView1 = findViewById(R.id.recyclerView);
+        ImageSlider imageSlider = findViewById(R.id.image_slider);
+        ArrayList<SlideModel> imageList = new ArrayList<>();
 
-        LinearLayoutManager linearlayoutmanager =
-                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+        imageList.add(new SlideModel(R.drawable.homeimg, "homeimg1", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.homeimg_2, "homeimg2", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.homeimg_3, "homeimg3", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.homeimg_4, "homeimg4", ScaleTypes.CENTER_CROP));
 
-        recyclerView1.setLayoutManager(linearlayoutmanager);
+        imageSlider.setImageList(imageList);
 
-        List<MenuItem> menuList = new ArrayList<>();
-        menuList.add(new MenuItem("Nasi Goreng", "Rp.20.000", "img_1.png"));
-        menuList.add(new MenuItem("Mie Goreng", "Rp.18.000", "img_2.png"));
-        menuList.add(new MenuItem("Ayam Bakar", "Rp.25.000", "img_3.png"));
 
-        MenuAdapter adapter = new MenuAdapter(this, menuList);
-        recyclerView1.setAdapter(adapter);
 }}
