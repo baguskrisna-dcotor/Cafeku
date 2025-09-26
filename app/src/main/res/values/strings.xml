@@ -2,4 +2,6 @@
     <string name="app_name">Cafeku</string>
     <string name="HomeGuest">Halo,Guest!!</string>
     <string name="Homegreeting">Lagi nugas enaknya sambil ngopi nihhh🤤</string>
+    <string name="defVoucher">Voucher name</string>
+    <string name="defDetailVoucher">S&amp;K Berlaku</string>
 </resources>
