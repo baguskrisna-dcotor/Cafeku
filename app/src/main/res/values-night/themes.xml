@@ -4,7 +4,6 @@
     <style name="Theme.Cafeku" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Warna Utama -->
         <item name="colorPrimary">#FD999B</item>
-        <item name="colorPrimaryVariant">#E57373</item>
         <item name="colorOnPrimary">#FFFFFF</item>
 
         <!-- Warna Sekunder -->
@@ -28,6 +27,5 @@
         <item name="android:insetRight">0dp</item>
         <item name="cornerRadius">20dp</item>
     </style>
-
 
 </resources>
