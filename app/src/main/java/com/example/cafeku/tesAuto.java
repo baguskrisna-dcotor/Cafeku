@@ -13,7 +13,6 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.button.MaterialButton;
 
-import java.util.ArrayList;
 
 public class tesAuto extends AppCompatActivity {
 
@@ -24,7 +23,7 @@ public class tesAuto extends AppCompatActivity {
 
     int[] images1 = {R.drawable.menu_1, R.drawable.menu_2, R.drawable.menu_3, R.drawable.menu_5, R.drawable.menu_6};
     String[] names1 = {"Kentang Goreng", "Burger", "Sosis Bakar", "Pizza", "Nasi Goreng"};
-    String[] prices1 = {"Rp 15.000", "Rp 20.000", "Rp 10.000", "Rp 30.000", "Rp 25.000"};
+    String[] prices1 = {"15000", "Rp 20.000", "Rp 10.000", "Rp 30.000", "Rp 25.000"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
