@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="0dp"
-    android:padding="0dp">
+    android:padding="0dp"
+    android:id="@+id/main"
+    android:background="@drawable/background_vchr">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/backgroundVchr"
-        >
+        android:layout_marginTop="40dp">
 
 
 
@@ -38,6 +39,12 @@
                     android:textStyle="bold"
                     android:textSize="22sp"
                     android:textColor="#000000"/>
+                <TextView
+                    android:id="@+id/detTxt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Voucher"
+                    android:textSize="15sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,6 +110,12 @@
                     android:textSize="22sp"
                     android:textColor="#000000"/>
                 <TextView
+                    android:id="@+id/detTxt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Voucher"
+                    android:textSize="15sp"/>
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/defDetailVoucher"
@@ -164,6 +177,12 @@
                     android:textStyle="bold"
                     android:textSize="22sp"
                     android:textColor="#000000"/>
+                <TextView
+                    android:id="@+id/detTxt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Voucher"
+                    android:textSize="15sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -227,6 +246,12 @@
                     android:textSize="22sp"
                     android:textColor="#000000"/>
                 <TextView
+                    android:id="@+id/detTxt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Voucher"
+                    android:textSize="15sp"/>
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/defDetailVoucher"
@@ -267,9 +292,84 @@
                     </LinearLayout>
 
                 </LinearLayout>
+                <TextView
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunitosans"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yah udah mentok 😥"/>
+                <TextView
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunitosans"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="160dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stay tune ingfo selanjutnya ya✨"
+                    />
             </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/nvHome"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_1" />
+
+        <ImageView
+            android:id="@+id/nvVoucher"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_2" />
+
+        <ImageView
+            android:id="@+id/nvGalery"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_3" />
+
+        <ImageView
+            android:id="@+id/nvProfile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_4" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

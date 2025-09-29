@@ -2,32 +2,6 @@
 
     <!-- Tema Aplikasi -->
     <style name="Theme.Cafeku" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Warna Utama -->
-        <item name="colorPrimary">#FD999B</item>
-        <item name="colorPrimaryVariant">#E57373</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-
-        <!-- Warna Sekunder -->
-        <item name="colorSecondary">#867DFF</item>
-        <item name="colorOnSecondary">#FFFFFF</item>
-
-        <!-- Background -->
-        <item name="android:windowBackground">@drawable/bg_gradient</item>
-
-        <!-- Tombol -->
-        <item name="materialButtonStyle">@style/CustomButton</item>
     </style>
-
-    <!-- Style Button -->
-    <style name="CustomButton" parent="Widget.Material3.Button">
-        <item name="android:backgroundTint">#FD999B</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:insetTop">0dp</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:insetLeft">0dp</item>
-        <item name="android:insetRight">0dp</item>
-        <item name="cornerRadius">20dp</item>
-    </style>
-
 
 </resources>

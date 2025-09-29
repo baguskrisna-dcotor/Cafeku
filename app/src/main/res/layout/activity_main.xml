@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF1E8"
@@ -1185,6 +1184,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/nvHome"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -1194,6 +1194,7 @@
             android:src="@drawable/navbar_1" />
 
         <ImageView
+            android:id="@+id/nvVoucher"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -1204,6 +1205,7 @@
             android:src="@drawable/navbar_2" />
 
         <ImageView
+            android:id="@+id/nvGalery"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -1214,6 +1216,7 @@
             android:src="@drawable/navbar_3" />
 
         <ImageView
+            android:id="@+id/nvProfile"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
