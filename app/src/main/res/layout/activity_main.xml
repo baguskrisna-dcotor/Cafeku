@@ -286,7 +286,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
-                                        android:id="@+id/Menu2"
+                                        android:id="@+id/btnMenu2"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -299,6 +299,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog3"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -306,6 +307,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu3"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -314,6 +316,7 @@
                                         android:src="@drawable/menu_3" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -324,6 +327,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu3"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -336,6 +340,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog4"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -343,6 +348,48 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="80dp"
+                                        android:background="@drawable/shape"
+                                        android:clipToOutline="true"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/menu_4" />
+
+                                    <TextView
+                                        android:id="@+id/txtMenu4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:fontFamily="@font/nunitosans"
+                                        android:text="@string/Kentanggoreng"
+                                        android:textColor="#373737"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu4"
+                                        android:layout_width="65dp"
+                                        android:layout_height="20dp"
+                                        android:gravity="center"
+                                        android:padding="0dp"
+                                        android:text="@string/price"
+                                        android:textColor="#900E0E"
+                                        android:textSize="9sp"
+                                        app:backgroundTint="#FD999B"
+                                        app:iconPadding="0dp"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/katalog5"
+                                    android:layout_width="80dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginEnd="18dp"
+                                    android:gravity="end"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/imgMenu5"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -351,6 +398,7 @@
                                         android:src="@drawable/menu_5" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -361,43 +409,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
-                                        android:layout_width="65dp"
-                                        android:layout_height="20dp"
-                                        android:gravity="center"
-                                        android:padding="0dp"
-                                        android:text="@string/price"
-                                        android:textColor="#900E0E"
-                                        android:textSize="9sp"
-                                        app:backgroundTint="#FD999B"
-                                        app:iconPadding="0dp"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="80dp"
-                                    android:layout_height="120dp"
-                                    android:layout_marginEnd="18dp"
-                                    android:gravity="end"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="80dp"
-                                        android:background="@drawable/shape"
-                                        android:clipToOutline="true"
-                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_6" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="start"
-                                        android:fontFamily="@font/nunitosans"
-                                        android:text="@string/Kentanggoreng"
-                                        android:textColor="#373737"
-                                        android:textSize="11sp"
-                                        android:textStyle="bold" />
-
-                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu5"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -425,6 +437,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/katalogMenu2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -446,6 +459,7 @@
                                 android:orientation="horizontal">
 
                                 <LinearLayout
+                                    android:id="@+id/katalog6"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -453,6 +467,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu6"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -461,6 +476,7 @@
                                         android:src="@drawable/menu_7" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu6"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -471,6 +487,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu6"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -484,6 +501,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog7"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -491,6 +509,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu7"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -499,6 +518,7 @@
                                         android:src="@drawable/menu_8" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu7"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -509,6 +529,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu7"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -522,6 +543,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog8"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -529,6 +551,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu8"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -537,6 +560,7 @@
                                         android:src="@drawable/menu_9" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu8"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -547,6 +571,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu8"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -560,6 +585,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog9"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -567,6 +593,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu9"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -575,6 +602,7 @@
                                         android:src="@drawable/menu_10" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu9"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -585,6 +613,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu9"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -598,6 +627,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog10"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="18dp"
@@ -605,6 +635,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu10"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -613,6 +644,7 @@
                                         android:src="@drawable/menu_11" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu10"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -623,6 +655,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu10"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -651,6 +684,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/katalogMenu3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -672,6 +706,7 @@
                                 android:orientation="horizontal">
 
                                 <LinearLayout
+                                    android:id="@+id/katalog11"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -679,6 +714,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu11"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -687,6 +723,7 @@
                                         android:src="@drawable/menu_1" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu11"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -697,6 +734,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu11"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -710,6 +748,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog12"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -717,6 +756,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu12"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -725,6 +765,7 @@
                                         android:src="@drawable/menu_2" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu12"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -735,6 +776,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu12"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -748,6 +790,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog13"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -755,6 +798,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu13"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -763,6 +807,7 @@
                                         android:src="@drawable/menu_3" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu13"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -773,6 +818,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu13"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -786,6 +832,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog14"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -793,6 +840,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu14"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -801,6 +849,7 @@
                                         android:src="@drawable/menu_5" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu14"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -811,6 +860,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu14"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -824,6 +874,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog15"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="18dp"
@@ -831,6 +882,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu15"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -839,6 +891,7 @@
                                         android:src="@drawable/menu_6" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu15"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -849,6 +902,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu15"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -877,6 +931,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/katalogMenu4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -898,6 +953,7 @@
                                 android:orientation="horizontal">
 
                                 <LinearLayout
+                                    android:id="@+id/katalog16"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -905,6 +961,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu16"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -913,6 +970,7 @@
                                         android:src="@drawable/menu_1" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu16"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -923,6 +981,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu16"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -936,6 +995,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog17"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -943,6 +1003,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu17"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -951,6 +1012,7 @@
                                         android:src="@drawable/menu_2" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu17"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -961,6 +1023,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu17"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -974,6 +1037,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog18"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -981,6 +1045,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu18"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -989,6 +1054,7 @@
                                         android:src="@drawable/menu_3" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu18"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -999,6 +1065,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu18"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -1012,6 +1079,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog19"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="19dp"
@@ -1019,6 +1087,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu19"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -1027,6 +1096,7 @@
                                         android:src="@drawable/menu_5" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu19"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -1037,6 +1107,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu19"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
@@ -1050,6 +1121,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/katalog20"
                                     android:layout_width="80dp"
                                     android:layout_height="120dp"
                                     android:layout_marginEnd="18dp"
@@ -1057,6 +1129,7 @@
                                     android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/imgMenu20"
                                         android:layout_width="match_parent"
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
@@ -1065,6 +1138,7 @@
                                         android:src="@drawable/menu_6" />
 
                                     <TextView
+                                        android:id="@+id/txtMenu20"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="start"
@@ -1075,6 +1149,7 @@
                                         android:textStyle="bold" />
 
                                     <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/btnMenu20"
                                         android:layout_width="65dp"
                                         android:layout_height="20dp"
                                         android:gravity="center"
