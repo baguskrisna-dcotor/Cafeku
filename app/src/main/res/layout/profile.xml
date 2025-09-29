@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD3BC"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".Profile">
+
+    <ImageView
+        android:id="@+id/photoprofile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/profile_img"
+        android:clipToOutline="true"
+        android:elevation="20dp"
+        android:src="@drawable/anime_badas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
+
+
+    <ImageView
+        android:id="@+id/img_atas_login"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profileimg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="128dp"
+        android:background="@drawable/gradientprofile"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginStart="140dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/poppins"
+                android:text="Halo, Guest!"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_gravity="start"
+                android:background="@drawable/button_login_background"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/nunitosans"
+                android:text="Voucher yang kamu dapat"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_marginStart="180dp"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/profile_gradient_voucher"
+                    android:elevation="9dp"
+                    >
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/profile_voucherdetail"
+                    android:gravity="center">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="10dp"
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="120dp"
+                                android:layout_height="70dp"
+                                android:layout_marginEnd="10dp">
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="70dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/img_3" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="120dp"
+                                android:layout_height="70dp"
+                                android:layout_marginEnd="10dp">
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="70dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/img_4" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="120dp"
+                                android:layout_height="70dp"
+                                android:layout_marginEnd="10dp">
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="70dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/img_2" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="120dp"
+                                android:layout_height="70dp"
+                                android:layout_marginEnd="10dp">
+
+                                <ImageView
+                                    android:layout_width="120dp"
+                                    android:layout_height="70dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/img_1" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_facebook_login"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="24dp"
+                    android:background="@drawable/profile_button_shape"
+                    android:elevation="11dp"
+                    android:layout_marginStart="240dp"
+                    >
+                    <ImageView
+
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:src="@drawable/icon_facebook"
+                        android:contentDescription="Google Logo" />
+                    <!-- Teks -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="more"
+                        android:textColor="#333333"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/nunitosans"/>
+                    <!-- Logo Google -->
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/nunitosans"
+                android:text="Voucher yang kamu dapat"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_1" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_2" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_3" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/circle_navbar"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navbar_4" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
