@@ -4,10 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFD3BC"
+    android:background="#645C5A"
     android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".Profile">
+
+    <RelativeLayout
+        android:elevation="11dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89"
+        android:alpha="0.6">
+
+        <ImageView
+            android:id="@+id/img_bawah_login"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bawah_login"
+            android:layout_marginBottom="0dp"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </RelativeLayout>
+
+
 
     <ImageView
         android:id="@+id/photoprofile"
@@ -36,7 +60,7 @@
 
 
     <LinearLayout
-
+        android:elevation="10dp"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginTop="128dp"
@@ -45,7 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,7 +85,7 @@
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/poppins"
                 android:text="Halo, Guest!"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
             <com.google.android.material.button.MaterialButton
@@ -99,8 +124,8 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_marginStart="180dp"
-                    android:layout_width="90dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:background="@drawable/profile_gradient_voucher"
@@ -120,7 +145,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginStart="10dp"
-
+                        android:importantForAccessibility="no"
                         >
 
                         <LinearLayout
@@ -200,9 +225,9 @@
                     >
                     <ImageView
 
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:src="@drawable/icon_facebook"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/arrow"
                         android:contentDescription="Google Logo" />
                     <!-- Teks -->
                     <TextView
@@ -223,24 +248,291 @@
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:fontFamily="@font/nunitosans"
-                android:text="Voucher yang kamu dapat"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/profile_point">
+
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/maskot_point"/>
+
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center"
+                        android:layout_width="180dp"
+                        android:layout_height="50dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:text="POINT BELANJA"
+                            android:fontFamily="@font/nunitosans"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"/>
+
+                        <LinearLayout
+                            android:layout_width="170dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:background="@drawable/profile_button_point"
+                            >
+                            <TextView
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/arvo"
+                                android:textSize="14sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:text="2.056"/>
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/btn_plus_point"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="24dp"
+                    android:background="@drawable/profile_button_point"
+                    android:elevation="11dp"
+                    android:layout_marginStart="240dp"
+                    >
+                    <ImageView
+
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/plus"
+                        android:contentDescription="Google Logo" />
+                    <!-- Teks -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="more"
+                        android:textColor="#333333"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/nunitosans"/>
+                    <!-- Logo Google -->
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
 
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="130dp"
+            android:elevation="20dp"
+            android:background="@drawable/history_container"
+            android:orientation="vertical"
+            >
 
+            <TextView
+                android:textSize="14sp"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="History Pesananmu"
+                android:textColor="@color/white"/>
+
+
+            <HorizontalScrollView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginEnd="10dp"
+                        android:padding="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@drawable/history_detail">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/menu_9"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/history_detail"
+                            android:clipToOutline="true"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:fontFamily="@font/nunitosans"
+                            android:textSize="8sp"
+                            android:gravity="center|start"
+                            android:layout_width="50dp"
+                            android:layout_height="10dp"
+                            android:text="@string/Kentanggoreng"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginEnd="10dp"
+                        android:padding="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@drawable/history_detail">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/menu_11"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/history_detail"
+                            android:clipToOutline="true"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:fontFamily="@font/nunitosans"
+                            android:textSize="8sp"
+                            android:gravity="center|start"
+                            android:layout_width="50dp"
+                            android:layout_height="10dp"
+                            android:text="@string/Kentanggoreng"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginEnd="10dp"
+                        android:padding="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@drawable/history_detail">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/menu_8"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/history_detail"
+                            android:clipToOutline="true"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:fontFamily="@font/nunitosans"
+                            android:textSize="8sp"
+                            android:gravity="center|start"
+                            android:layout_width="50dp"
+                            android:layout_height="10dp"
+                            android:text="@string/Kentanggoreng"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginEnd="10dp"
+                        android:padding="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@drawable/history_detail">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/menu_3"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/history_detail"
+                            android:clipToOutline="true"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:fontFamily="@font/nunitosans"
+                            android:textSize="8sp"
+                            android:gravity="center|start"
+                            android:layout_width="50dp"
+                            android:layout_height="10dp"
+                            android:text="@string/Kentanggoreng"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginEnd="10dp"
+                        android:padding="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@drawable/history_detail">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/menu_4"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/history_detail"
+                            android:clipToOutline="true"
+                            android:layout_marginBottom="2dp"/>
+
+                        <TextView
+                            android:fontFamily="@font/nunitosans"
+                            android:textSize="8sp"
+                            android:gravity="center|start"
+                            android:layout_width="50dp"
+                            android:layout_height="10dp"
+                            android:text="@string/Kentanggoreng"
+                            />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout
@@ -254,6 +546,7 @@
         android:paddingEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
