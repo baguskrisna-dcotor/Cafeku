@@ -42,10 +42,9 @@
         android:clipToOutline="true"
         android:elevation="20dp"
         android:src="@drawable/anime_badas"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        android:layout_marginTop="90dp"/>
 
 
     <ImageView
@@ -89,14 +88,15 @@
                 android:textSize="20sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:layout_width="120dp"
-                android:layout_height="25dp"
+                android:layout_width="125dp"
+                android:layout_height="30dp"
                 android:layout_gravity="start"
+                app:backgroundTint="@null"
                 android:background="@drawable/button_login_background"
                 android:gravity="center"
                 android:text="Login"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="9sp" />
 
         </LinearLayout>
 
@@ -146,6 +146,7 @@
                         android:layout_height="70dp"
                         android:layout_marginStart="10dp"
                         android:importantForAccessibility="no"
+                        android:scrollbars="none"
                         >
 
                         <LinearLayout
@@ -303,8 +304,6 @@
 
                         </LinearLayout>
 
-
-
                     </LinearLayout>
 
 
@@ -385,14 +384,14 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/history_detail">
+                        android:background="@drawable/image_shape">
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/menu_9"
                             android:scaleType="centerCrop"
-                            android:background="@drawable/history_detail"
+                            android:background="@drawable/image_shape"
                             android:clipToOutline="true"
                             android:layout_marginBottom="2dp"/>
 
@@ -414,14 +413,14 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/history_detail">
+                        android:background="@drawable/image_shape">
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/menu_11"
                             android:scaleType="centerCrop"
-                            android:background="@drawable/history_detail"
+                            android:background="@drawable/image_shape"
                             android:clipToOutline="true"
                             android:layout_marginBottom="2dp"/>
 
@@ -443,14 +442,14 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/history_detail">
+                        android:background="@drawable/image_shape">
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/menu_8"
                             android:scaleType="centerCrop"
-                            android:background="@drawable/history_detail"
+                            android:background="@drawable/image_shape"
                             android:clipToOutline="true"
                             android:layout_marginBottom="2dp"/>
 
@@ -472,14 +471,14 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/history_detail">
+                        android:background="@drawable/image_shape">
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/menu_3"
                             android:scaleType="centerCrop"
-                            android:background="@drawable/history_detail"
+                            android:background="@drawable/image_shape"
                             android:clipToOutline="true"
                             android:layout_marginBottom="2dp"/>
 
@@ -501,14 +500,14 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:background="@drawable/history_detail">
+                        android:background="@drawable/image_shape">
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/menu_4"
                             android:scaleType="centerCrop"
-                            android:background="@drawable/history_detail"
+                            android:background="@drawable/image_shape"
                             android:clipToOutline="true"
                             android:layout_marginBottom="2dp"/>
 
