@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nama": "Kentang Goreng",
+    "deskripsi": "Kentang goreng pilihan dengan tekstur renyah di luar dan lembut di dalam. Disajikan hangat dengan taburan bumbu rahasia yang bikin ketagihan, ditemani saus keju creamy yang melumer di setiap gigitan. Menu ringan yang pas untuk menemani obrolan santai bersama teman atau sekadar camilan saat bersantai.",
+    "harga": 15000,
+    "gambar": "menu_1"
+  },
+  {
+    "id": 2,
+    "nama": "Burger",
+    "deskripsi": "Burger spesial dengan daging sapi tebal yang juicy, dipanggang sempurna untuk mempertahankan rasa gurih alaminya. Dipadukan dengan keju leleh, sayuran segar, serta saus spesial ala Caféku yang bikin rasanya berbeda dari burger biasa. Cocok untuk mengenyangkan perut sekaligus memanjakan lidah.",
+    "harga": 20000,
+    "gambar": "menu_2"
+  },
+  {
+    "id": 3,
+    "nama": "Sosis Bakar",
+    "deskripsi": "Sosis jumbo dengan rasa daging asli yang gurih, dibakar perlahan hingga menghasilkan aroma smokey yang khas. Dilumuri saus barbeque manis pedas yang meresap sempurna ke dalam daging, membuat setiap suapan menghadirkan perpaduan rasa yang kuat dan nikmat. Pilihan tepat untuk camilan hangat yang bikin nagih.",
+    "harga": 10000,
+    "gambar": "menu_3"
+  },
+  {
+    "id": 4,
+    "nama": "Cream Coffee",
+    "deskripsi": "Secangkir kopi nikmat dengan perpaduan sempurna antara espresso kuat dan kelembutan cream yang manis. Rasanya kaya, halus, dan meninggalkan aftertaste yang lembut di lidah. Disajikan hangat maupun dingin, Cream Coffee ini cocok menemani waktu kerja, belajar, atau sekadar bersantai. Setiap tegukan menghadirkan energi sekaligus kenyamanan.",
+    "harga": 18000,
+    "gambar": "menu_4"
+  },
+  {
+    "id": 5,
+    "nama": "Croissant",
+    "deskripsi": "Roti croissant dengan lapisan tipis-tipis yang renyah di luar namun lembut dan buttery di dalam. Dibuat dari adonan premium yang dipanggang hingga keemasan, menghasilkan aroma harum yang menggoda. Croissant ini pas banget disantap saat sarapan, teman kopi, atau sekadar camilan elegan di sore hari.",
+    "harga": 22000,
+    "gambar": "menu_5"
+  }
+]

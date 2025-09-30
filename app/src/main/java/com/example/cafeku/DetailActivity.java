@@ -11,6 +11,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.w3c.dom.Text;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +25,27 @@ public class DetailActivity extends AppCompatActivity {
         ImageView img = findViewById(R.id.detailImage);
         TextView name = findViewById(R.id.detailName);
         TextView price = findViewById(R.id.detailPrice);
+        TextView description = findViewById(R.id.deskripsi);
 
         // Ambil data dari intent
         Intent intent = getIntent();
-        int image = intent.getIntExtra("img", 0);
+        String image = intent.getStringExtra("gambar");
         String nama = intent.getStringExtra("name");
-        String harga = intent.getStringExtra("price");
+        int harga = intent.getIntExtra("harga", 0 );
+        String deskripsi = intent.getStringExtra("deskripsi");
 
-        img.setImageResource(image);
+        NumberFormat rupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+        price.setText(rupiah.format(harga));
+
+        int resId = getResources().getIdentifier(image, "drawable", getPackageName());
+        if (resId != 0) {
+            img.setImageResource(resId);
+
+
+        System.out.println(image);
+        System.out.println(harga);
         name.setText(nama);
-        price.setText(harga);
+
+        description.setText(deskripsi);
     }
-}
+}}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nama": "Kentang Goreng",
+    "deskripsi": "Kentang goreng renyah dengan saus keju",
+    "harga": 15000,
+    "gambar": "menu_1"
+  },
+  {
+    "id": 2,
+    "nama": "Burger",
+    "deskripsi": "Burger sapi dengan keju leleh",
+    "harga": 20000,
+    "gambar": "menu_2"
+  },
+  {
+    "id": 3,
+    "nama": "Sosis Bakar",
+    "deskripsi": "Sosis jumbo dengan bumbu barbeque",
+    "harga": 10000,
+    "gambar": "menu_3"
+  },
+  {
+    "id": 4,
+    "nama": "Kentang bakar",
+    "deskripsi": "Kentang goreng renyah dengan saus keju",
+    "harga": 15000,
+    "gambar": "menu_1"
+  },
+  {
+    "id": 5,
+    "nama": "Mactha",
+    "deskripsi": "Burger sapi dengan keju leleh",
+    "harga": 20000,
+    "gambar": "menu_2"
+  }
+]

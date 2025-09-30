@@ -1,0 +1,37 @@
+[
+  {
+    "id": 16,
+    "nama": "Avocado Coffee",
+    "deskripsi": "Perpaduan alpukat segar dengan espresso dan cokelat.",
+    "harga": 25000,
+    "gambar": "menu_16"
+  },
+  {
+    "id": 17,
+    "nama": "Choco Lava Cake",
+    "deskripsi": "Kue cokelat hangat dengan lelehan cokelat di dalamnya.",
+    "harga": 30000,
+    "gambar": "menu_17"
+  },
+  {
+    "id": 18,
+    "nama": "Mango Frappe",
+    "deskripsi": "Frappe mangga segar dengan topping krim.",
+    "harga": 22000,
+    "gambar": "menu_18"
+  },
+  {
+    "id": 19,
+    "nama": "Classic Donut",
+    "deskripsi": "Donat manis klasik tabur gula halus.",
+    "harga": 15000,
+    "gambar": "menu_19"
+  },
+  {
+    "id": 20,
+    "nama": "Cappuccino",
+    "deskripsi": "Espresso dengan buih susu creamy khas cappuccino.",
+    "harga": 20000,
+    "gambar": "menu_20"
+  }
+]
