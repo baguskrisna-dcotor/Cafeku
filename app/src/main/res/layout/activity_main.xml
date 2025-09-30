@@ -24,11 +24,22 @@
         android:layout_width="match_parent"
         android:layout_height="216dp"
         android:background="@drawable/gradienthome"
+        android:orientation="horizontal"
+        android:gravity="end|top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.">
+        app:layout_constraintVertical_bias="0."
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cafeku"
+           />
 
     </LinearLayout>
 
@@ -122,7 +133,7 @@
                     <ImageView
                         android:layout_width="180dp"
                         android:layout_height="80dp"
-                        android:scaleType="fitCenter"
+                       android:scaleType="centerCrop"
                         android:src="@drawable/img_1" />
 
                 </LinearLayout>
@@ -136,7 +147,7 @@
                     <ImageView
                         android:layout_width="180dp"
                         android:layout_height="80dp"
-                        android:scaleType="fitCenter"
+                       android:scaleType="centerCrop"
                         android:src="@drawable/img_4" />
 
                 </LinearLayout>
@@ -150,7 +161,7 @@
                     <ImageView
                         android:layout_width="180dp"
                         android:layout_height="80dp"
-                        android:scaleType="fitCenter"
+                       android:scaleType="centerCrop"
                         android:src="@drawable/img_2" />
 
                 </LinearLayout>
@@ -164,7 +175,7 @@
                     <ImageView
                         android:layout_width="180dp"
                         android:layout_height="80dp"
-                        android:scaleType="fitCenter"
+                       android:scaleType="centerCrop"
                         android:src="@drawable/img_3" />
 
                 </LinearLayout>
@@ -172,6 +183,7 @@
         </HorizontalScrollView>
 
         <ScrollView
+            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -229,8 +241,8 @@
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
-                                        android:scaleType="fitCenter"
-                                        android:src="@drawable/menu_1" />
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/menu_10" />
 
                                     <TextView
                                         android:id="@+id/txtMenu1"
@@ -246,7 +258,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu1"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -287,7 +299,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu2"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -312,7 +324,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_3" />
+                                        android:src="@drawable/menu_12" />
 
                                     <TextView
                                         android:id="@+id/txtMenu3"
@@ -328,7 +340,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu3"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -369,7 +381,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu4"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -410,7 +422,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu5"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -488,7 +500,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu6"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -530,7 +542,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu7"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -572,7 +584,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu8"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -614,7 +626,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu9"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -639,7 +651,7 @@
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
-                                        android:scaleType="fitCenter"
+                                       android:scaleType="centerCrop"
                                         android:src="@drawable/menu_11" />
 
                                     <TextView
@@ -656,7 +668,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu10"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -718,7 +730,7 @@
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
-                                        android:scaleType="fitCenter"
+                                       android:scaleType="centerCrop"
                                         android:src="@drawable/menu_1" />
 
                                     <TextView
@@ -735,7 +747,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu11"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -777,7 +789,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu12"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -819,7 +831,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu13"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -861,7 +873,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu14"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -903,7 +915,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu15"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -965,7 +977,7 @@
                                         android:layout_height="80dp"
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
-                                        android:scaleType="fitCenter"
+                                       android:scaleType="centerCrop"
                                         android:src="@drawable/menu_1" />
 
                                     <TextView
@@ -982,7 +994,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu16"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -1024,7 +1036,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu17"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -1066,7 +1078,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu18"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -1108,7 +1120,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu19"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -1150,7 +1162,7 @@
                                     <com.google.android.material.button.MaterialButton
                                         android:id="@+id/btnMenu20"
                                         android:layout_width="65dp"
-                                        android:layout_height="20dp"
+                                        android:layout_height="25dp"
                                         android:gravity="center"
                                         android:padding="0dp"
                                         android:text="@string/price"
@@ -1190,7 +1202,7 @@
             android:layout_margin="15dp"
             android:background="@drawable/circle_navbar"
             android:padding="16dp"
-            android:scaleType="fitCenter"
+           android:scaleType="centerCrop"
             android:src="@drawable/navbar_1" />
 
         <ImageView
@@ -1201,7 +1213,7 @@
             android:background="@drawable/circle_navbar"
             android:contentDescription="TODO"
             android:padding="16dp"
-            android:scaleType="fitCenter"
+           android:scaleType="centerCrop"
             android:src="@drawable/navbar_2" />
 
         <ImageView
@@ -1212,7 +1224,7 @@
             android:background="@drawable/circle_navbar"
             android:contentDescription="TODO"
             android:padding="16dp"
-            android:scaleType="fitCenter"
+           android:scaleType="centerCrop"
             android:src="@drawable/navbar_3" />
 
         <ImageView
@@ -1223,7 +1235,7 @@
             android:background="@drawable/circle_navbar"
             android:contentDescription="TODO"
             android:padding="16dp"
-            android:scaleType="fitCenter"
+           android:scaleType="centerCrop"
             android:src="@drawable/navbar_4" />
 
 

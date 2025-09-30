@@ -27,11 +27,13 @@ public class MainActivity extends AppCompatActivity {
         int[] txtIds1 = {R.id.txtMenu1, R.id.txtMenu2, R.id.txtMenu3, R.id.txtMenu4, R.id.txtMenu5};
         int[] btnIds1 = {R.id.btnMenu1, R.id.btnMenu2, R.id.btnMenu3, R.id.btnMenu4, R.id.btnMenu5};
 
-        int[] images1 = {R.drawable.menu_1, R.drawable.menu_2, R.drawable.menu_3, R.drawable.menu_5, R.drawable.menu_6};
+        int[] images1 = {R.drawable.menu_1, R.drawable.menu_2, R.drawable.menu_3, R.drawable.menu_5, R.drawable.menu_6,
+                R.drawable.menu_7, R.drawable.menu_8, R.drawable.menu_9, R.drawable.menu_10, R.drawable.menu_11,R.drawable.menu_12};
         String[] names1 = {"Kentang Goreng", "Burger", "Sosis Bakar", "Pizza", "Nasi Goreng"};
         String[] prices1 = {"15000", "Rp 20.000", "Rp 10.000", "Rp 30.000", "Rp 25.000"};
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         tambahProduk(parent1, imgIds1, txtIds1, btnIds1, images1, names1, prices1);
 
         ImageSlider imageSlider = findViewById(R.id.image_slider);
@@ -43,14 +45,10 @@ public class MainActivity extends AppCompatActivity {
         imageList.add(new SlideModel(R.drawable.homeimg_4, "homeimg4", ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(imageList);
-
-
-
-
 }
 
     public void tambahProduk(int[] katalogId, int[] imgId, int[] txtId, int[] btnId, int[] image, String[] name, String[] price){
-        for (int i = 0; i < name.length; i++) {
+        for (int i = 0; i < 12; i++) {
             int index = i;
 
             ImageView img = findViewById(imgId[i]);
