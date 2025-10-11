@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,13 +12,7 @@ import android.widget.Toast;
 import com.example.cafeku.database.AppDatabase;
 import com.example.cafeku.model.CartItem;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +29,12 @@ public class DetailActivity extends AppCompatActivity {
         TextView name = findViewById(R.id.detailName);
         TextView price = findViewById(R.id.detailPrice);
         TextView description = findViewById(R.id.deskripsi);
+        LinearLayout buybtn = findViewById(R.id.buybtn);
+
+        buybtn.setOnClickListener(v ->{
+            Intent i = new Intent(DetailActivity.this, ThanksActivity.class);
+            startActivity(i);
+        });
 
         // Ambil data dari intent
         Intent intent = getIntent();

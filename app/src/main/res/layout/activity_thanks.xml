@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/thanksLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThanksActivity">
+
+    <!-- Animasi centang sukses -->
+
+    <ImageView
+        android:id="@+id/imgdecor1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60sp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="22dp"
+        android:alpha="1"
+        android:scaleType="centerInside"
+        android:src="@drawable/cafekudecor" />
+
+    <ImageView
+        android:id="@+id/imgdecor2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="380dp"
+        android:alpha="1"
+        android:rotation="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/cafekudecor" />
+
+    <ImageView
+        android:id="@+id/imgSuccess"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/cafeku"
+        android:alpha="1"
+        android:scaleType="centerInside" />
+
+    <!-- Teks animasi -->
+    <TextView
+        android:id="@+id/txtThanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank You!"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="@color/aurora_polar_start"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imgSuccess"
+        android:layout_marginTop="24dp"
+        android:alpha="0"/>
+
+    <!-- Subteks -->
+    <TextView
+        android:id="@+id/txtMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your order has been received"
+        android:textSize="16sp"
+        android:textColor="@color/aurora_classic_center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtThanks"
+        android:layout_marginTop="8dp"
+        android:alpha="0"/>
+
+</RelativeLayout>
