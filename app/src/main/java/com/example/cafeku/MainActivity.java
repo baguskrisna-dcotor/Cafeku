@@ -4,29 +4,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 
-import java.nio.channels.AsynchronousFileChannel;
 import java.util.Calendar;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.slider.Slider;
+
 import java.io.InputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
     ArrayList<Integer> idList = new ArrayList<>();
     ArrayList<String> namaList = new ArrayList<>();
     ArrayList<String> deskripsiList = new ArrayList<>();
@@ -52,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> hargaList4 = new ArrayList<>();
     ArrayList<String> gambarList4 = new ArrayList<>();
 
+    ArrayList<Integer> idList5 = new ArrayList<>();
+    ArrayList<String> namaList5 = new ArrayList<>();
+    ArrayList<String> deskripsiList5 = new ArrayList<>();
+    ArrayList<Integer> hargaList5 = new ArrayList<>();
+    ArrayList<String> gambarList5 = new ArrayList<>();
+
     // Container 2
 
     @Override
@@ -62,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2);
         loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3);
         loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4);
+        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5);
+
+
 
         int[] parent1 = {R.id.katalog1, R.id.katalog2, R.id.katalog3, R.id.katalog4, R.id.katalog5};
         int[] imgIds1 = {R.id.imgMenu1, R.id.imgMenu2, R.id.imgMenu3, R.id.imgMenu4, R.id.imgMenu5};
@@ -79,11 +85,16 @@ public class MainActivity extends AppCompatActivity {
         int[] imgIds4 = {R.id.imgMenu16, R.id.imgMenu17, R.id.imgMenu18, R.id.imgMenu19, R.id.imgMenu20};
         int[] txtIds4 = {R.id.txtMenu16, R.id.txtMenu17, R.id.txtMenu18, R.id.txtMenu19, R.id.txtMenu20};
         int[] btnIds4 = {R.id.btnMenu16, R.id.btnMenu17, R.id.btnMenu18, R.id.btnMenu19, R.id.btnMenu20};
+        int[] parent5 = {R.id.katalog21, R.id.katalog22, R.id.katalog23, R.id.katalog24, R.id.katalog25};
+        int[] imgIds5 = {R.id.imgMenu21, R.id.imgMenu22, R.id.imgMenu23, R.id.imgMenu24, R.id.imgMenu25};
+        int[] txtIds5 = {R.id.txtMenu21, R.id.txtMenu22, R.id.txtMenu23, R.id.txtMenu24, R.id.txtMenu25};
+        int[] btnIds5 = {R.id.btnMenu21, R.id.btnMenu22, R.id.btnMenu23, R.id.btnMenu24, R.id.btnMenu25};
 
         setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList);
         setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2);
         setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3);
         setupProduk(parent4, imgIds4, txtIds4, btnIds4, idList4, namaList4, deskripsiList4, hargaList4, gambarList4);
+        setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5);
 
 
         TextView greetingText1 = findViewById(R.id.greetingtext);
@@ -102,17 +113,44 @@ public class MainActivity extends AppCompatActivity {
         }
         greetingText1.setText(greeting);
 
+
+        //Image Slider
         ImageSlider imageSlider = findViewById(R.id.image_slider);
         ArrayList<SlideModel> imageList = new ArrayList<>();
-
-        imageList.add(new SlideModel(R.drawable.homeimg, "homeimg1", ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.homeimg_2, "homeimg2", ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.homeimg_3, "homeimg3", ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(R.drawable.homeimg_4, "homeimg4", ScaleTypes.CENTER_CROP));
-
+        imageList.add(new SlideModel(R.drawable.homeimg, "CAFEKU", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.homeimg_2, "Clean Service", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.homeimg_3, "High Quality", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.homeimg_4, "Make Your Day", ScaleTypes.CENTER_CROP));
         imageSlider.setImageList(imageList);
-}
 
+        //Move Event
+        int[] imageIds = {R.id.vcr1, R.id.vcr2, R.id.vcr3, R.id.vcr4,  R.id.nvVoucher,R.id.nvGalery, R.id.nvProfile};
+        Class<?>[] destinations = {
+                VoucherActivity.class,
+                VoucherActivity.class,
+                VoucherActivity.class,
+                VoucherActivity.class,
+                VoucherActivity.class,
+                Profile.class,
+                Profile.class
+        };
+        movepage(imageIds, destinations);
+
+    }
+    //Functions
+    private void movepage(int[] image, Class<?>[] destination)
+    {
+        for (int i = 0 ; i < image.length;i++){
+
+            ImageView imageclick = findViewById(image[i]);
+            Class<?> destinationfinal = destination[i];
+
+            imageclick.setOnClickListener(v ->{
+                Intent intent = new Intent(MainActivity.this,destinationfinal);
+                startActivity(intent);
+            });
+        }
+    }
     private void  setupProduk(int[] katalogId, int[] imgId, int[] txtId, int[] btnId,
                               ArrayList<Integer> idList, ArrayList<String> namaList,
                               ArrayList<String> deskripsiList, ArrayList<Integer> hargaList,
@@ -148,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-
     private void loadJsonToList(String fileName,
                                 ArrayList<Integer> idList,
                                 ArrayList<String> namaList,

@@ -2,8 +2,14 @@ package com.example.cafeku;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.cafeku.database.AppDatabase;
+import com.example.cafeku.model.CartItem;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +37,7 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String image = intent.getStringExtra("gambar");
         String nama = intent.getStringExtra("name");
-        int harga = intent.getIntExtra("harga", 0 );
+        int harga = intent.getIntExtra("harga", 0);
         String deskripsi = intent.getStringExtra("deskripsi");
 
         NumberFormat rupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
@@ -42,10 +48,30 @@ public class DetailActivity extends AppCompatActivity {
             img.setImageResource(resId);
 
 
-        System.out.println(image);
-        System.out.println(harga);
-        name.setText(nama);
+            System.out.println(image);
+            System.out.println(harga);
+            name.setText(nama);
 
-        description.setText(deskripsi);
+            description.setText(deskripsi);
+
+
+            LinearLayout btnKeranjang = findViewById(R.id.keranjang);
+            btnKeranjang.setOnClickListener(v -> {
+                AppDatabase db = AppDatabase.getInstance(this);
+                CartItem existing = db.cartDao().getItemByName(nama);
+
+                if (existing != null) {
+                    existing.quantity += 1;
+                    db.cartDao().update(existing);
+                } else {
+                    CartItem newItem = new CartItem(nama, harga, image, 1);
+                    db.cartDao().insert(newItem);
+                }
+
+                Intent intent1 = new Intent(DetailActivity.this,CartActivity.class);
+                        startActivity(intent1);
+                Toast.makeText(this, "Ditambahkan ke keranjang 🛒", Toast.LENGTH_SHORT).show();
+            });
+        }
     }
-}}
+}

@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/border_radius_setting_2"
+    android:layout_gravity="center">
+
+    <!-- Tombol X untuk menutup -->
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_gravity="end"/>
+
+    <EditText
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:textColor="#7C7B7B"
+        android:textColorHint="#B3AEAE"
+        android:gravity="center"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/et_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Nick Name"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_social_background"
+
+        />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:backgroundTint="@null"
+        android:background="@drawable/detail_shop_info"
+        android:id="@+id/btn_save"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:text="Save"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="Save"
+            android:textColor="#9D9B9B"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+
+
+
+</LinearLayout>

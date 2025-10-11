@@ -72,20 +72,38 @@
         >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="80dp"
             android:layout_marginStart="140dp"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/poppins"
-                android:text="Halo, Guest!"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center|start">
+
+                <TextView
+                    android:id="@+id/nameUser"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Halo, Guest!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/settingbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:background="@drawable/baseline_settings_24" />
+            </LinearLayout>
+
+
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="125dp"

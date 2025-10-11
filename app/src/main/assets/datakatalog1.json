@@ -1,36 +1,36 @@
 [
   {
     "id": 1,
-    "nama": "Kentang Goreng",
-    "deskripsi": "Kentang goreng pilihan dengan tekstur renyah di luar dan lembut di dalam. Disajikan hangat dengan taburan bumbu rahasia yang bikin ketagihan, ditemani saus keju creamy yang melumer di setiap gigitan. Menu ringan yang pas untuk menemani obrolan santai bersama teman atau sekadar camilan saat bersantai.",
+    "nama": "Chocolate",
+    "deskripsi": "Minuman cokelat premium yang dibuat dari bubuk kakao pilihan dengan rasa pekat namun lembut. Diseduh dengan susu segar berkualitas sehingga menghasilkan perpaduan manis dan sedikit pahit yang seimbang. Teksturnya creamy dan aromanya menggugah selera, cocok diminum dingin maupun hangat sebagai teman santai.",
     "harga": 15000,
     "gambar": "menu_1"
   },
   {
     "id": 2,
-    "nama": "Burger",
-    "deskripsi": "Burger spesial dengan daging sapi tebal yang juicy, dipanggang sempurna untuk mempertahankan rasa gurih alaminya. Dipadukan dengan keju leleh, sayuran segar, serta saus spesial ala Caféku yang bikin rasanya berbeda dari burger biasa. Cocok untuk mengenyangkan perut sekaligus memanjakan lidah.",
+    "nama": "Matcha",
+    "deskripsi": "Disajikan dari bubuk matcha asli berkualitas tinggi yang digiling halus, menghasilkan rasa khas teh hijau Jepang yang earthy dan menenangkan. Dipadukan dengan susu segar yang membuatnya creamy namun tetap ringan di lidah. Warna hijaunya yang natural serta rasa manis pahit seimbang membuat menu ini populer bagi pecinta matcha.",
     "harga": 20000,
     "gambar": "menu_2"
   },
   {
     "id": 3,
-    "nama": "Sosis Bakar",
-    "deskripsi": "Sosis jumbo dengan rasa daging asli yang gurih, dibakar perlahan hingga menghasilkan aroma smokey yang khas. Dilumuri saus barbeque manis pedas yang meresap sempurna ke dalam daging, membuat setiap suapan menghadirkan perpaduan rasa yang kuat dan nikmat. Pilihan tepat untuk camilan hangat yang bikin nagih.",
+    "nama": "Milk Tea",
+    "deskripsi": "Teh hitam premium yang diracik dengan teknik seduh tepat untuk menghasilkan rasa teh yang kuat namun tetap halus. Dipadukan dengan susu segar sehingga menghadirkan kelembutan creamy dengan manis yang pas. Setiap tegukan menghadirkan sensasi klasik milk tea yang segar, membuatnya cocok diminum kapan saja.",
     "harga": 10000,
     "gambar": "menu_3"
   },
   {
     "id": 4,
-    "nama": "Cream Coffee",
-    "deskripsi": "Secangkir kopi nikmat dengan perpaduan sempurna antara espresso kuat dan kelembutan cream yang manis. Rasanya kaya, halus, dan meninggalkan aftertaste yang lembut di lidah. Disajikan hangat maupun dingin, Cream Coffee ini cocok menemani waktu kerja, belajar, atau sekadar bersantai. Setiap tegukan menghadirkan energi sekaligus kenyamanan.",
+    "nama": "Strawberry",
+    "deskripsi": "Kombinasi unik antara kopi espresso pekat dan manis segar buah stroberi pilihan. Susunya menambah kelembutan, sementara aroma buah segar memberikan twist menyenangkan di setiap tegukan. Rasanya seimbang antara asam manis stroberi dengan pahit lembut kopi, menjadikannya minuman yang modern, segar, dan instagramable.",
     "harga": 18000,
     "gambar": "menu_4"
   },
   {
     "id": 5,
-    "nama": "Croissant",
-    "deskripsi": "Roti croissant dengan lapisan tipis-tipis yang renyah di luar namun lembut dan buttery di dalam. Dibuat dari adonan premium yang dipanggang hingga keemasan, menghasilkan aroma harum yang menggoda. Croissant ini pas banget disantap saat sarapan, teman kopi, atau sekadar camilan elegan di sore hari.",
+    "nama": "Red Velvet",
+    "deskripsi": "Minuman ikonik dengan warna merah elegan yang menggoda, dibuat dari bubuk red velvet berkualitas dengan perpaduan susu segar. Teksturnya lembut dan creamy, menghadirkan rasa manis khas red velvet dengan sentuhan cokelat ringan. Daya tarik utamanya ada pada tampilan mewah sekaligus rasa yang manis elegan, cocok untuk menemani momen spesial.",
     "harga": 22000,
     "gambar": "menu_5"
   }
