@@ -334,7 +334,8 @@
             android:background="@drawable/circle_navbar"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_1" />
+            android:src="@drawable/navbar_1"
+            android:onClick="switchHome"/>
 
         <ImageView
             android:id="@+id/nvVoucher"
@@ -345,10 +346,11 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_2" />
+            android:src="@drawable/navbar_2"
+            android:onClick="switchVoucher"/>
 
         <ImageView
-            android:id="@+id/nvGalery"
+            android:id="@+id/nvKeranjang"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -356,7 +358,8 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_3" />
+            android:src="@drawable/navbar_3"
+            android:onClick="switchKeranjang"/>
 
         <ImageView
             android:id="@+id/nvProfile"
@@ -367,7 +370,8 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_4" />
+            android:src="@drawable/navbar_4"
+            android:onClick="switchProfile"/>
 
 
     </LinearLayout>

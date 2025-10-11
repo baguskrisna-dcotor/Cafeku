@@ -37,6 +37,8 @@ android {
 
 dependencies {
 
+    implementation("com.android.support:recyclerview-v7:28.0.0")
+    implementation("com.android.support:cardview-v7:28.0.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

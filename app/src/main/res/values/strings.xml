@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Cafeku</string>
-    <string name="HomeGuest">Halo,Guest!!</string>
-    <string name="Homegreeting">Lagi nugas enaknya sambil ngopi nihhh🤤</string>
+    <string name="HomeGuest">Halo,Guest!</string>
     <string name="defDetailVoucher"><![CDATA[S&K Berlaku]]></string>
     <string name="Kentanggoreng">null</string>
-    <string name="price">Rp 20.000</string>
+    <string name="price">0</string>
 </resources>

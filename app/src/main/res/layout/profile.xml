@@ -9,27 +9,9 @@
     android:orientation="vertical"
     tools:context=".Profile">
 
-    <RelativeLayout
-        android:elevation="11dp"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89"
-        android:alpha="0.6">
 
-        <ImageView
-            android:id="@+id/img_bawah_login"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/bawah_login"
-            android:layout_marginBottom="0dp"
-            android:layout_alignParentBottom="true"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </RelativeLayout>
+
+
 
 
 
@@ -61,16 +43,14 @@
     <LinearLayout
         android:elevation="10dp"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="128dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/gradientprofile"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
-
         <LinearLayout
             android:layout_width="250dp"
             android:layout_height="80dp"
@@ -116,8 +96,8 @@
                 android:textColor="@color/white"
                 android:textSize="9sp" />
 
-        </LinearLayout>
 
+        </LinearLayout>
         <LinearLayout
             android:layout_width="320dp"
             android:layout_height="wrap_content"
@@ -377,6 +357,8 @@
             android:orientation="vertical"
             >
 
+
+
             <TextView
                 android:textSize="14sp"
                 android:layout_width="200dp"
@@ -552,6 +534,8 @@
     </LinearLayout>
 
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -567,15 +551,18 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/nvHome"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
             android:background="@drawable/circle_navbar"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_1" />
+            android:src="@drawable/navbar_1"
+            android:onClick="switchHome"/>
 
         <ImageView
+            android:id="@+id/nvProfile"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -583,9 +570,11 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_2" />
+            android:src="@drawable/navbar_2"
+            android:onClick="switchVoucher"/>
 
         <ImageView
+            android:id="@+id/nvVoucher"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -593,9 +582,11 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_3" />
+            android:src="@drawable/navbar_3"
+            android:onClick="switchKeranjang"/>
 
         <ImageView
+            android:id="@+id/nvKeranjang"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -603,7 +594,8 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_4" />
+            android:src="@drawable/navbar_4"
+            android:onClick="switchProfile"/>
 
 
     </LinearLayout>

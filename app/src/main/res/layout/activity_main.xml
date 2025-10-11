@@ -278,7 +278,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_1" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu1"
@@ -319,7 +319,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_2" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu2"
@@ -360,7 +360,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_3" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu3"
@@ -401,7 +401,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_4" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu4"
@@ -442,7 +442,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_5" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu5"
@@ -520,7 +520,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_6" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu6"
@@ -562,7 +562,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_7" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu7"
@@ -604,7 +604,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_8" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu8"
@@ -646,7 +646,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_9" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu9"
@@ -688,7 +688,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_10" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu10"
@@ -767,7 +767,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_11" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu11"
@@ -809,7 +809,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_12" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu12"
@@ -851,7 +851,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_13" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu13"
@@ -893,7 +893,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_14" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu14"
@@ -935,7 +935,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_15" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu15"
@@ -1014,7 +1014,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_16" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu16"
@@ -1056,7 +1056,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_17" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu17"
@@ -1098,7 +1098,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_18" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu18"
@@ -1140,7 +1140,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_5" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu19"
@@ -1182,7 +1182,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_6" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu20"
@@ -1260,7 +1260,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_21" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu21"
@@ -1302,7 +1302,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_22" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu22"
@@ -1344,7 +1344,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_23" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu23"
@@ -1386,7 +1386,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_24" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu24"
@@ -1428,7 +1428,7 @@
                                         android:background="@drawable/shape"
                                         android:clipToOutline="true"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/menu_25" />
+                                        android:src="@drawable/dummy" />
 
                                     <TextView
                                         android:id="@+id/txtMenu25"
@@ -1477,6 +1477,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:textColor="@color/black"
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:textSize="18sp"
@@ -1486,6 +1487,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
+                                android:textColor="#454545"
                                 android:text="Cari menu yang kamu mau aja yuk?!"
                                 />
 

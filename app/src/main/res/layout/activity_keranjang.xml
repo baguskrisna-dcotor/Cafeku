@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KeranjangActivity"
+    android:background="#F5EDE0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp">
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/shape"
+                android:src="@drawable/dummy"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Produk1"
+                    android:fontFamily="@font/nunitosans"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price"
+                    android:fontFamily="@font/nunitosans"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/navbar"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_margin="30dp">-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:src="@drawable/mascot_sad"/>-->
+<!--    <TextView-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/nunitosans"-->
+<!--        android:textStyle="bold"-->
+<!--        android:text="Yahh halaman yang kamu cari baru dalam perbaikan"/>-->
+<!--    </LinearLayout>-->
+
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/navbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:elevation="10dp"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingStart="20dp"-->
+<!--        android:paddingEnd="20dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/nvHome"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_margin="15dp"-->
+<!--            android:background="@drawable/circle_navbar"-->
+<!--            android:padding="16dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/navbar_1"-->
+<!--            android:onClick="switchHome"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/nvVoucher"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_margin="15dp"-->
+<!--            android:background="@drawable/circle_navbar"-->
+<!--            android:contentDescription="TODO"-->
+<!--            android:padding="16dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/navbar_2"-->
+<!--            android:onClick="switchVoucher"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/nvKeranjang"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_margin="15dp"-->
+<!--            android:background="@drawable/circle_navbar"-->
+<!--            android:contentDescription="TODO"-->
+<!--            android:padding="16dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/navbar_3"-->
+<!--            android:onClick="switchKeranjang"/>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/nvProfile"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_margin="15dp"-->
+<!--            android:background="@drawable/circle_navbar"-->
+<!--            android:contentDescription="TODO"-->
+<!--            android:padding="16dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/navbar_4"-->
+<!--            android:onClick="switchProfile"/>-->
+
+
+<!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

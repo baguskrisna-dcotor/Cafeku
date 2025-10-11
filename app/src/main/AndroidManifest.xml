@@ -13,7 +13,9 @@
         android:roundIcon="@drawable/cafeku"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cafeku">
-
+        <activity
+            android:name=".KeranjangActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
