@@ -1,6 +1,8 @@
 package com.example.cafeku.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,9 @@ import com.bumptech.glide.Glide;
 import com.example.cafeku.R;
 import com.example.cafeku.database.AppDatabase;
 import com.example.cafeku.model.CartItem;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
@@ -50,11 +55,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.txtPrice.setText("Rp " + item.price);
         holder.txtQuantity.setText(String.valueOf(item.quantity));
 
-        int resId = context.getResources().getIdentifier(item.image, "drawable", context.getPackageName());
-        if (resId != 0) {
-            holder.imageView.setImageResource(resId);
-        }
 
+        try {
+            InputStream inputStream = context.getAssets().open( item.image );
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            holder.imageView.setImageBitmap(bitmap);
+            inputStream.close();
+        } catch (IOException e) {
+            int resId = context.getResources().getIdentifier(item.image, "drawable", context.getPackageName());
+            if (resId != 0) {
+                holder.imageView.setImageResource(resId);
+            } else {
+                holder.imageView.setImageResource(R.drawable.dummy); // placeholder
+            }
+        }
         holder.btnAdd.setOnClickListener(v -> {
             item.quantity++;
             db.cartDao().update(item);

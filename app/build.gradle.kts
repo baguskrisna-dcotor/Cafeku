@@ -9,11 +9,10 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cafeku"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,8 +36,8 @@ android {
 
 dependencies {
 
-    implementation("com.android.support:recyclerview-v7:28.0.0")
-    implementation("com.android.support:cardview-v7:28.0.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

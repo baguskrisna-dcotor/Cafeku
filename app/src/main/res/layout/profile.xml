@@ -9,12 +9,6 @@
     android:orientation="vertical"
     tools:context=".Profile">
 
-
-
-
-
-
-
     <ImageView
         android:id="@+id/photoprofile"
         android:layout_width="100dp"
@@ -43,14 +37,16 @@
     <LinearLayout
         android:elevation="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:layout_marginTop="128dp"
-        android:layout_marginBottom="120dp"
         android:background="@drawable/gradientprofile"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
+
         <LinearLayout
             android:layout_width="250dp"
             android:layout_height="80dp"
@@ -96,8 +92,8 @@
                 android:textColor="@color/white"
                 android:textSize="9sp" />
 
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="320dp"
             android:layout_height="wrap_content"
@@ -357,8 +353,6 @@
             android:orientation="vertical"
             >
 
-
-
             <TextView
                 android:textSize="14sp"
                 android:layout_width="200dp"
@@ -387,9 +381,10 @@
                         android:background="@drawable/image_shape">
 
                         <ImageView
+                            android:id="@+id/image1"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/menu_9"
+                            android:src="@drawable/dummy"
                             android:scaleType="centerCrop"
                             android:background="@drawable/image_shape"
                             android:clipToOutline="true"
@@ -416,9 +411,10 @@
                         android:background="@drawable/image_shape">
 
                         <ImageView
+                            android:id="@+id/image2"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/menu_11"
+                            android:src="@drawable/dummy"
                             android:scaleType="centerCrop"
                             android:background="@drawable/image_shape"
                             android:clipToOutline="true"
@@ -445,9 +441,10 @@
                         android:background="@drawable/image_shape">
 
                         <ImageView
+                            android:id="@+id/image3"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/menu_8"
+                            android:src="@drawable/dummy"
                             android:scaleType="centerCrop"
                             android:background="@drawable/image_shape"
                             android:clipToOutline="true"
@@ -474,9 +471,10 @@
                         android:background="@drawable/image_shape">
 
                         <ImageView
+                            android:id="@+id/image4"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/menu_3"
+                            android:src="@drawable/dummy"
                             android:scaleType="centerCrop"
                             android:background="@drawable/image_shape"
                             android:clipToOutline="true"
@@ -503,9 +501,10 @@
                         android:background="@drawable/image_shape">
 
                         <ImageView
+                            android:id="@+id/image5"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/menu_4"
+                            android:src="@drawable/dummy"
                             android:scaleType="centerCrop"
                             android:background="@drawable/image_shape"
                             android:clipToOutline="true"
@@ -534,8 +533,6 @@
     </LinearLayout>
 
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -551,18 +548,15 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/nvHome"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
             android:background="@drawable/circle_navbar"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_1"
-            android:onClick="switchHome"/>
+            android:src="@drawable/navbar_1" />
 
         <ImageView
-            android:id="@+id/nvProfile"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -570,11 +564,9 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_2"
-            android:onClick="switchVoucher"/>
+            android:src="@drawable/navbar_2" />
 
         <ImageView
-            android:id="@+id/nvVoucher"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -582,11 +574,9 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_3"
-            android:onClick="switchKeranjang"/>
+            android:src="@drawable/navbar_3" />
 
         <ImageView
-            android:id="@+id/nvKeranjang"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
@@ -594,8 +584,7 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_4"
-            android:onClick="switchProfile"/>
+            android:src="@drawable/navbar_4" />
 
 
     </LinearLayout>

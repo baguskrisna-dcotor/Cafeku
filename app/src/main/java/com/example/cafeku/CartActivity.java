@@ -1,6 +1,9 @@
 package com.example.cafeku;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,12 +12,16 @@ import com.example.cafeku.R;
 import com.example.cafeku.adapter.CartAdapter;
 import com.example.cafeku.database.AppDatabase;
 import com.example.cafeku.model.CartItem;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CartActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private TextView txtTotal;
+    private TextView txtTotal,Date;
     private CartAdapter adapter;
     private AppDatabase db;
 
@@ -25,6 +32,10 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerViewCart);
         txtTotal = findViewById(R.id.txtTotal);
+        Date = findViewById(R.id.datetime);
+        String currentDate = new SimpleDateFormat("EEEE, dd MMMM yyyy").format(new Date());
+        Date.setText(currentDate);
+
 
         db = AppDatabase.getInstance(this);
 
@@ -41,6 +52,7 @@ public class CartActivity extends AppCompatActivity {
 
         // tampilkan total awal
         updateTotal(cartItems);
+
     }
 
     private void updateTotal(List<CartItem> items) {

@@ -1,6 +1,9 @@
 package com.example.cafeku;
 
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -15,6 +18,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class Profile extends AppCompatActivity {
 
     private TextView tvProfile;
@@ -27,10 +33,40 @@ public class Profile extends AppCompatActivity {
 
         tvProfile = findViewById(R.id.nameUser);
         btnMore = findViewById(R.id.settingbutton);
+        int[] imgIds1 = {R.id.image1, R.id.image2, R.id.image3 ,R.id.image4,R.id.image5};
 
         // klik tombol gear
         btnMore.setOnClickListener(v -> showPopupMenu(v));
+        setupimage(imgIds1);
     }
+
+    private void setupimage(int[] Images){
+
+    for (int i = 0; i < Images.length; i++){
+        int index = i;
+
+        ImageView img = findViewById(Images[i]);
+        try {
+            // Akses file dari folder assets
+            InputStream inputStream = getAssets().open("images/" +Images[i] + ".png");
+
+            // Ubah jadi Bitmap
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+            // Tampilkan di ImageView
+            img.setImageBitmap(bitmap);
+
+            // Tutup stream
+            inputStream.close();
+
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }}
+
 
     private void showPopupMenu(View anchor) {
         PopupMenu popup = new PopupMenu(this, anchor);

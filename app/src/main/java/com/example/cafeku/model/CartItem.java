@@ -3,8 +3,10 @@ package com.example.cafeku.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "cart_table")
-public class CartItem {
+public class CartItem implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int id;
 

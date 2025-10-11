@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Aurora Classic -->
+    <color name="aurora_classic_start">#08123A</color>
+    <color name="aurora_classic_center">#2A2B8D</color>
+    <color name="aurora_classic_end">#00FFD5</color>
+
+    <!-- Neon Arctic -->
+    <color name="aurora_neon_start">#031627</color>
+    <color name="aurora_neon_center">#0EA5A4</color>
+    <color name="aurora_neon_end">#6EE7B7</color>
+
+    <!-- Polar Prism -->
+    <color name="aurora_polar_start">#0F0522</color>
+    <color name="aurora_polar_center">#7C3AED</color>
+    <color name="aurora_polar_end">#06B6D4</color>
+
+    <!-- Emerald Wave -->
+    <color name="aurora_emerald_start">#022B2B</color>
+    <color name="aurora_emerald_center">#06D6A0</color>
+    <color name="aurora_emerald_end">#9AE6B4</color>
+
+    <!-- Magenta Glow -->
+    <color name="aurora_magenta_start">#1B0030</color>
+    <color name="aurora_magenta_center">#FF2D95</color>
+    <color name="aurora_magenta_end">#7C4DFF</color>
+
+    <!-- Luminous Sky -->
+    <color name="aurora_luminous_start">#071B3A</color>
+    <color name="aurora_luminous_center">#3B82F6</color>
+    <color name="aurora_luminous_end">#34D399</color>
+
+    <!-- Icy Twilight -->
+    <color name="aurora_icy_start">#081112</color>
+    <color name="aurora_icy_center">#2DD4BF</color>
+    <color name="aurora_icy_end">#A78BFA</color>
+    <!-- Green Royal -->
+    <color name="green_royal_start">#004D40</color>
+    <color name="green_royal_center">#00C896</color>
+    <color name="green_royal_end">#A8E6CF</color>
+
+    <!-- Aurora Sunset -->
+    <color name="aurora_sunset_start">#1E0B2A</color>
+    <color name="aurora_sunset_center">#FF7AB6</color>
+    <color name="aurora_sunset_end">#FFD86B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="semi_pink">#FD999B</color>
 </resources>
+

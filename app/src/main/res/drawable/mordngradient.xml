@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- linear gradient dengan 3 stop: start, center, end -->
+    <gradient
+        android:type="linear"
+        android:angle="135"
+        android:startColor="@color/green_royal_start"
+        android:centerColor="@color/green_royal_center"
+        android:endColor="@color/aurora_icy_end"
+        android:useLevel="false" />
+    <corners android:radius="10dp"/>
+</shape>

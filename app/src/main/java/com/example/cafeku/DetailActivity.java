@@ -1,6 +1,8 @@
 package com.example.cafeku;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +21,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -44,10 +48,9 @@ public class DetailActivity extends AppCompatActivity {
         price.setText(rupiah.format(harga));
 
         int resId = getResources().getIdentifier(image, "drawable", getPackageName());
-        if (resId != 0) {
-            img.setImageResource(resId);
-
-
+        try (InputStream is = getAssets().open(image)) {
+            Bitmap bitmap = BitmapFactory.decodeStream(is);
+            img.setImageBitmap(bitmap);
             System.out.println(image);
             System.out.println(harga);
             name.setText(nama);
@@ -69,9 +72,11 @@ public class DetailActivity extends AppCompatActivity {
                 }
 
                 Intent intent1 = new Intent(DetailActivity.this,CartActivity.class);
-                        startActivity(intent1);
+                startActivity(intent1);
                 Toast.makeText(this, "Ditambahkan ke keranjang 🛒", Toast.LENGTH_SHORT).show();
             });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

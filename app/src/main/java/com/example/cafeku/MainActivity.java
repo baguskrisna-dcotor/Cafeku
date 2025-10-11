@@ -1,11 +1,14 @@
 package com.example.cafeku;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -171,8 +174,23 @@ public class MainActivity extends AppCompatActivity {
             txt.setText(namaList.get(i));
             btn.setText(harga);
 
-            int resId = getResources().getIdentifier(gambarList.get(i), "drawable", getPackageName());
-            img.setImageResource(resId);
+            try {
+                // Akses file dari folder assets
+                InputStream inputStream = getAssets().open("images/" + gambarList.get(i) + ".png");
+
+                // Ubah jadi Bitmap
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                // Tampilkan di ImageView
+                img.setImageBitmap(bitmap);
+
+                // Tutup stream
+                inputStream.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
             // Klik → pindah ke DetailActivity
             katalog.setOnClickListener(v -> {
@@ -181,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("name", namaList.get(index));
                 intent.putExtra("deskripsi", deskripsiList.get(index));
                 intent.putExtra("harga", hargaList.get(index));
-                intent.putExtra("gambar", gambarList.get(index));
+                intent.putExtra("gambar", "images/" + gambarList.get(index) + ".png");
                 startActivity(intent);
             });
         }

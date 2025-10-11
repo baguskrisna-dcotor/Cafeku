@@ -131,7 +131,7 @@
                 android:layout_marginTop="140dp"
                 android:layout_width="100dp"
                 android:layout_height="35dp"
-                android:contentDescription="@string/Homegreeting"
+                android:contentDescription="Hello"
                 android:elevation="5dp"
                 android:src="@drawable/specialvoucher"
                 />
