@@ -20,6 +20,7 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <RelativeLayout
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/gradientlogin"
@@ -101,6 +102,54 @@
                     android:layout_marginEnd="32dp"/>
 
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_below="@+id/et_password"
+                    android:layout_centerHorizontal="true"
+                        >
+                        <RadioGroup
+                            android:layout_marginTop="8sp"
+                            android:layout_marginBottom="10sp"
+                            android:id="@+id/radioGroupOptions"
+                            android:layout_width="300sp"
+                            android:layout_height="30sp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/Female"
+                                    android:layout_width="0sp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="10sp"
+                                    android:button="@null"
+                                    android:text="Female"
+                                    android:background="@drawable/radiobuttonhandler"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp" />
+
+                                <RadioButton
+                                    android:id="@+id/Male"
+                                    android:layout_width="0sp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:button="@null"
+                                    android:text="Male"
+                                    android:background="@drawable/radiobuttonhandler"
+                                    android:textColor="@color/black"
+                                    android:textSize="10sp" />
+                        </RadioGroup>
+
+
+
+                </LinearLayout>
+
+
+
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
@@ -109,10 +158,11 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:backgroundTint="@drawable/button_login_background"
+                    android:background="@drawable/button_login_background"
+                    app:backgroundTint="@null"
                     android:gravity="center"
                     android:fontFamily="@font/roboto"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="32dp"
                     android:layout_below="@id/et_password"/>

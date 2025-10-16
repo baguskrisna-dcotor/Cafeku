@@ -65,7 +65,7 @@
                         android:layout_height="130dp"
                         android:layout_weight="3"
                         android:src="@drawable/dummy"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="fitCenter"/>
 
                     <LinearLayout
                         android:id="@+id/detVoucher1"
@@ -135,7 +135,7 @@
                         android:layout_height="130dp"
                         android:layout_weight="3"
                         android:src="@drawable/dummy"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="fitCenter"/>
 
                     <LinearLayout
                         android:id="@+id/detVoucher2"
@@ -203,7 +203,7 @@
                         android:layout_height="130dp"
                         android:layout_weight="3"
                         android:src="@drawable/dummy"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="fitCenter"/>
 
                     <LinearLayout
                         android:id="@+id/detVoucher3"
@@ -271,7 +271,7 @@
                         android:layout_height="130dp"
                         android:layout_weight="3"
                         android:src="@drawable/dummy"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="fitCenter"/>
 
                     <LinearLayout
                         android:id="@+id/detVoucher4"

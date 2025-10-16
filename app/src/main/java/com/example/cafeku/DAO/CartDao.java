@@ -30,5 +30,6 @@ public interface CartDao {
     void delete(CartItem cartItem);
 
     @Query("DELETE FROM cart_table")
-    void clearCart();
+    void DeleteAll();
+
 }

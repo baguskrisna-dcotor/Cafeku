@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation(libs.appcompat)
@@ -43,9 +43,11 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.recyclerview)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation ("androidx.room:room-runtime:2.6.1")

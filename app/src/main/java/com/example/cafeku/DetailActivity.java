@@ -9,8 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cafeku.DAO.PointDao;
 import com.example.cafeku.database.AppDatabase;
+import com.example.cafeku.database.PointDatabase;
 import com.example.cafeku.model.CartItem;
+import com.example.cafeku.model.Point;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,21 +23,25 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
+
+
+    private LinearLayout buybtn;
+
+    private PointDatabase db;
+    private TextView pointhandler,name,price,description;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
         ImageView img = findViewById(R.id.detailImage);
-        TextView name = findViewById(R.id.detailName);
-        TextView price = findViewById(R.id.detailPrice);
-        TextView description = findViewById(R.id.deskripsi);
-        LinearLayout buybtn = findViewById(R.id.buybtn);
+         name = findViewById(R.id.detailName);
+         price = findViewById(R.id.detailPrice);
+         description = findViewById(R.id.deskripsi);
+         buybtn = findViewById(R.id.buybtn);
+         pointhandler = findViewById(R.id.txtCartpoint);
 
-        buybtn.setOnClickListener(v ->{
-            Intent i = new Intent(DetailActivity.this, ThanksActivity.class);
-            startActivity(i);
-        });
 
         // Ambil data dari intent
         Intent intent = getIntent();
@@ -42,11 +49,25 @@ public class DetailActivity extends AppCompatActivity {
         String nama = intent.getStringExtra("name");
         int harga = intent.getIntExtra("harga", 0);
         String deskripsi = intent.getStringExtra("deskripsi");
+        int point = intent.getIntExtra("point",0);
+
+        pointhandler.setText(String.valueOf(point));
+
+        db = PointDatabase.getInstance(this);
+        PointDao p = db.pointDao();
+        Point points = p.getPoints();
+
+        buybtn.setOnClickListener(v ->{
+            p.addpoint(points.id,point);
+            Intent i = new Intent(DetailActivity.this, ThanksActivity.class);
+            startActivity(i);
+        });
+
+
+
 
         NumberFormat rupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         price.setText(rupiah.format(harga));
-
-        int resId = getResources().getIdentifier(image, "drawable", getPackageName());
         try (InputStream is = getAssets().open(image)) {
             Bitmap bitmap = BitmapFactory.decodeStream(is);
             img.setImageBitmap(bitmap);
@@ -66,7 +87,7 @@ public class DetailActivity extends AppCompatActivity {
                     existing.quantity += 1;
                     db.cartDao().update(existing);
                 } else {
-                    CartItem newItem = new CartItem(nama, harga, image, 1);
+                    CartItem newItem = new CartItem(nama,point, harga, image, 1);
                     db.cartDao().insert(newItem);
                 }
 

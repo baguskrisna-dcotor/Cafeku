@@ -4,34 +4,39 @@
     "nama": "Paket Diet",
     "deskripsi": "Paket khusus buat kamu yang ingin tetap sehat tanpa takut lapar. Berisi makanan rendah kalori dengan porsi pas, ditambah minuman segar yang membantu menjaga metabolisme tubuh. Cocok untuk diet sehari-hari tanpa ribet!",
     "harga": 25000,
-    "gambar": "menu_21"
+    "gambar": "menu_21",
+    "point" : 40
   },
   {
     "id": 22,
     "nama": "Paket Hemat",
     "deskripsi": "Pilihan terbaik buat kamu yang lagi pengen irit tapi tetap kenyang. Dalam satu paket sudah ada makanan dan minuman lengkap dengan rasa enak yang ramah di kantong. Hemat isi dompet, puas di perut!",
     "harga": 30000,
-    "gambar": "menu_22"
+    "gambar": "menu_22",
+    "point" : 40
   },
   {
     "id": 23,
     "nama": "Paket Jumbo",
     "deskripsi": "Cocok banget buat kamu yang doyan makan banyak! Paket ini berisi makanan dan minuman dengan porsi ekstra besar, bikin kenyang lebih lama. Pas banget buat dibagi bareng teman atau dimakan sendiri kalau lagi super lapar.",
     "harga": 22000,
-    "gambar": "menu_23"
+    "gambar": "menu_23",
+    "point" : 40
   },
   {
     "id": 24,
     "nama": "Paket Korea",
     "deskripsi": "Paket spesial dengan sentuhan ala Korea yang bikin kamu serasa oppa atau eonni di drama favorit. Berisi makanan dengan cita rasa khas Korea, dipadukan dengan minuman segar yang bikin makanmu makin seru.",
     "harga": 15000,
-    "gambar": "menu_24"
+    "gambar": "menu_24",
+    "point" : 40
   },
   {
     "id": 25,
     "nama": "Paket Urunan",
     "deskripsi": "Makan bareng jadi makin asik dengan paket ini! Isinya banyak dan bisa dinikmati rame-rame. Cocok buat patungan bareng teman biar tetap hemat, kenyang, dan pastinya seru.",
     "harga": 20000,
-    "gambar": "menu_25"
+    "gambar": "menu_25",
+    "point" : 40
   }
 ]

@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.cafeku.DAO.CartDao;
 import com.example.cafeku.model.CartItem;
 
-@Database(entities = {CartItem.class}, version = 2)
+@Database(entities = {CartItem.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
@@ -20,7 +20,7 @@ public abstract class AppDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class, "cart_db")
                     .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries() // bisa pakai coroutine/livedata di tahap lanjut
+                    .allowMainThreadQueries()
                     .build();
         }
         return instance;

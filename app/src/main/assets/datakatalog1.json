@@ -4,34 +4,40 @@
     "nama": "Chocolate",
     "deskripsi": "Minuman cokelat premium yang dibuat dari bubuk kakao pilihan dengan rasa pekat namun lembut. Diseduh dengan susu segar berkualitas sehingga menghasilkan perpaduan manis dan sedikit pahit yang seimbang. Teksturnya creamy dan aromanya menggugah selera, cocok diminum dingin maupun hangat sebagai teman santai.",
     "harga": 15000,
-    "gambar": "menu_1"
+    "gambar": "menu_1",
+    "point" : 45
   },
   {
     "id": 2,
     "nama": "Matcha",
     "deskripsi": "Disajikan dari bubuk matcha asli berkualitas tinggi yang digiling halus, menghasilkan rasa khas teh hijau Jepang yang earthy dan menenangkan. Dipadukan dengan susu segar yang membuatnya creamy namun tetap ringan di lidah. Warna hijaunya yang natural serta rasa manis pahit seimbang membuat menu ini populer bagi pecinta matcha.",
     "harga": 20000,
-    "gambar": "menu_2"
+    "gambar": "menu_2",
+    "point" : 30
   },
   {
     "id": 3,
     "nama": "Milk Tea",
     "deskripsi": "Teh hitam premium yang diracik dengan teknik seduh tepat untuk menghasilkan rasa teh yang kuat namun tetap halus. Dipadukan dengan susu segar sehingga menghadirkan kelembutan creamy dengan manis yang pas. Setiap tegukan menghadirkan sensasi klasik milk tea yang segar, membuatnya cocok diminum kapan saja.",
     "harga": 10000,
-    "gambar": "menu_3"
+    "gambar": "menu_3",
+    "point" : 50
+
   },
   {
     "id": 4,
     "nama": "Strawberry",
     "deskripsi": "Kombinasi unik antara kopi espresso pekat dan manis segar buah stroberi pilihan. Susunya menambah kelembutan, sementara aroma buah segar memberikan twist menyenangkan di setiap tegukan. Rasanya seimbang antara asam manis stroberi dengan pahit lembut kopi, menjadikannya minuman yang modern, segar, dan instagramable.",
     "harga": 18000,
-    "gambar": "menu_4"
+    "gambar": "menu_4",
+    "point" : 35
   },
   {
     "id": 5,
     "nama": "Red Velvet",
     "deskripsi": "Minuman ikonik dengan warna merah elegan yang menggoda, dibuat dari bubuk red velvet berkualitas dengan perpaduan susu segar. Teksturnya lembut dan creamy, menghadirkan rasa manis khas red velvet dengan sentuhan cokelat ringan. Daya tarik utamanya ada pada tampilan mewah sekaligus rasa yang manis elegan, cocok untuk menemani momen spesial.",
     "harga": 22000,
-    "gambar": "menu_5"
+    "gambar": "menu_5",
+    "point" : 55
   }
 ]

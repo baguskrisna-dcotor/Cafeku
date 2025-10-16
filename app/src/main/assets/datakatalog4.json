@@ -4,34 +4,39 @@
     "nama": "Baguettee",
     "deskripsi": "Roti baguette renyah dengan aroma khas yang dipadukan unik dengan alpukat segar, espresso pahit-manis, dan sentuhan cokelat. Kombinasi rasa yang tidak biasa tapi bikin nagih, pas buat kamu yang suka mencoba hal baru.",
     "harga": 25000,
-    "gambar": "menu_16"
+    "gambar": "menu_16",
+    "point" : 40
   },
   {
     "id": 17,
     "nama": "Crocodile Bread",
     "deskripsi": "Roti cokelat lembut berbentuk unik seperti buaya, disajikan hangat dengan lelehan cokelat pekat di dalamnya. Setiap gigitan menghadirkan sensasi manis legit yang bikin suasana makin seru.",
     "harga": 30000,
-    "gambar": "menu_17"
+    "gambar": "menu_17",
+    "point" : 40
   },
   {
     "id": 18,
     "nama": "Croissant",
     "deskripsi": "Croissant berlapis-lapis dengan tekstur renyah di luar dan lembut di dalam. Dipadukan dengan sentuhan manis segar ala frappe mangga dan topping krim lembut, menciptakan pengalaman rasa yang elegan sekaligus menyegarkan.",
     "harga": 22000,
-    "gambar": "menu_18"
+    "gambar": "menu_18",
+    "point" : 40
   },
   {
     "id": 19,
     "nama": "Donut",
     "deskripsi": "Donat klasik dengan tekstur empuk dan taburan gula halus di atasnya. Manis sederhana yang selalu jadi favorit, cocok dinikmati kapan saja ditemani secangkir kopi atau teh hangat.",
     "harga": 15000,
-    "gambar": "menu_19"
+    "gambar": "menu_19",
+    "point" : 40
   },
   {
     "id": 20,
     "nama": "Panipuri",
     "deskripsi": "Camilan khas India berupa bola renyah berisi campuran rasa gurih, manis, dan pedas segar. Disajikan dengan sentuhan modern, berpadu dengan buih susu creamy ala cappuccino untuk pengalaman unik yang jarang ditemui.",
     "harga": 20000,
-    "gambar": "menu_20"
+    "gambar": "menu_20",
+    "point" : 40
   }
 ]

@@ -46,5 +46,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="semi_pink">#FD999B</color>
+
+    <color name="textpendukung">#524F4F</color>
 </resources>
 

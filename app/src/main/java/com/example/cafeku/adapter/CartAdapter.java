@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.cafeku.R;
 import com.example.cafeku.database.AppDatabase;
+import com.example.cafeku.database.PointDatabase;
 import com.example.cafeku.model.CartItem;
+import com.example.cafeku.model.Point;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,10 +29,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private Context context;
     private List<CartItem> cartItems;
     private AppDatabase db;
+
+    private PointDatabase dbpoint;
     private OnTotalChangeListener listener;
 
     public interface OnTotalChangeListener {
-        void onTotalChanged(double total);
+        void onTotalChanged(double total,int totalpoint);
     }
 
     public CartAdapter(Context context, List<CartItem> cartItems, OnTotalChangeListener listener) {
@@ -38,6 +42,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         this.cartItems = cartItems;
         this.listener = listener;
         db = AppDatabase.getInstance(context);
+        dbpoint = PointDatabase.getInstance(context);
     }
 
     @NonNull
@@ -54,6 +59,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.txtName.setText(item.name);
         holder.txtPrice.setText("Rp " + item.price);
         holder.txtQuantity.setText(String.valueOf(item.quantity));
+         holder.txtpoint.setText(String.valueOf(item.point));
 
 
         try {
@@ -73,7 +79,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             item.quantity++;
             db.cartDao().update(item);
             notifyItemChanged(position);
-            listener.onTotalChanged(getTotal());
+            listener.onTotalChanged(getTotal(),getTotalpoint());
         });
 
         holder.btnMinus.setOnClickListener(v -> {
@@ -86,7 +92,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 cartItems.remove(position);
                 notifyItemRemoved(position);
             }
-            listener.onTotalChanged(getTotal());
+            listener.onTotalChanged(getTotal(),getTotalpoint());
         });
     }
 
@@ -104,19 +110,36 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return total;
     }
 
+    private int getTotalpoint(){
+        int totalpoint = 0;
+        for (CartItem i : cartItems){
+            totalpoint += i.point * i.quantity;
+        }
+        return totalpoint;
+    }
+    public void clear() {
+        db.cartDao().DeleteAll();
+        cartItems.clear();
+        notifyDataSetChanged();
+        listener.onTotalChanged(0,getTotalpoint());
+    }
+
     public static class CartViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView txtName, txtPrice, txtQuantity;
+        TextView txtName, txtPrice, txtQuantity,txtpoint;
         ImageButton btnAdd, btnMinus;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imgCartItem);
             txtName = itemView.findViewById(R.id.txtCartName);
+            txtpoint = itemView.findViewById(R.id.txtCartpoint);
             txtPrice = itemView.findViewById(R.id.txtCartPrice);
             txtQuantity = itemView.findViewById(R.id.txtCartQty);
             btnAdd = itemView.findViewById(R.id.btnPlus);
             btnMinus = itemView.findViewById(R.id.btnMinus);
         }
+
+        }
     }
-}
+

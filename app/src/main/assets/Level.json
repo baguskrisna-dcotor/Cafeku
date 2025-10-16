@@ -1,0 +1,29 @@
+[
+  {
+    "level" : 1,
+    "nama" : "Keren",
+    "Pointmin" : 0
+  },
+
+  {
+    "level" : 2,
+    "nama" : "Ksatria",
+    "Pointmin" : 20
+  },
+  {
+    "level" : 3,
+    "nama" : "Pangeran",
+    "Pointmin" : 50
+  },
+  {
+    "level" : 4,
+    "nama" : "Raja",
+    "Pointmin" : 100
+  },
+  {
+    "level" : 5,
+    "nama" : "Mitos",
+    "Pointmin" : 1000
+  }
+
+]

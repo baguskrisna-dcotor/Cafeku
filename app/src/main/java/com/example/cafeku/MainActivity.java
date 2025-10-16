@@ -21,6 +21,8 @@ import com.google.android.material.button.MaterialButton;
 import java.io.InputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -32,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> deskripsiList = new ArrayList<>();
     ArrayList<Integer> hargaList = new ArrayList<>();
     ArrayList<String> gambarList = new ArrayList<>();
+
+    ArrayList<Integer> point = new ArrayList<>();
     // Container 1
     ArrayList<Integer> idList2 = new ArrayList<>();
     ArrayList<String> namaList2 = new ArrayList<>();
     ArrayList<String> deskripsiList2 = new ArrayList<>();
     ArrayList<Integer> hargaList2 = new ArrayList<>();
     ArrayList<String> gambarList2 = new ArrayList<>();
+    ArrayList<Integer> point2 = new ArrayList<>();
 
     // Container 2
     ArrayList<Integer> idList3 = new ArrayList<>();
@@ -45,18 +50,21 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> deskripsiList3 = new ArrayList<>();
     ArrayList<Integer> hargaList3 = new ArrayList<>();
     ArrayList<String> gambarList3 = new ArrayList<>();
+    ArrayList<Integer> point3 = new ArrayList<>();
     // Container 1
     ArrayList<Integer> idList4 = new ArrayList<>();
     ArrayList<String> namaList4 = new ArrayList<>();
     ArrayList<String> deskripsiList4 = new ArrayList<>();
     ArrayList<Integer> hargaList4 = new ArrayList<>();
     ArrayList<String> gambarList4 = new ArrayList<>();
+    ArrayList<Integer> point4 = new ArrayList<>();
 
     ArrayList<Integer> idList5 = new ArrayList<>();
     ArrayList<String> namaList5 = new ArrayList<>();
     ArrayList<String> deskripsiList5 = new ArrayList<>();
     ArrayList<Integer> hargaList5 = new ArrayList<>();
     ArrayList<String> gambarList5 = new ArrayList<>();
+    ArrayList<Integer> point5 = new ArrayList<>();
 
     // Container 2
 
@@ -64,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList);
-        loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2);
-        loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3);
-        loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4);
-        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5);
+        loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList,point);
+        loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2,point2);
+        loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3,point3);
+        loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4,point4);
+        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5,point5);
 
 
 
@@ -93,28 +101,41 @@ public class MainActivity extends AppCompatActivity {
         int[] txtIds5 = {R.id.txtMenu21, R.id.txtMenu22, R.id.txtMenu23, R.id.txtMenu24, R.id.txtMenu25};
         int[] btnIds5 = {R.id.btnMenu21, R.id.btnMenu22, R.id.btnMenu23, R.id.btnMenu24, R.id.btnMenu25};
 
-        setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList);
-        setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2);
-        setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3);
-        setupProduk(parent4, imgIds4, txtIds4, btnIds4, idList4, namaList4, deskripsiList4, hargaList4, gambarList4);
-        setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5);
+        setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList,point);
+        setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2,point2);
+        setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3,point3);
+        setupProduk(parent4, imgIds4, txtIds4, btnIds4, idList4, namaList4, deskripsiList4, hargaList4, gambarList4,point4);
+        setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5,point5);
 
 
         TextView greetingText1 = findViewById(R.id.greetingtext);
+        TextView greetingtext2 = findViewById(R.id.greetingtext2);
+        TextView greetingtext3 = findViewById(R.id.greetingtext3);
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
-        String greeting;
+        String greeting1,greeting2,greeting3;
         if (hour >= 5 && hour < 11) {
-            greeting = "☀️ Jam segini enak nih roti buat nyarap pagi";
+            greeting1 = "☀️ Pagi! Saatnya roti dan kopi hangat.";
+            greeting2 = "🌤️ Nikmati pagi dengan kopi favoritmu.";
+            greeting3 = "🍞 Sarapan enak, hari pun semangat!";
         } else if (hour >= 11 && hour < 15) {
-            greeting = "🥵 Siang siang gini mending nyari yang dingin nyegerin.";
+            greeting1 = "🥤 Siang panas, enaknya minum yang dingin.";
+            greeting2 = "☕ Waktunya es kopi nyegerin siangmu.";
+            greeting3 = "🍰 Siang santai, dessert manis siap temani.";
         } else if (hour >= 15 && hour < 19) {
-            greeting = "🌆 Nyunset bareng di cafeku yukk";
+            greeting1 = "🌆 Sore adem, pas buat nongkrong di kafe.";
+            greeting2 = "☕ Nyunset bareng kopi, nikmat banget.";
+            greeting3 = "🍪 Sore manis ditemani camilan lezat.";
         } else {
-            greeting = "🌙 Nikmati waktu istirahat dengan menu favoritmu";
+            greeting1 = "🌙 Malam tenang, nikmati kopi sebelum tidur.";
+            greeting2 = "✨ Santai malam ditemani aroma kopi.";
+            greeting3 = "🌃 Waktu pas buat ngopi dan rebahan.";
+
         }
-        greetingText1.setText(greeting);
+        greetingText1.setText(greeting1);
+        greetingtext2.setText(greeting2);
+        greetingtext3.setText(greeting3);
 
 
         //Image Slider
@@ -127,14 +148,14 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setImageList(imageList);
 
         //Move Event
-        int[] imageIds = {R.id.vcr1, R.id.vcr2, R.id.vcr3, R.id.vcr4,  R.id.nvVoucher,R.id.nvGalery, R.id.nvProfile};
+        int[] imageIds = {R.id.vcr1, R.id.vcr2, R.id.vcr3, R.id.vcr4,  R.id.nvVoucher,R.id.nvcart, R.id.nvProfile};
         Class<?>[] destinations = {
                 VoucherActivity.class,
                 VoucherActivity.class,
                 VoucherActivity.class,
                 VoucherActivity.class,
                 VoucherActivity.class,
-                Profile.class,
+                CartActivity.class,
                 Profile.class
         };
         movepage(imageIds, destinations);
@@ -157,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
     private void  setupProduk(int[] katalogId, int[] imgId, int[] txtId, int[] btnId,
                               ArrayList<Integer> idList, ArrayList<String> namaList,
                               ArrayList<String> deskripsiList, ArrayList<Integer> hargaList,
-                              ArrayList<String> gambarList)
+                              ArrayList<String> gambarList, ArrayList<Integer> point)
     {
         for (int i = 0; i < namaList.size(); i++) {
             int index = i;
@@ -200,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("deskripsi", deskripsiList.get(index));
                 intent.putExtra("harga", hargaList.get(index));
                 intent.putExtra("gambar", "images/" + gambarList.get(index) + ".png");
+                intent.putExtra("point",point.get(index));
                 startActivity(intent);
             });
         }
@@ -209,7 +231,9 @@ public class MainActivity extends AppCompatActivity {
                                 ArrayList<String> namaList,
                                 ArrayList<String> deskripsiList,
                                 ArrayList<Integer> hargaList,
-                                ArrayList<String> gambarList) {
+                                ArrayList<String> gambarList,
+                                ArrayList<Integer> point)
+   {
         try {
             InputStream is = getAssets().open(fileName);
             int size = is.available();
@@ -228,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
                 deskripsiList.add(obj.getString("deskripsi"));
                 hargaList.add(obj.getInt("harga"));
                 gambarList.add(obj.getString("gambar"));
+                point.add(obj.getInt("point"));
             }
         } catch (Exception e) {
             e.printStackTrace();

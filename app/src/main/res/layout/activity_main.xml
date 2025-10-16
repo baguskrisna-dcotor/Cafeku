@@ -36,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="90sp"
             android:orientation="horizontal"
             android:gravity="center|start">
             <LinearLayout
@@ -1565,7 +1565,7 @@
             android:src="@drawable/navbar_2" />
 
         <ImageView
-            android:id="@+id/nvGalery"
+            android:id="@+id/nvcart"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="15dp"
