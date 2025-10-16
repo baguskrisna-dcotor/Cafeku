@@ -57,8 +57,8 @@ import org.json.JSONObject;
 
 public class Profile extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    private ImageView btnMore,gender;
-    private TextView username,g1,g2,point;
+    private ImageView btnMore,tvgender;
+    private TextView tvusername,g1,g2,point;
     private ImageSlider slider;
     ArrayList<String> namaList1 = new ArrayList<>();
     ArrayList<SlideModel> slideModels = new ArrayList<>();
@@ -75,13 +75,13 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         double latitude = -7.797068;
         double longitude = 110.370529;
 
-        username = findViewById(R.id.nameUser);
+        tvusername = findViewById(R.id.nameUser);
         btnMore = findViewById(R.id.settingbutton);
         slider = findViewById(R.id.imageslider);
         g1 =findViewById(R.id.greetingtext1);
         g2 = findViewById(R.id.greetingtext2);
         point = findViewById(R.id.point);
-        gender = findViewById(R.id.gender);
+        tvgender = findViewById(R.id.gender);
 
         LevelHandler(namalvl,lvl,minpoint);
 
@@ -130,16 +130,16 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         Boolean sex = i.getBooleanExtra("gender",false);
         UserDao n = UserDatabase.getInstance(this).userDao();
 
-
         User user = n.getUser(nama);
-
-        if(user != null){
-            username.setText(user.toString());
-            if(user.gender == true){
-                gender.setImageResource(R.drawable.male);
-            }else{
-                gender.setImageResource(R.drawable.remale);
+        if (user != null) {
+            tvusername.setText(user.username);
+            if (user.gender) {
+                tvgender.setImageResource(R.drawable.male);
+            } else {
+                tvgender.setImageResource(R.drawable.remale);
             }
+        } else {
+            tvusername.setText("Halo, Guest");
         }
 
         //POIntttttttttt
@@ -268,38 +268,41 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             int id = item.getItemId();
             Intent i = getIntent();
             String nama = i.getStringExtra("username");
+
             UserDatabase db = UserDatabase.getInstance(this);
             UserDao userdao = db.userDao();
-            User exist = userdao.getUser(nama);
+            User exist = (nama != null) ? userdao.getUser(nama) : null;
 
             if (id == R.id.menu_edit_profile) {
                 showEditProfileDialog();
                 return true;
+
             } else if (id == R.id.menu_login) {
-                if(exist != null){
-                    Toast.makeText(this, "LOGIN clicked", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Profile.this,LoginActivity.class);
+                if (exist == null) {
+                    Toast.makeText(this, "Silakan login dulu", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Profile.this, LoginActivity.class);
                     startActivity(intent);
-                }else{
-                    Toast.makeText(this, "Lu udah login dongo", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Kamu sudah login", Toast.LENGTH_SHORT).show();
                 }
-
                 return true;
-            } else if (id == R.id.menu_logout) {
-                if(exist != null){
-                    userdao.Logout(exist);
-                }else {
-                    Toast.makeText(this,"Anda masih logout bego, login dulu",Toast.LENGTH_SHORT).show();
-                }
 
-                Toast.makeText(this, "Logout clicked", Toast.LENGTH_SHORT).show();
+            } else if (id == R.id.menu_logout) {
+                if (exist != null) {
+                    userdao.Logout(exist); // pastikan DAO kamu punya method ini
+                    Toast.makeText(this, "Logout berhasil", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Kamu belum login", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
+
             return false;
         });
 
         popup.show();
     }
+
 
     private void showEditProfileDialog() {
         // Inflate layout custom
@@ -319,7 +322,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         btnSave.setOnClickListener(v -> {
             String name = etName.getText().toString();
             // update profile di halaman utama
-            username.setText(name);
+            tvusername.setText(name);
 
             Toast.makeText(this, "Data tersimpan!", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
@@ -362,6 +365,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         Point p = PointDatabase.getInstance(this).pointDao().getPoints();
         int userPoint = (p != null ? p.totalPoint : 0);
 
+        JSONArray jsonArray = null;
+
         try {
             InputStream is = getAssets().open("Level.json");
             int size = is.available();
@@ -369,7 +374,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             is.read(buffer);
             is.close();
             String json = new String(buffer, "UTF-8");
-            JSONArray jsonArray = new JSONArray(json);
+           jsonArray = new JSONArray(json);
+
 
             namaLevel.clear();
             level.clear();
@@ -384,8 +390,9 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();
-            return;
+            return ;
         }
+
 
         int achievedIndex = -1;
         for (int i = 0; i < minPoint.size(); i++) {
@@ -407,14 +414,21 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             TextView tvLevelname = findViewById(R.id.levelname);
             TextView tvMinPoint = findViewById(R.id.minpoint);
             TextView tvlevel = findViewById(R.id.lvlnow);
+            TextView poinuser = findViewById(R.id.pointnow);
             ImageView img = findViewById(R.id.imagelevel);
-             int resid = getResources().getIdentifier(
-                     "image_level" + achievedIndex,"drawable",getPackageName()
-             );
-            img.setImageResource(resid);
-            tvLevelname.setText("Level " + currentLevelName);
+
+            int min = minPoint.get(achievedIndex+1);
+            String imageName = "image_level" + achievedIndex;
+
+            int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+            img.setImageResource(resId);
+
+            tvLevelname.setText(currentLevelName);
+            poinuser.setText(String.valueOf(userPoint));
             tvlevel.setText("Level " + currentLevel);
-            tvMinPoint.setText(String.valueOf(requiredPoint));
+
+            String txtmin = String.valueOf(min);
+            tvMinPoint.setText("/" + txtmin);
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
         }

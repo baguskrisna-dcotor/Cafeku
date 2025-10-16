@@ -46,18 +46,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:gravity="center|top"
+                android:gravity="start|top"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/nameUser"
-                    android:layout_width="0sp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_weight="3"
                     android:fontFamily="@font/poppins"
                     android:text="Halo, Guest!"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:textSize="17sp" />
 
                 <LinearLayout
                     android:layout_width="30dp"
@@ -403,7 +402,7 @@
                                         android:textStyle="bold" />
 
                                     <TextView
-                                        android:id="@+id/pointnow"
+                                        android:id="@+id/minpoint"
                                         android:layout_width="wrap_content"
                                         android:layout_height="20dp"
                                         android:layout_marginBottom="3sp"
@@ -413,7 +412,7 @@
                                         android:textSize="10sp"
                                         android:textStyle="bold" />
                                     <TextView
-                                        android:id="@+id/minpoint"
+                                        android:id="@+id/pointnow"
                                         android:layout_width="wrap_content"
                                         android:layout_height="20dp"
                                         android:layout_marginBottom="3sp"
@@ -443,7 +442,7 @@
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:src="@drawable/cafeku"
-                                    android:scaleType="fitCenter"/>
+                                    android:scaleType="centerCrop"/>
 
                                 <TextView
                                     android:id="@+id/levelname"
