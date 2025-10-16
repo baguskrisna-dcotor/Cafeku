@@ -417,17 +417,30 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             TextView poinuser = findViewById(R.id.pointnow);
             ImageView img = findViewById(R.id.imagelevel);
 
-            int min = minPoint.get(achievedIndex+1);
-            String imageName = "image_level" + achievedIndex;
+            int nextMinPoint;
 
+            if (achievedIndex + 1 < minPoint.size()) {
+                nextMinPoint = minPoint.get(achievedIndex + 1);
+            } else {
+
+                nextMinPoint = minPoint.get(achievedIndex);
+            }
+
+
+            String imageName = "image_level" + (achievedIndex + 1);
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
-            img.setImageResource(resId);
+            if (resId != 0) {
+                img.setImageResource(resId);
+            } else {
+                img.setImageResource(R.drawable.dummy); // fallback aman
+            }
+
 
             tvLevelname.setText(currentLevelName);
             poinuser.setText(String.valueOf(userPoint));
             tvlevel.setText("Level " + currentLevel);
 
-            String txtmin = String.valueOf(min);
+            String txtmin = String.valueOf(nextMinPoint);
             tvMinPoint.setText("/" + txtmin);
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
