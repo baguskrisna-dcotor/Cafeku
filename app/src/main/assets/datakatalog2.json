@@ -5,7 +5,7 @@
     "deskripsi": "Kopi hitam murni hasil ekstraksi espresso berkualitas tinggi yang disajikan dengan tambahan air panas. Rasanya strong, bold, dengan aroma khas kopi panggang yang pekat. Cocok untuk penikmat kopi sejati yang menyukai kesederhanaan namun tetap elegan.",
     "harga": 22000,
     "gambar": "menu_6",
-    "point" : 40
+    "point" : 2
   },
   {
     "id": 7,
@@ -13,7 +13,7 @@
     "deskripsi": "Perpaduan espresso pekat dengan susu segar yang creamy, menghasilkan cita rasa lembut dan seimbang. Lapisan foam tipis di atasnya menambah tekstur halus dan aroma menggoda. Minuman ini pas untuk kamu yang suka kopi dengan sentuhan manis ringan.",
     "harga": 18000,
     "gambar": "menu_7",
-    "point" : 40
+    "point" : 2
   },
   {
     "id": 8,
@@ -21,7 +21,7 @@
     "deskripsi": "Kombinasi sempurna antara espresso kuat, susu panas, dan buih susu tebal di atasnya. Ditambah taburan bubuk cokelat atau kayu manis untuk aroma yang khas. Rasanya creamy, hangat, dan bikin nyaman di setiap tegukan.",
     "harga": 20000,
     "gambar": "menu_8",
-    "point" : 40
+    "point" : 2
   },
   {
     "id": 9,
@@ -29,7 +29,7 @@
     "deskripsi": "Espresso berkualitas dipadukan dengan susu lembut lalu diberi lapisan caramel manis di atasnya. Perpaduan pahit, manis, dan creamy yang pas membuat minuman ini jadi favorit banyak orang. Tampilan cantiknya juga menambah daya tarik untuk dinikmati kapan saja.",
     "harga": 28000,
     "gambar": "menu_9",
-    "point" : 40
+    "point" : 3
   },
   {
     "id": 10,
@@ -37,6 +37,6 @@
     "deskripsi": "Sajian kopi klasik dengan cita rasa paling murni, dibuat dari biji kopi pilihan yang diekstraksi dengan tekanan tinggi. Rasanya kuat, pekat, dan memberikan energi instan. Cocok untuk pecinta kopi yang ingin menikmati keaslian rasa tanpa campuran.",
     "harga": 20000,
     "gambar": "menu_10",
-    "point" : 40
+    "point" : 2
   }
 ]

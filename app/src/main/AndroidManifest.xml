@@ -26,6 +26,9 @@
 
 
         <activity
+            android:name=".VoucherDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".KeranjangActivity"
             android:exported="false" />
         <activity

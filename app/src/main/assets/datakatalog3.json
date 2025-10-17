@@ -3,40 +3,40 @@
     "id": 11,
     "nama": "Corndog",
     "deskripsi": "Sosis premium yang dibalut adonan tepung jagung khas, digoreng hingga keemasan dengan tekstur renyah di luar dan lembut di dalam. Bisa ditambahkan lelehan keju mozzarella untuk sensasi gurih yang lumer di mulut. Cocok sebagai camilan hangat yang praktis dan bikin nagih.",
-    "harga": 24000,
+    "harga": 12000,
     "gambar": "menu_11",
-    "point" : 40
+    "point" : 1
   },
   {
     "id": 12,
     "nama": "French Fries",
     "deskripsi": "Kentang pilihan yang dipotong memanjang lalu digoreng hingga renyah keemasan. Teksturnya crispy di luar dan empuk di dalam, disajikan hangat dengan taburan bumbu atau saus pelengkap. Menu klasik favorit semua kalangan, cocok untuk camilan maupun teman makan utama.",
-    "harga": 26000,
+    "harga": 7000,
     "gambar": "menu_12",
-    "point" : 40
+    "point" : 1
   },
   {
     "id": 13,
     "nama": "Burger",
     "deskripsi": "Roti bun lembut dengan isian daging sapi juicy yang dipanggang sempurna. Ditambah sayuran segar, irisan tomat, keju leleh, dan saus spesial yang menghadirkan rasa gurih dan nikmat di setiap gigitan. Menu utama yang mengenyangkan sekaligus memanjakan lidah.",
-    "harga": 20000,
+    "harga": 16000,
     "gambar": "menu_13",
-    "point" : 40
+    "point" : 2
   },
   {
     "id": 14,
     "nama": "Hot Dog",
     "deskripsi": "Sosis panggang berukuran besar yang dibalut roti lembut panjang, dilengkapi saus mustard, mayones, dan saus tomat sesuai selera. Perpaduan rasa gurih, asin, dan manis menciptakan cita rasa khas street food yang bikin nagih. Pas disantap kapan saja.",
-    "harga": 22000,
+    "harga": 16000,
     "gambar": "menu_14",
-    "point" : 40
+    "point" : 2
   },
   {
     "id": 15,
-    "nama": "Kentuky",
+    "nama": "Kentucky",
     "deskripsi": "Potongan ayam crispy yang dibalut tepung berbumbu khas lalu digoreng hingga renyah sempurna. Dagingnya tetap juicy di dalam dengan cita rasa gurih yang meresap. Menu favorit sepanjang masa yang cocok disantap hangat bersama saus sambal atau mayones.",
     "harga": 15000,
     "gambar": "menu_15",
-    "point" : 40
+    "point" : 2
   }
 ]

@@ -444,6 +444,11 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             tvMinPoint.setText("/" + txtmin);
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
+
+            JSONArray arr = new JSONArray();
+            if (2 == arr.length()){
+
+            }
         }
     }
 

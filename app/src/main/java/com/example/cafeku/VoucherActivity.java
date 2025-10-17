@@ -48,10 +48,10 @@ public void tambahProduk(int[] clickable, int[] imgId, int[] txtId, int[] detId,
         txtDetail.setText(det[i]);
 
         bttDetail.setOnClickListener(v -> {
-            Intent intent = new Intent(this, DetailActivity.class);
+            Intent intent = new Intent(this, VoucherDetailActivity.class);
             intent.putExtra("img", image[index]);
             intent.putExtra("name", name[index]);
-            intent.putExtra("price", det[index]);
+            intent.putExtra("deskripsi", det[index]);
             startActivity(intent);
         });
     }
