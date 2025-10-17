@@ -1,0 +1,12 @@
+<!-- res/drawable/highlight_center.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="linear"
+        android:centerX="0.1"
+        android:startColor="#FF0000"
+        android:centerColor="#BAFFFFFF"
+        android:endColor="#00FFFFFF"
+        android:angle="90"/>
+    <corners android:radius="10sp"/>
+</shape>

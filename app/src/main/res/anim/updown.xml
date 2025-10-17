@@ -1,0 +1,19 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator">
+
+    <!-- Fade in -->
+    <alpha
+        android:duration="2000"
+        android:fromAlpha="0"
+        android:toAlpha="1" />
+    <translate
+        android:duration="1000"
+        android:fromYDelta="0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse"
+        android:toYDelta="-8dp" />
+
+
+</set>

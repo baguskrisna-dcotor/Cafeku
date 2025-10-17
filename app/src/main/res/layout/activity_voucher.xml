@@ -358,7 +358,7 @@
             android:contentDescription="TODO"
             android:padding="16dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/navbar_3"
+            android:src="@drawable/cart_in"
             android:onClick="switchKeranjang"/>
 
         <ImageView

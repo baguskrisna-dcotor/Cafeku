@@ -1,22 +1,31 @@
 package com.example.cafeku;
 
+import android.animation.ObjectAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +37,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -56,6 +66,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Profile extends AppCompatActivity implements OnMapReadyCallback {
+
+    Handler handler = new Handler();
+    private HorizontalScrollView h;
     private GoogleMap mMap;
     private ImageView btnMore,tvgender;
     private TextView tvusername,g1,g2,point;
@@ -74,6 +87,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         setContentView(R.layout.profile);
         double latitude = -7.797068;
         double longitude = 110.370529;
+        final int[] scroll = {0};
+        final int[] speed = {3};
 
         tvusername = findViewById(R.id.nameUser);
         btnMore = findViewById(R.id.settingbutton);
@@ -82,6 +97,22 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         g2 = findViewById(R.id.greetingtext2);
         point = findViewById(R.id.point);
         tvgender = findViewById(R.id.gender);
+        h = findViewById(R.id.scrollauto);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                scroll[0] += 3; // geser 5px setiap loop
+                h.smoothScrollTo(scroll[0], 0);
+
+
+                if (scroll[0] >= h.getChildAt(0).getWidth()) {
+                    scroll[0] = 0; // ulang ke awal
+                }
+
+                handler.postDelayed(this, speed[0]);
+            }
+        }, speed[0]);
 
         LevelHandler(namalvl,lvl,minpoint);
 
@@ -414,17 +445,28 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             TextView tvLevelname = findViewById(R.id.levelname);
             TextView tvMinPoint = findViewById(R.id.minpoint);
             TextView tvlevel = findViewById(R.id.lvlnow);
-            TextView poinuser = findViewById(R.id.pointnow);
             ImageView img = findViewById(R.id.imagelevel);
+            ProgressBar progressbar =findViewById(R.id.progressBar);
+
+            Animation updown = AnimationUtils.loadAnimation(this,R.anim.updown);
+
+            img.startAnimation(updown);
+
 
             int nextMinPoint;
-
             if (achievedIndex + 1 < minPoint.size()) {
                 nextMinPoint = minPoint.get(achievedIndex + 1);
             } else {
-
                 nextMinPoint = minPoint.get(achievedIndex);
             }
+            int progress;
+            progress = (int) (((float)(userPoint - requiredPoint)/(nextMinPoint - requiredPoint)) * 100);
+            progressbar.setProgress(progress);
+
+            ObjectAnimator animation = ObjectAnimator.ofInt(progressbar, "progress", progressbar.getProgress(), progress);
+            animation.setDuration(800);
+            animation.setInterpolator(new DecelerateInterpolator());
+            animation.start();
 
 
             String imageName = "image_level" + (achievedIndex + 1);
@@ -432,12 +474,21 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             if (resId != 0) {
                 img.setImageResource(resId);
             } else {
-                img.setImageResource(R.drawable.dummy); // fallback aman
+                img.setImageResource(R.drawable.dummy);
             }
 
-
+            if(Objects.equals(currentLevelName, "Keren")){
+                tvLevelname.setTextColor(Color.GRAY);
+            } else if (Objects.equals(currentLevelName, "Ksatria")) {
+                tvLevelname.setTextColor(Color.BLUE);
+            } else if (Objects.equals(currentLevelName, "Pangeran")) {
+                tvLevelname.setTextColor(Color.YELLOW);
+            } else if (Objects.equals(currentLevelName, "Raja")) {
+                tvLevelname.setTextColor(Color.parseColor("#673AB7FF"));
+            }else if (Objects.equals(currentLevelName, "Mitos")) {
+                tvLevelname.setTextColor(Color.RED);
+            }
             tvLevelname.setText(currentLevelName);
-            poinuser.setText(String.valueOf(userPoint));
             tvlevel.setText("Level " + currentLevel);
 
             String txtmin = String.valueOf(nextMinPoint);
@@ -445,10 +496,6 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
 
-            JSONArray arr = new JSONArray();
-            if (2 == arr.length()){
-
-            }
         }
     }
 

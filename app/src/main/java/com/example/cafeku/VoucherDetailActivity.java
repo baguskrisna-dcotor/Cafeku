@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,14 +25,21 @@ public class VoucherDetailActivity extends AppCompatActivity {
             return insets;
         });
         Intent intent = getIntent();
-        String image = intent.getStringExtra("img");
+        Integer image = intent.getIntExtra("img",0);
         String nama = intent.getStringExtra("name");
         String deskripsi = intent.getStringExtra("deskripsi");
         TextView txtName = findViewById(R.id.nameVoucher);
         TextView txtDeskrips = findViewById(R.id.deskripsi);
         ImageView imgVoucher = findViewById(R.id.imgVoucher);
-        int resId = getResources().getIdentifier(image, "drawable", getPackageName());
-        imgVoucher.setImageResource(resId);
+
+        if (image == null) {
+            Toast.makeText(this,"kosong bego",Toast.LENGTH_SHORT).show();
+        }else{
+            int resId = getResources().getIdentifier(String.valueOf(image), "drawable", getPackageName());
+            imgVoucher.setImageResource(resId);
+        }
+
+
         txtName.setText(nama);
         txtDeskrips.setText(deskripsi);
 
