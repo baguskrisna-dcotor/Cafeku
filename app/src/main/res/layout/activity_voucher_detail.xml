@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VoucherDetailActivity"
-    android:background="#D7D7D7">
+    android:background="@drawable/vcr_green">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,18 +19,17 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="200dp">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:id="@+id/adpBG"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:elevation="1dp"
-                android:background="@drawable/vcr_green"
-                >
+                android:orientation="vertical">
 
             </LinearLayout>
 
-        <ImageView
+            <ImageView
             android:id="@+id/imgVoucher"
             android:layout_width="wrap_content"
             android:layout_height="170sp"
@@ -41,9 +40,11 @@
         </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="1000sp"
                 android:orientation="vertical"
-                android:layout_margin="15sp">
+                android:padding="20sp"
+                android:paddingStart="20sp"
+                android:background="@drawable/button_social_background">
 
         <TextView
             android:id="@+id/nameVoucher"
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="NAMA VOUCHER"
             android:textStyle="bold"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:layout_gravity="start" />
 

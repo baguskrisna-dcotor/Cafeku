@@ -5,7 +5,8 @@
     "deskripsi": "Minuman cokelat premium yang dibuat dari bubuk kakao pilihan dengan rasa pekat namun lembut. Diseduh dengan susu segar berkualitas sehingga menghasilkan perpaduan manis dan sedikit pahit yang seimbang. Teksturnya creamy dan aromanya menggugah selera, cocok diminum dingin maupun hangat sebagai teman santai.",
     "harga": 18000,
     "gambar": "menu_1",
-    "point" : 2
+    "point" : 2,
+    "tipe" : "bestseller"
   },
   {
     "id": 2,

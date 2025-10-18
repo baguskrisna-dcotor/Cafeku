@@ -1,12 +1,17 @@
 package com.example.cafeku;
 
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Shader;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
@@ -241,8 +247,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Lokasi Cafe
-        LatLng cafeLocation = new LatLng(-7.555600, 110.801003);
-        mMap.addMarker(new MarkerOptions().position(cafeLocation).title("Cafeku SMKN 2 Surakarta"));
+        LatLng cafeLocation = new LatLng(-7.15, 111.88);
+        mMap.addMarker(new MarkerOptions().position(cafeLocation).title("Cafeku"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cafeLocation, 15));
     }
 
@@ -486,13 +492,71 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             } else if (Objects.equals(currentLevelName, "Raja")) {
                 tvLevelname.setTextColor(Color.parseColor("#673AB7FF"));
             }else if (Objects.equals(currentLevelName, "Mitos")) {
+                TextView tv = tvLevelname;
+
+                tv.post(() -> {
+                    int width = tv.getWidth();
+                    if (width <= 0) return; // pastikan TextView sudah ter-layout
+
+                    // Warna gradasi pelangi
+                    int[] colors = {
+                            Color.RED,
+                            Color.BLUE,
+                            Color.BLUE,
+                            Color.RED,
+                            Color.BLUE,
+                            Color.RED,
+                            Color.parseColor("#FF9800")
+                    };
+
+                    // Buat LinearGradient awal
+                    LinearGradient gradient = new LinearGradient(
+                            0, 0, width, 0,
+                            colors,
+                            null,
+                            Shader.TileMode.MIRROR
+                    );
+
+                    Paint paint = tv.getPaint();
+                    paint.setShader(gradient);
+
+                    Matrix matrix = new Matrix();
+                    ValueAnimator animator = ValueAnimator.ofFloat(0, width * 2);
+                    animator.setDuration(4000);
+                    animator.setRepeatCount(ValueAnimator.INFINITE);
+                    animator.setInterpolator(new LinearInterpolator());
+
+                    animator.addUpdateListener(anim -> {
+                        float translateX = (float) anim.getAnimatedValue();
+                        matrix.setTranslate(translateX, 0);
+                        gradient.setLocalMatrix(matrix);
+                        paint.setShader(gradient);
+                        tv.invalidate(); // wajib: minta redraw
+                    });
+
+                    animator.start();
+                });
+            }
+
+
+            tvLevelname.setText(currentLevelName);
+
+
+            if(currentLevel == 1){
+                tvlevel.setTextColor(Color.GRAY);
+            } else if (currentLevel == 2) {
+                tvlevel.setTextColor(Color.BLUE);
+            } else if (currentLevel == 3) {
+                tvlevel.setTextColor(Color.YELLOW);
+            } else if (currentLevel == 4) {
+                tvlevel.setTextColor(Color.parseColor("#673AB7FF"));
+            }else  {
                 tvLevelname.setTextColor(Color.RED);
             }
-            tvLevelname.setText(currentLevelName);
             tvlevel.setText("Level " + currentLevel);
 
             String txtmin = String.valueOf(nextMinPoint);
-            tvMinPoint.setText("/" + txtmin);
+            tvMinPoint.setText("of" + txtmin);
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
 

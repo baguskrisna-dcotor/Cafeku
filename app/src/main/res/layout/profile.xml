@@ -63,17 +63,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end"
-                    android:layout_marginStart="8sp"
-                    android:gravity="center">
+                    android:layout_marginStart="5sp"
+                    android:gravity="center|top">
 
                     <ImageView
                         android:id="@+id/gender"
                         android:layout_width="20sp"
                         android:layout_height="20sp"
-                        android:layout_gravity="center|end"
-                        android:background="@drawable/circle_navbar"
-                        android:clipToOutline="true"
-                        android:src="@drawable/male" />
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/remale" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -318,7 +317,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:fontFamily="@font/poppins"
-                                        android:text="COFFE"
+                                        android:text="COFFEE"
                                         android:textColor="@color/white"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -336,7 +335,7 @@
                                         android:layout_marginEnd="5sp"
                                         android:fontFamily="@font/poppins"
                                         android:gravity="top"
-                                        android:text="CAFEKU"
+                                        android:text="Flash"
                                         android:textColor="@color/green_royal_center"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -345,7 +344,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:fontFamily="@font/poppins"
-                                        android:text="COFFE"
+                                        android:text="SALE"
                                         android:textColor="@color/white"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -363,7 +362,7 @@
                                         android:layout_marginEnd="5sp"
                                         android:fontFamily="@font/poppins"
                                         android:gravity="top"
-                                        android:text="CAFEKU"
+                                        android:text="FREE"
                                         android:textColor="@color/green_royal_center"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -372,7 +371,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:fontFamily="@font/poppins"
-                                        android:text="COFFE"
+                                        android:text="ONGKIR"
                                         android:textColor="@color/white"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -390,7 +389,7 @@
                                         android:layout_marginEnd="5sp"
                                         android:fontFamily="@font/poppins"
                                         android:gravity="top"
-                                        android:text="CAFEKU"
+                                        android:text="CLEAN"
                                         android:textColor="@color/green_royal_center"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -399,7 +398,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
                                         android:fontFamily="@font/poppins"
-                                        android:text="COFFE"
+                                        android:text="SERVICE"
                                         android:textColor="@color/white"
                                         android:textSize="20sp"
                                         android:textStyle="italic" />
@@ -434,7 +433,8 @@
                             android:layout_width="0dp"
                             android:layout_height="80dp"
                             android:layout_weight="1"
-                            android:background="@drawable/button_social_background"
+                            android:layout_marginTop="0sp"
+                            android:background="@drawable/modrngradient2"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -486,9 +486,12 @@
                                             android:layout_height="20dp"
                                             android:elevation="10sp"
                                             android:fontFamily="@font/poppins"
-                                            android:gravity="center|start"
+                                            android:gravity="center"
                                             android:text="2.056"
-                                            android:textColor="@color/aurora_neon_center"
+                                            android:paddingBottom="2sp"
+                                            android:paddingStart="2sp"
+                                            android:paddingEnd="3sp"
+                                            android:textColor="@color/white"
                                             android:textSize="13sp" />
 
 
@@ -498,9 +501,10 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginBottom="3sp"
+                                            android:gravity="bottom"
                                             android:fontFamily="@font/poppins"
-                                            android:text="/ 200 "
-                                            android:textColor="@color/green_royal_start"
+                                            android:text="of 200 "
+                                            android:textColor="#A2D9C0"
                                             android:textSize="8sp"
                                             android:textStyle="bold" />
 
@@ -514,7 +518,7 @@
                                     android:id="@+id/progressBar"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
-                                    android:layout_height="7dp"
+                                    android:layout_height="8dp"
                                     android:progress="0"
                                     android:max="100"
                                     android:indeterminate="false"
@@ -551,13 +555,14 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="top"
                                     android:background="@drawable/gradienthighlight">
+
                                     <ImageView
                                         android:id="@+id/imagelevel"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/image_level3"
-                                        android:layout_marginBottom="10sp"/>
+                                        android:layout_marginBottom="10sp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/image_level3" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -864,6 +869,18 @@
                             android:textAlignment="textStart"
                             android:textColor="@color/textpendukung"
                             android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25sp"
+                            android:layout_marginTop="7sp"
+                            android:layout_marginStart="3sp"
+                            android:layout_marginBottom="10sp"
+                            android:fontFamily="@font/arvo"
+                            android:text="Lokasi : "
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                             />
                     </LinearLayout>
 
                     <fragment

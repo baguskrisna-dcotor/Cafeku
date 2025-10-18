@@ -1,9 +1,14 @@
 package com.example.cafeku;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.StrikethroughSpan;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 public class CartActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -32,6 +38,8 @@ public class CartActivity extends AppCompatActivity {
     private AppDatabase db;
     private PointDatabase dbs;
     private Button beli;
+
+    private RadioGroup r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +52,7 @@ public class CartActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewCart);
         txtTotal = findViewById(R.id.txtTotal);
         txtDate = findViewById(R.id.datetime);
+        r = findViewById(R.id.radioGroupvcr);
 
         String currentDate = new SimpleDateFormat("EEEE, dd MMMM yyyy").format(new Date());
         txtDate.setText(currentDate);
@@ -68,7 +77,7 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        updateTotal(cartItems);
+        updateTotal(cartItems,r);
         updateTotalpoint(cartItems);
 
         beli.setOnClickListener(v -> {
@@ -79,12 +88,74 @@ public class CartActivity extends AppCompatActivity {
         });
     }
 
-    private void updateTotal(List<CartItem> items) {
+    private void updateTotal(List<CartItem> items, RadioGroup rg) {
         double total = 0;
         for (CartItem i : items) {
             total += i.price * i.quantity;
         }
         txtTotal.setText("Total: Rp " + total);
+        final double totalfinal = total;
+
+            rg.setOnCheckedChangeListener((group, radioid) -> {
+                double totalDiscount = totalfinal;
+
+                if (radioid == R.id.uservcr1) {
+                    // hitung diskon 30%
+                    double discount = totalfinal * 0.30;
+                    totalDiscount = totalfinal - discount;
+
+                    // buat teks dengan harga lama dicoret
+                    String oldPrice = "Rp " + totalfinal;
+                    String newPrice = "Rp " + totalDiscount;
+
+                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
+                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    txtTotal.setText(spannable);
+
+                } else if (radioid == R.id.usevcr2) {
+                    // contoh diskon 50%
+                    double discount = totalfinal * 0.25;
+                    totalDiscount = totalfinal - discount;
+
+                    String oldPrice = "Rp " + totalfinal;
+                    String newPrice = "Rp " + totalDiscount;
+
+                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
+                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    txtTotal.setText(spannable);
+
+                } else if (radioid == R.id.usevcr3) {
+                    // contoh diskon 10%
+                    double discount = totalfinal * 0.15;
+                    totalDiscount = totalfinal - discount;
+
+                    String oldPrice = "Rp " + totalfinal;
+                    String newPrice = "Rp " + totalDiscount;
+
+                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
+                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    txtTotal.setText(spannable);
+
+                }else if (radioid == R.id.usevcr4) {
+                    // contoh diskon 10%
+                    double discount = totalfinal * 0.14;
+                    totalDiscount = totalfinal - discount;
+
+                    String oldPrice = "Rp " + totalfinal;
+                    String newPrice = "Rp " + totalDiscount;
+
+                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
+                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    txtTotal.setText(spannable);
+
+                } else {
+                    Toast.makeText(this, "Lu ganda campuran bro? 😅", Toast.LENGTH_SHORT).show();
+                }
+        });
     }
 
     private void updateTotalpoint(List<CartItem> items) {
@@ -106,4 +177,5 @@ public class CartActivity extends AppCompatActivity {
         pointholder.setText(String.valueOf(total));
     }
 }
+
 

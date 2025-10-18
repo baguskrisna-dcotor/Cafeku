@@ -71,7 +71,7 @@ public class ThanksActivity extends AppCompatActivity {
 
         // Simulasikan loading 3 detik lalu ke Thanks screen
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(ThanksActivity.this, MainActivity.class));
+            startActivity(new Intent(ThanksActivity.this, Profile.class));
             finish();
         }, 5000);
     }
