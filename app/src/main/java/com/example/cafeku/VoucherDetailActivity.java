@@ -3,8 +3,8 @@ package com.example.cafeku;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,23 +25,20 @@ public class VoucherDetailActivity extends AppCompatActivity {
             return insets;
         });
         Intent intent = getIntent();
-        Integer image = intent.getIntExtra("img",0);
+        int color = intent.getIntExtra("color",0);
+        int image = intent.getIntExtra("img", 0);
         String nama = intent.getStringExtra("name");
         String deskripsi = intent.getStringExtra("deskripsi");
+        LinearLayout adpColor = findViewById(R.id.adpColor);
         TextView txtName = findViewById(R.id.nameVoucher);
         TextView txtDeskrips = findViewById(R.id.deskripsi);
         ImageView imgVoucher = findViewById(R.id.imgVoucher);
-
-        if (image == null) {
-            Toast.makeText(this,"kosong bego",Toast.LENGTH_SHORT).show();
-        }else{
-            int resId = getResources().getIdentifier(String.valueOf(image), "drawable", getPackageName());
-            imgVoucher.setImageResource(resId);
-        }
-
-
+        adpColor.setBackgroundResource(color);
         txtName.setText(nama);
+        int resId = getResources().getIdentifier(String.valueOf(image), "drawable", getPackageName());
+        imgVoucher.setImageResource(resId);
+        int resColor = getResources().getIdentifier(String.valueOf(color), "drawable", getPackageName());
+        adpColor.setBackgroundResource(resColor);
         txtDeskrips.setText(deskripsi);
-
     }
 }

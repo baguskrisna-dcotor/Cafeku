@@ -6,79 +6,148 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VoucherDetailActivity"
-    android:background="@drawable/vcr_green">
+    android:background="@color/white">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50sp"
+            android:layout_marginRight="30sp"
+            android:layout_alignParentRight="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:text="@string/app_name"
+                android:fontFamily="@font/poppins"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#513434"
+                />
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:src="@drawable/cafeku"/>
+
+        </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/adpColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40sp">
+        android:layout_marginTop="40sp"
+        android:background="@drawable/vcr_green">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="200dp">
 
-            <LinearLayout
-                android:id="@+id/adpBG"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="1dp"
-                android:orientation="vertical">
-
-            </LinearLayout>
-
             <ImageView
-            android:id="@+id/imgVoucher"
-            android:layout_width="wrap_content"
-            android:layout_height="170sp"
-            android:src="@drawable/img_1"
-            android:scaleType="fitCenter"
-            android:layout_margin="20dp"
-            />
+                android:id="@+id/imgVoucher"
+                android:layout_width="wrap_content"
+                android:layout_height="170sp"
+                android:src="@drawable/img_1"
+                android:scaleType="fitCenter"
+                android:layout_margin="20dp"
+                />
         </RelativeLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1000sp"
-                android:orientation="vertical"
-                android:padding="20sp"
-                android:paddingStart="20sp"
-                android:background="@drawable/button_social_background">
-
-        <TextView
-            android:id="@+id/nameVoucher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NAMA VOUCHER"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_gravity="start" />
-
-
-            <TextView
-                android:id="@+id/deskripsi"
-                android:layout_marginTop="10sp"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lorem"
-                android:textSize="15sp"
-                android:textColor="@color/black"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:paddingLeft="15sp"
+                android:paddingRight="15sp"
+                android:paddingTop="15sp"
+                android:paddingBottom="200sp"
+                android:background="@drawable/border_voucher">
+
+                    <TextView
+                        android:id="@+id/nameVoucher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NAMA VOUCHER"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="start" />
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/defDetailVoucher"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"/>
+
+
+                    <TextView
+                        android:id="@+id/deskripsi"
+                        android:layout_marginTop="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lorem"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+
+
 
     </LinearLayout>
-        <Button
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="20dp"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gunakan sekarang"
-            app:backgroundTint="@null"
-            android:background="@drawable/detail_chart"
-            />
+            android:layout_alignParentBottom="true"
+            android:gravity="end"
+            android:layout_margin="20dp"
+            >
 
+            <TextView
+                android:text="@string/voucher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:textColor="#757575"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:paddingEnd="20sp"
+                android:paddingStart="20sp"
+                android:padding="13sp"
+                android:background="@drawable/detail_chart"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                >
+
+
+                <TextView
+                    android:text="Gunakan sekarang"
+                    android:fontFamily="@font/nunitosans"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/arrow"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 </RelativeLayout>

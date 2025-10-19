@@ -7,4 +7,5 @@
     <string name="cafeku">CAFEKU</string>
     <string name="Alamat">RVVV+9CW, Mojo Kp., Mojokampung, Bojonegoro Sub-District, Bojonegoro Regency, East Java 62119</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tortor justo, efficitur ut turpis a, lobortis porta risus. Suspendisse nibh libero, tincidunt ac metus in, dictum molestie purus.</string>
+    <string name="voucher">Voucher tidak bisa digabung dengan voucher lain</string>
 </resources>

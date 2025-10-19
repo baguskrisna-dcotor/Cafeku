@@ -6,12 +6,21 @@
     android:layout_margin="0dp"
     android:padding="0dp"
     android:id="@+id/main"
-    android:background="@drawable/background_vchr">
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/banner_vcr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/banner_vcr"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_alignParentTop="true" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_below="@id/banner_vcr">
 
 
 
@@ -19,298 +28,164 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="50dp">
-
+            >
             <LinearLayout
-                android:id="@+id/voucherLO1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/voucher_round_right"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:paddingLeft="15sp"
+                android:paddingRight="20sp"
+                android:layout_marginTop="35sp"
                 android:orientation="vertical"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
                 >
-
 
                 <TextView
                     android:id="@+id/titleVoucher1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Voucher"
-                    android:textStyle="bold"
-                    android:textSize="22sp"
-                    android:textColor="#000000"/>
+                    android:text="NAMA VOUCHER"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+
+                    />
                 <TextView
-                    android:id="@+id/detTxt1"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detail Voucher"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/defDetailVoucher"
-                    android:textSize="15sp"
-                    android:paddingBottom="20dp"/>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imgVoucher1"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_weight="3"
-                        android:src="@drawable/dummy"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:id="@+id/detVoucher1"
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:background="@drawable/detail_button">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:rotation="-90"
-                            android:text="Lebih banyak"
-                            android:textAlignment="textStart"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                    android:text="@string/defDetailVoucher"/>
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/imgVoucher1"
+                android:layout_marginTop="15sp"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_1"
+                android:layout_gravity="center"/>
 
             <LinearLayout
-                android:id="@+id/voucherLO2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/voucher_round_right"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:paddingLeft="15sp"
+                android:paddingRight="20sp"
+                android:layout_marginTop="35sp"
                 android:orientation="vertical"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
                 >
-
 
                 <TextView
                     android:id="@+id/titleVoucher2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Voucher"
-                    android:textStyle="bold"
-                    android:textSize="22sp"
-                    android:textColor="#000000"/>
+                    android:text="NAMA VOUCHER"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+
+                    />
                 <TextView
-                    android:id="@+id/detTxt2"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detail Voucher"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/defDetailVoucher"
-                    android:textSize="15sp"
-                    android:paddingBottom="20dp"/>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imgVoucher2"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_weight="3"
-                        android:src="@drawable/dummy"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:id="@+id/detVoucher2"
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:background="@drawable/detail_button">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:rotation="-90"
-                            android:text="Lebih banyak"
-                            android:textAlignment="textStart"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white"/>
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:text="@string/defDetailVoucher"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/voucherLO3"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imgVoucher2"
+                android:layout_marginTop="15sp"
+                android:layout_width="300sp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                >
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_1"
+                android:layout_gravity="center"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/voucher_round_right"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:paddingLeft="15sp"
+                android:paddingRight="20sp"
+                android:layout_marginTop="35sp"
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/titleVoucher3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Voucher"
-                    android:textStyle="bold"
-                    android:textSize="22sp"
-                    android:textColor="#000000"/>
+                    android:text="NAMA VOUCHER"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+
+                    />
                 <TextView
-                    android:id="@+id/detTxt3"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detail Voucher"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/defDetailVoucher"
-                    android:textSize="15sp"
-                    android:paddingBottom="20dp"/>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imgVoucher3"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_weight="3"
-                        android:src="@drawable/dummy"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:id="@+id/detVoucher3"
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:background="@drawable/detail_button">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:rotation="-90"
-                            android:text="Lebih banyak"
-                            android:textAlignment="textStart"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white"/>
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:text="@string/defDetailVoucher"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/voucherLO4"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imgVoucher3"
+                android:layout_marginTop="15sp"
+                android:layout_width="300sp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                >
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_1"
+                android:layout_gravity="center"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/voucher_round_right"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:paddingLeft="15sp"
+                android:paddingRight="20sp"
+                android:layout_marginTop="35sp"
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/titleVoucher4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Voucher"
-                    android:textStyle="bold"
-                    android:textSize="22sp"
-                    android:textColor="#000000"/>
-                <TextView
-                    android:id="@+id/detTxt4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Detail Voucher"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/defDetailVoucher"
-                    android:textSize="15sp"
-                    android:paddingBottom="20dp"/>
+                    android:text="NAMA VOUCHER"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
 
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imgVoucher4"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp"
-                        android:layout_weight="3"
-                        android:src="@drawable/dummy"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:id="@+id/detVoucher4"
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:background="@drawable/detail_button">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:rotation="-90"
-                            android:text="Lebih banyak"
-                            android:textAlignment="textStart"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-                <TextView
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nunitosans"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yah udah mentok 😥"/>
-                <TextView
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nunitosans"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="160dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stay tune ingfo selanjutnya ya✨"
                     />
+                <TextView
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/defDetailVoucher"/>
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgVoucher4"
+                android:layout_marginTop="15sp"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_1"
+                android:layout_gravity="center"/>
+
+
         </LinearLayout>
 
     </ScrollView>
