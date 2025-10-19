@@ -58,7 +58,7 @@ public class DetailActivity extends AppCompatActivity {
         Point points = p.getPoints();
 
         buybtn.setOnClickListener(v ->{
-            p.addpoint(points.id,point);
+            p.addpoint2(points.id,point);
             Intent i = new Intent(DetailActivity.this, ThanksActivity.class);
             startActivity(i);
         });

@@ -60,6 +60,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+        <activity android:name=".RankActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

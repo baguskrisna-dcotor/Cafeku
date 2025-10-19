@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F6A40">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rankgradient"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rankgradient"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:alpha="0.4"
+            android:src="@drawable/mythicbackground"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="500sp"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="350sp"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S"
+                            android:textColor="@color/aurora_neon_center"
+                            android:textSize="25sp"
+                            android:fontFamily="@font/arvo"
+                            android:textStyle="italic"/>
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="-1"
+                            android:textColor="@color/aurora_neon_center"
+                            android:textSize="25sp"
+                            android:fontFamily="@font/arvo"
+                            android:textStyle="italic"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imagelevel"
+                        android:background="@drawable/highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:alpha="0.9"
+                        android:src="@drawable/image_level3" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/lvlnow"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="3sp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Level 1"
+                    android:gravity="center"
+                    android:background="@drawable/gradienthighlight"
+                    android:textColor="@color/aurora_luminous_center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"
+                    android:src="@drawable/greenline"
+                    android:scaleType="centerCrop"
+                    android:alpha="0.8"
+                    android:layout_marginBottom="5sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradienthighlight"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/levelname"
+                        android:layout_width="100sp"
+                        android:layout_height="30sp"
+                        android:elevation="10sp"
+                        android:fontFamily="@font/arvo"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="Platinum"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                    <ImageView
+                        android:id="@+id/levelupbtn"
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:src="@drawable/levelup"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="30sp"
+                android:layout_marginEnd="30sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/profile_gradient_voucher"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:gravity="center|start">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="20sp"
+                            android:orientation="horizontal"
+                            android:gravity="start">
+
+                            <LinearLayout
+                                android:layout_marginStart="10sp"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/point"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:elevation="10sp"
+                                    android:fontFamily="@font/poppins"
+                                    android:gravity="center"
+                                    android:text="2.056"
+                                    android:paddingBottom="2sp"
+                                    android:paddingStart="2sp"
+                                    android:paddingEnd="3sp"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp" />
+
+
+                                <TextView
+                                    android:layout_marginStart="4sp"
+                                    android:id="@+id/minpoint"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3sp"
+                                    android:gravity="bottom"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="of 200 "
+                                    android:textColor="#A2D9C0"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:layout_marginStart="10sp"
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:progress="0"
+                            android:max="100"
+                            android:indeterminate="false"
+                            android:layout_marginTop="5sp"
+                            android:progressDrawable="@drawable/progres_bar" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="40sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="end"
+                android:paddingEnd="10sp"
+                android:background="@drawable/gradienthighlight">
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:text="Back >"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="15sp"
+                    android:textColor="#DCDCDC"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.cafeku;
 
+import android.view.ViewTreeObserver;
+
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.DialogInterface;
@@ -72,13 +74,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Profile extends AppCompatActivity implements OnMapReadyCallback {
-
     Handler handler = new Handler();
     private HorizontalScrollView h;
     private GoogleMap mMap;
     private ImageView btnMore,tvgender;
-    private TextView tvusername,g1,g2,point;
+    private TextView tvusername,g1,g2;
     private ImageSlider slider;
+    private LinearLayout l ;
     ArrayList<String> namaList1 = new ArrayList<>();
     ArrayList<SlideModel> slideModels = new ArrayList<>();
     ArrayList<String> title1 = new ArrayList<>();
@@ -101,9 +103,10 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         slider = findViewById(R.id.imageslider);
         g1 =findViewById(R.id.greetingtext1);
         g2 = findViewById(R.id.greetingtext2);
-        point = findViewById(R.id.point);
         tvgender = findViewById(R.id.gender);
         h = findViewById(R.id.scrollauto);
+        l = findViewById(R.id.rankdetail);
+
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -179,10 +182,6 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             tvusername.setText("Halo, Guest");
         }
 
-        //POIntttttttttt
-        Point p = PointDatabase.getInstance(this).pointDao().getPoints();
-        point.setText(String.valueOf(p !=null ? p.totalPoint       :0));
-
 
         btnMore.setOnClickListener(v -> showPopupMenu(v));
         loadJsonToList("datakatalog1.json", namaList1);
@@ -226,12 +225,15 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 R.id.btnVoucher,
                 R.id.btnkeranjang,
                 R.id.btnvoucher,
+                R.id.rankdetail
                };
         Class[] moveto = {
                 MainActivity.class,
                 VoucherActivity.class,
                 CartActivity.class,
-                VoucherActivity.class};
+                VoucherActivity.class,
+                RankActivity.class};
+
         movePage(movebtn, moveto);
 
 
@@ -402,8 +404,6 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         Point p = PointDatabase.getInstance(this).pointDao().getPoints();
         int userPoint = (p != null ? p.totalPoint : 0);
 
-        JSONArray jsonArray = null;
-
         try {
             InputStream is = getAssets().open("Level.json");
             int size = is.available();
@@ -411,7 +411,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             is.read(buffer);
             is.close();
             String json = new String(buffer, "UTF-8");
-           jsonArray = new JSONArray(json);
+            JSONArray jsonArray = new JSONArray(json);
 
 
             namaLevel.clear();
@@ -449,14 +449,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             }
 
             TextView tvLevelname = findViewById(R.id.levelname);
-            TextView tvMinPoint = findViewById(R.id.minpoint);
-            TextView tvlevel = findViewById(R.id.lvlnow);
-            ImageView img = findViewById(R.id.imagelevel);
             ProgressBar progressbar =findViewById(R.id.progressBar);
-
-            Animation updown = AnimationUtils.loadAnimation(this,R.anim.updown);
-
-            img.startAnimation(updown);
 
 
             int nextMinPoint;
@@ -466,7 +459,11 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 nextMinPoint = minPoint.get(achievedIndex);
             }
             int progress;
-            progress = (int) (((float)(userPoint - requiredPoint)/(nextMinPoint - requiredPoint)) * 100);
+            if (nextMinPoint == requiredPoint){
+                progress = 100;
+            }else {
+                progress = (int) (((float)(userPoint - requiredPoint)/(nextMinPoint - requiredPoint)) * 100);
+            }
             progressbar.setProgress(progress);
 
             ObjectAnimator animation = ObjectAnimator.ofInt(progressbar, "progress", progressbar.getProgress(), progress);
@@ -475,93 +472,84 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             animation.start();
 
 
-            String imageName = "image_level" + (achievedIndex + 1);
-            int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
-            if (resId != 0) {
-                img.setImageResource(resId);
-            } else {
-                img.setImageResource(R.drawable.dummy);
-            }
+            switch (currentLevelName) {
+                case "Keren":
+                    tvLevelname.setTextColor(Color.parseColor("#B0BEC5"));
 
-            if(Objects.equals(currentLevelName, "Keren")){
-                tvLevelname.setTextColor(Color.GRAY);
-            } else if (Objects.equals(currentLevelName, "Ksatria")) {
-                tvLevelname.setTextColor(Color.BLUE);
-            } else if (Objects.equals(currentLevelName, "Pangeran")) {
-                tvLevelname.setTextColor(Color.YELLOW);
-            } else if (Objects.equals(currentLevelName, "Raja")) {
-                tvLevelname.setTextColor(Color.parseColor("#673AB7FF"));
-            }else if (Objects.equals(currentLevelName, "Mitos")) {
-                TextView tv = tvLevelname;
+                    break;
+                case "Ksatria":
+                    tvLevelname.setTextColor(Color.parseColor("#ECEFF1"));
 
-                tv.post(() -> {
-                    int width = tv.getWidth();
-                    if (width <= 0) return; // pastikan TextView sudah ter-layout
+                    break;
+                case "Pangeran":
+                    tvLevelname.setTextColor(Color.parseColor("#FFD54F"));
 
-                    // Warna gradasi pelangi
-                    int[] colors = {
-                            Color.RED,
-                            Color.BLUE,
-                            Color.BLUE,
-                            Color.RED,
-                            Color.BLUE,
-                            Color.RED,
-                            Color.parseColor("#FF9800")
-                    };
+                    break;
+                case "Raja":
+                    tvLevelname.setTextColor(Color.parseColor("#D1C4E9"));
 
-                    // Buat LinearGradient awal
-                    LinearGradient gradient = new LinearGradient(
-                            0, 0, width, 0,
-                            colors,
-                            null,
-                            Shader.TileMode.MIRROR
-                    );
+                    break;
+                case "Mitos":
+                    TextView tv = tvLevelname;
 
-                    Paint paint = tv.getPaint();
-                    paint.setShader(gradient);
+                    tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-                    Matrix matrix = new Matrix();
-                    ValueAnimator animator = ValueAnimator.ofFloat(0, width * 2);
-                    animator.setDuration(4000);
-                    animator.setRepeatCount(ValueAnimator.INFINITE);
-                    animator.setInterpolator(new LinearInterpolator());
+                    tv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                        @Override
+                        public void onGlobalLayout() {
+                            int width = tv.getWidth();
+                            if (width <= 0) return;
 
-                    animator.addUpdateListener(anim -> {
-                        float translateX = (float) anim.getAnimatedValue();
-                        matrix.setTranslate(translateX, 0);
-                        gradient.setLocalMatrix(matrix);
-                        paint.setShader(gradient);
-                        tv.invalidate(); // wajib: minta redraw
+                            int[] colors = {
+                                    Color.parseColor("#8B0000"), // Dark Red
+                                    Color.parseColor("#B22222"), // Firebrick
+                                    Color.parseColor("#D32F2F"), // Red elegan
+                                    Color.parseColor("#E53935"), // Soft red
+                                    Color.parseColor("#F44336"), // Bright red
+                                    Color.parseColor("#FF7043"), // Reddish orange
+                                    Color.parseColor("#FFD180")  // Soft gold tint
+                            };
+
+                            LinearGradient gradient = new LinearGradient(
+                                    0, 0, width * 2, 0,
+                                    colors,
+                                    null,
+                                    Shader.TileMode.MIRROR
+                            );
+
+                            Paint paint = tv.getPaint();
+                            paint.setShader(gradient);
+
+                            Matrix matrix = new Matrix();
+
+                            ValueAnimator animator = ValueAnimator.ofFloat(0, (float)width * 2);
+                            animator.setDuration(4000);
+                            animator.setRepeatCount(ValueAnimator.INFINITE);
+                            animator.setInterpolator(new LinearInterpolator());
+
+                            animator.addUpdateListener(anim -> {
+                                float translateX = (float) anim.getAnimatedValue();
+                                matrix.setTranslate(translateX, 0);
+                                gradient.setLocalMatrix(matrix);
+                                paint.setShader(gradient);
+                                tv.postInvalidateOnAnimation(); // agar redraw sinkron
+                            });
+
+                            animator.start();
+
+                            // Hapus listener biar gak terus dipanggil
+                            tv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        }
                     });
-
-                    animator.start();
-                });
+                    break;
             }
-
 
             tvLevelname.setText(currentLevelName);
-
-
-            if(currentLevel == 1){
-                tvlevel.setTextColor(Color.GRAY);
-            } else if (currentLevel == 2) {
-                tvlevel.setTextColor(Color.BLUE);
-            } else if (currentLevel == 3) {
-                tvlevel.setTextColor(Color.YELLOW);
-            } else if (currentLevel == 4) {
-                tvlevel.setTextColor(Color.parseColor("#673AB7FF"));
-            }else  {
-                tvLevelname.setTextColor(Color.RED);
-            }
-            tvlevel.setText("Level " + currentLevel);
-
-            String txtmin = String.valueOf(nextMinPoint);
-            tvMinPoint.setText("of" + txtmin);
-
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
 
         }
     }
+
 
 
     private void openGoogleMaps(double latitude, double longitude) {

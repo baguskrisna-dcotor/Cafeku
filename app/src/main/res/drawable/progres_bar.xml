@@ -12,7 +12,7 @@
                 <gradient
                     android:startColor="@color/aurora_classic_center"
                     android:centerColor="@color/green_royal_center"
-                android:endColor="@color/green_royal_start"
+                android:endColor="@color/aurora_sunset_end"
                 android:angle="0"/>
                 <corners android:radius="10dp"/>
             </shape>

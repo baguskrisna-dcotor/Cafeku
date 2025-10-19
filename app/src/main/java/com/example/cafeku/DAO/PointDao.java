@@ -27,6 +27,10 @@ public interface PointDao {
     @Query("UPDATE point_table SET totalPoint = :newtotal WHERE id = :id")
     void updateTotalPoint(int id, int newtotal);
 
-    @Query("UPDATE point_table SET totalPoint = totalPoint + :value WHERE id = :id")
-    void addpoint (int id,int value);
+    @Query("UPDATE point_table SET totalPoint = :value WHERE id = :id")
+    void addpoint (int id, int value);
+
+    @Query("UPDATE point_table SET totalPoint = totalPoint + :value WHERE id= :id")
+    void addpoint2 (int id,int value);
+
 }
