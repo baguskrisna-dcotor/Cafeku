@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -20,6 +21,9 @@ public class LoginActivity extends Activity {
     private EditText etusername,etpw;
     private Button btnlogin;
 
+    private LinearLayout guest;
+
+
 
 
     private RadioGroup options;
@@ -32,6 +36,8 @@ public class LoginActivity extends Activity {
         etpw = findViewById(R.id.et_password);
         btnlogin = findViewById(R.id.btn_login);
         options = findViewById(R.id.radioGroupOptions);
+        guest = findViewById(R.id.btn_guest_login);
+
         AtomicReference<Boolean> gender = new AtomicReference<>();
 
         options.setOnCheckedChangeListener((group,radioid)->{
@@ -72,6 +78,12 @@ public class LoginActivity extends Activity {
             intent.putExtra("gender",sex);
             startActivity(intent);
             finish();
+        });
+
+        guest.setOnClickListener(V->{
+            Intent i = new Intent(LoginActivity.this, Profile.class);
+            Toast.makeText(this,"Lu pakai guest ya jinx",Toast.LENGTH_SHORT).show();
+            startActivity(i);
         });
 
 
