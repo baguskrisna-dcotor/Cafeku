@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,6 +11,7 @@
     android:background="@color/white">
 
     <ImageView
+        android:layout_marginTop="30dp"
         android:id="@+id/banner_vcr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +23,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/banner_vcr">
+        android:layout_below="@id/banner_vcr"
+        android:layout_above="@id/nvBAR">
 
 
 
@@ -28,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingBottom="20dp"
             >
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -49,7 +54,7 @@
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:includeFontPadding="false"
-
+                    android:textSize="17sp"
                     />
                 <TextView
                     android:textSize="10sp"
@@ -88,6 +93,7 @@
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:includeFontPadding="false"
+                    android:textSize="17sp"
 
                     />
                 <TextView
@@ -127,6 +133,7 @@
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:includeFontPadding="false"
+                    android:textSize="17sp"
 
                     />
                 <TextView
@@ -166,6 +173,7 @@
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:includeFontPadding="false"
+                    android:textSize="17sp"
 
                     />
                 <TextView
@@ -191,6 +199,7 @@
     </ScrollView>
 
     <LinearLayout
+        android:id="@+id/nvBAR"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/white"

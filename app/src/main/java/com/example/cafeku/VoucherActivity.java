@@ -67,7 +67,7 @@ public void tambahProduk(int[] clickable, int[] imgId, int[] txtId, int[] image,
         startActivity(intent);
     }
     public void switchKeranjang(View view) {
-        Intent intent = new Intent(this, KeranjangActivity.class);
+        Intent intent = new Intent(this, CartActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }

@@ -1,5 +1,7 @@
 package com.example.cafeku;
 
+import static com.example.cafeku.notificationHelper.showNotification;
+
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -46,6 +48,7 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.keranjang);
 
+
         beli = findViewById(R.id.btnCheckout);
         addproduk = findViewById(R.id.addproduct);
         pointholder = findViewById(R.id.txtpoint);
@@ -66,12 +69,14 @@ public class CartActivity extends AppCompatActivity {
 
 
         List<CartItem> cartItems = db.cartDao().getAllItems();
+        COcheck(cartItems);
+
 
 
         adapter = new CartAdapter(this, cartItems, (total, totalpoint) -> {
             txtTotal.setText("Total: Rp " + total);
             pointholder.setText("+" + totalpoint + " Point");
-
+            COcheck(cartItems);
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -175,6 +180,14 @@ public class CartActivity extends AppCompatActivity {
             p.insert(newPoint);
         }
         pointholder.setText(String.valueOf(total));
+    }
+
+    private void COcheck(List<CartItem> cartItems){
+        if (cartItems.isEmpty()) {
+            beli.setEnabled(false);
+        } else {
+            beli.setEnabled(true);
+        }
     }
 }
 

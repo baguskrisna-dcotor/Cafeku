@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cafeku">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/cafeku"
@@ -18,25 +20,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cafeku"
         tools:replace="android:appComponentFactory"
-        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         tools:targetApi="28">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDxN2VN1mm2SRwJYy_Le5a24a9Ing-RimI" />
 
-
         <activity
             android:name=".VoucherDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".KeranjangActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".FirstOpen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -58,8 +59,9 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <activity android:name=".RankActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".RankActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

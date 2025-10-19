@@ -69,6 +69,9 @@ public class ThanksActivity extends AppCompatActivity {
         txtMessage.startAnimation(fadeIn2);
         txtMessage.setAlpha(1f);
 
+        notificationHelper.showNotification(this,  "Terimakasih ya sudah check out dengan CAFEKU.",MainActivity.class);
+        notificationHelper.showNotification(this,  "Pesananmu sudah diterima yaaa 😊",MainActivity.class);
+
         // Simulasikan loading 3 detik lalu ke Thanks screen
         new Handler().postDelayed(() -> {
             startActivity(new Intent(ThanksActivity.this, Profile.class));

@@ -1,8 +1,11 @@
 package com.example.cafeku;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,6 +15,7 @@ import java.io.IOException;
 import java.util.Calendar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -21,14 +25,15 @@ import com.google.android.material.button.MaterialButton;
 import java.io.InputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final int PERMISSION_REQUEST_CODE = 101;
     ArrayList<Integer> idList = new ArrayList<>();
     ArrayList<String> namaList = new ArrayList<>();
     ArrayList<String> deskripsiList = new ArrayList<>();
@@ -66,18 +71,20 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> gambarList5 = new ArrayList<>();
     ArrayList<Integer> point5 = new ArrayList<>();
 
-    // Container 2
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList,point);
-        loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2,point2);
-        loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3,point3);
-        loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4,point4);
-        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5,point5);
 
+
+        setContentView(R.layout.activity_main);
+
+        loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList, point);
+        loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
+        loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);
+        loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4, point4);
+        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
 
 
         int[] parent1 = {R.id.katalog1, R.id.katalog2, R.id.katalog3, R.id.katalog4, R.id.katalog5};
@@ -101,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
         int[] txtIds5 = {R.id.txtMenu21, R.id.txtMenu22, R.id.txtMenu23, R.id.txtMenu24, R.id.txtMenu25};
         int[] btnIds5 = {R.id.btnMenu21, R.id.btnMenu22, R.id.btnMenu23, R.id.btnMenu24, R.id.btnMenu25};
 
-        setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList,point);
-        setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2,point2);
-        setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3,point3);
-        setupProduk(parent4, imgIds4, txtIds4, btnIds4, idList4, namaList4, deskripsiList4, hargaList4, gambarList4,point4);
-        setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5,point5);
+        setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList, point);
+        setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
+        setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);
+        setupProduk(parent4, imgIds4, txtIds4, btnIds4, idList4, namaList4, deskripsiList4, hargaList4, gambarList4, point4);
+        setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
 
 
         TextView greetingText1 = findViewById(R.id.greetingtext);
@@ -114,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
-        String greeting1,greeting2,greeting3;
+        String greeting1, greeting2, greeting3;
         if (hour >= 5 && hour < 11) {
             greeting1 = "☀️ Pagi! Saatnya roti dan kopi hangat.";
             greeting2 = "🌤️ Nikmati pagi dengan kopi favoritmu.";
@@ -148,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         imageSlider.setImageList(imageList);
 
         //Move Event
-        int[] imageIds = {R.id.vcr1, R.id.vcr2, R.id.vcr3, R.id.vcr4,  R.id.nvVoucher,R.id.nvcart, R.id.nvProfile};
+        int[] imageIds = {R.id.vcr1, R.id.vcr2, R.id.vcr3, R.id.vcr4, R.id.nvVoucher, R.id.nvcart, R.id.nvProfile};
         Class<?>[] destinations = {
                 VoucherActivity.class,
                 VoucherActivity.class,
@@ -161,25 +168,25 @@ public class MainActivity extends AppCompatActivity {
         movepage(imageIds, destinations);
 
     }
+
     //Functions
-    private void movepage(int[] image, Class<?>[] destination)
-    {
-        for (int i = 0 ; i < image.length;i++){
+    private void movepage(int[] image, Class<?>[] destination) {
+        for (int i = 0; i < image.length; i++) {
 
             ImageView imageclick = findViewById(image[i]);
             Class<?> destinationfinal = destination[i];
 
-            imageclick.setOnClickListener(v ->{
-                Intent intent = new Intent(MainActivity.this,destinationfinal);
+            imageclick.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, destinationfinal);
                 startActivity(intent);
             });
         }
     }
-    private void  setupProduk(int[] katalogId, int[] imgId, int[] txtId, int[] btnId,
-                              ArrayList<Integer> idList, ArrayList<String> namaList,
-                              ArrayList<String> deskripsiList, ArrayList<Integer> hargaList,
-                              ArrayList<String> gambarList, ArrayList<Integer> point)
-    {
+
+    private void setupProduk(int[] katalogId, int[] imgId, int[] txtId, int[] btnId,
+                             ArrayList<Integer> idList, ArrayList<String> namaList,
+                             ArrayList<String> deskripsiList, ArrayList<Integer> hargaList,
+                             ArrayList<String> gambarList, ArrayList<Integer> point) {
         for (int i = 0; i < namaList.size(); i++) {
             int index = i;
             ImageView img = findViewById(imgId[i]);
@@ -221,19 +228,19 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("deskripsi", deskripsiList.get(index));
                 intent.putExtra("harga", hargaList.get(index));
                 intent.putExtra("gambar", "images/" + gambarList.get(index) + ".png");
-                intent.putExtra("point",point.get(index));
+                intent.putExtra("point", point.get(index));
                 startActivity(intent);
             });
         }
     }
+
     private void loadJsonToList(String fileName,
                                 ArrayList<Integer> idList,
                                 ArrayList<String> namaList,
                                 ArrayList<String> deskripsiList,
                                 ArrayList<Integer> hargaList,
                                 ArrayList<String> gambarList,
-                                ArrayList<Integer> point)
-   {
+                                ArrayList<Integer> point) {
         try {
             InputStream is = getAssets().open(fileName);
             int size = is.available();
@@ -257,7 +264,13 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }}
+    }
+
+
+
+
+
+}
 
 
 

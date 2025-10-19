@@ -1,5 +1,8 @@
 package com.example.cafeku;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -40,5 +43,12 @@ public class VoucherDetailActivity extends AppCompatActivity {
         int resColor = getResources().getIdentifier(String.valueOf(color), "drawable", getPackageName());
         adpColor.setBackgroundResource(resColor);
         txtDeskrips.setText(deskripsi);
+
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            Intent intentBack = new Intent(this, VoucherActivity.class);
+            startActivity(intentBack);
+            finish();
+        });
     }
 }

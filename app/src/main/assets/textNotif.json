@@ -1,0 +1,37 @@
+[{
+  "id": 1,
+  "text": "Lagi ngapain nih? 🤭",
+  "dest": "com.example.cafeku.MainActivity",
+  "intent": -1
+},{
+  "id": 2,
+  "text": "Kamu dapat voucher nihh",
+  "dest": "com.example.cafeku.VoucherActivity",
+  "intent": -1
+},{
+  "id": 3,
+  "text": "Kopi bareng doi boleh dihh mumpung ada diskon",
+  "dest": "com.example.cafeku.VoucherActivity",
+  "intent": -1
+},{
+  "id": 4,
+  "text": "Paket urunan bikin nongkrong jadi lebih hemat",
+  "dest": "com.example.cafeku.MainActivity",
+  "intent": 25
+},{
+  "id": 5,
+  "text": "Diet bareng yukk pake paket diet",
+  "dest": "com.example.cafeku.MainActivity",
+  "intent": 21
+},{
+  "id": 6,
+  "text": "Rayakan idul fitri dengan diskon 30%",
+  "dest": "com.example.cafeku.VoucherActivity",
+  "intent": -1
+},{
+  "id": 7,
+  "text": "Tes ajahh",
+  "dest": "com.example.cafeku.Profile",
+  "intent": -1
+}
+]
