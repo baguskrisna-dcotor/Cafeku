@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_main);
+        new notificationHelper(getApplicationContext());
 
         loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList, point);
         loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
