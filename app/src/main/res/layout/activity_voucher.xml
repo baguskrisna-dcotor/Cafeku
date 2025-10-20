@@ -15,7 +15,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/banner_vcr"
         android:layout_marginTop="30dp"
         android:layout_above="@id/nvBAR">
 
@@ -33,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/banner_vcr"
                 android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
+                android:scaleType="fitCenter"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
