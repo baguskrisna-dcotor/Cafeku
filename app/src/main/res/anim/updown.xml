@@ -2,11 +2,22 @@
     android:fillAfter="true"
     android:interpolator="@android:anim/accelerate_decelerate_interpolator">
 
-    <!-- Fade in -->
     <alpha
-        android:duration="2000"
+        android:duration="1000"
         android:fromAlpha="0"
-        android:toAlpha="1" />
+        android:toAlpha="1"
+        />
+    <!-- Fade in -->
+    <scale
+        android:startOffset="300"
+        android:duration="300"
+        android:fromXScale="1.8"
+        android:toXScale="1.0"
+        android:fromYScale="1.8"
+        android:toYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%" />
+
 
     <translate
         android:duration="1000"

@@ -20,6 +20,11 @@ import androidx.core.app.ActivityCompat;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.example.cafeku.DAO.LevelDao;
+import com.example.cafeku.database.LevelDatabase;
+import com.example.cafeku.database.PointDatabase;
+import com.example.cafeku.database.UserDatabase;
+import com.example.cafeku.model.User;
 import com.google.android.material.button.MaterialButton;
 
 import java.io.InputStream;
@@ -30,6 +35,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
+import java.util.logging.Level;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -114,10 +120,30 @@ public class MainActivity extends AppCompatActivity {
         setupProduk(parent4, imgIds4, txtIds4, btnIds4, idList4, namaList4, deskripsiList4, hargaList4, gambarList4, point4);
         setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
 
+        TextView user = findViewById(R.id.usernamegreeting);
+        Intent i = new Intent();
+        String nama = i.getStringExtra("nama");
+
+        User u = UserDatabase.getInstance(this).userDao().getUser();
+
+        if(u != null){
+            user.setText(u.username);
+        }else{
+           user.setText("Hello,Guest");
+        }
+
 
         TextView greetingText1 = findViewById(R.id.greetingtext);
         TextView greetingtext2 = findViewById(R.id.greetingtext2);
         TextView greetingtext3 = findViewById(R.id.greetingtext3);
+        TextView rank = findViewById(R.id.homeranktxt);
+        LevelDao lvl = LevelDatabase.getInstance(this).levelDao();
+        Level p = lvl.select();
+        if (p != null){
+            rank.setText(String.valueOf(p));
+        }else{
+            rank.setText("RANK");
+        }
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
@@ -189,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                              ArrayList<String> gambarList, ArrayList<Integer> point) {
         for (int i = 0; i < namaList.size(); i++) {
             int index = i;
-            ImageView img = findViewById(imgId[i]);
+            ImageView img = findViewById(imgId[i])    ;
             TextView txt = findViewById(txtId[i]);
             MaterialButton btn = findViewById(btnId[i]);
             LinearLayout katalog = findViewById(katalogId[i]);

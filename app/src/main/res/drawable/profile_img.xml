@@ -3,11 +3,9 @@
     android:shape="oval">
 
     <!-- Warna background lingkaran -->
-    <solid android:color="#4E342E" />
+    <solid android:color="#1E4E342E" />
 
     <!-- Outline lingkaran -->
-    <stroke
-        android:width="2dp"
-        android:color="#FFFFFF" />
+
 
 </shape>

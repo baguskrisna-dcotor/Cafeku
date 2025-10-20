@@ -18,6 +18,8 @@ public class User {
     @ColumnInfo(name = "gender")
     public Boolean gender;
 
+
+
     public User(String username, String password,Boolean gender) {
         this.username = username;
         this.password = password;

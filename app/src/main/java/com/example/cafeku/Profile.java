@@ -1,5 +1,6 @@
 package com.example.cafeku;
 
+import android.content.Context;
 import android.view.ViewTreeObserver;
 
 import android.animation.ObjectAnimator;
@@ -51,11 +52,14 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemChangeListener;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.cafeku.DAO.ImgDao;
 import com.example.cafeku.DAO.LevelDao;
 import com.example.cafeku.DAO.PointDao;
 import com.example.cafeku.DAO.UserDao;
+import com.example.cafeku.database.ImgDatabase;
 import com.example.cafeku.database.LevelDatabase;
 import com.example.cafeku.database.UserDatabase;
+import com.example.cafeku.model.Img;
 import com.example.cafeku.model.LevelModel;
 import com.example.cafeku.model.Point;
 import com.example.cafeku.database.PointDatabase;
@@ -72,15 +76,16 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class Profile extends AppCompatActivity implements OnMapReadyCallback {
     Handler handler = new Handler();
     private HorizontalScrollView h;
     private GoogleMap mMap;
-    private ImageView btnMore,tvgender;
-    private TextView tvusername,g1,g2;
+    private ImageView btnMore, tvgender, photoprofile;
+    private TextView tvusername, g1, g2;
     private ImageSlider slider;
-    private LinearLayout l ;
+    private LinearLayout l;
     ArrayList<String> namaList1 = new ArrayList<>();
     ArrayList<SlideModel> slideModels = new ArrayList<>();
     ArrayList<String> title1 = new ArrayList<>();
@@ -88,6 +93,10 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
     ArrayList<String> namalvl = new ArrayList<>();
     ArrayList<Integer> lvl = new ArrayList<>();
     ArrayList<Integer> minpoint = new ArrayList<>();
+
+    ArrayList<String> titleimg = new ArrayList<>();
+    ArrayList<String> imgchoice = new ArrayList<>();
+    ArrayList<String> decs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,11 +110,12 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         tvusername = findViewById(R.id.nameUser);
         btnMore = findViewById(R.id.settingbutton);
         slider = findViewById(R.id.imageslider);
-        g1 =findViewById(R.id.greetingtext1);
+        g1 = findViewById(R.id.greetingtext1);
         g2 = findViewById(R.id.greetingtext2);
         tvgender = findViewById(R.id.gender);
         h = findViewById(R.id.scrollauto);
         l = findViewById(R.id.rankdetail);
+        photoprofile = findViewById(R.id.photoprofile);
 
 
         handler.postDelayed(new Runnable() {
@@ -123,10 +133,9 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             }
         }, speed[0]);
 
-        LevelHandler(namalvl,lvl,minpoint);
+        LevelHandler(namalvl, lvl, minpoint);
 
         try {
-            // 🔹 Baca JSON dari assets
             InputStream is = getAssets().open("slider.json");
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -166,20 +175,45 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             e.printStackTrace();
         }
         Intent i = getIntent();
-        String nama = i.getStringExtra("username");
-        Boolean sex = i.getBooleanExtra("gender",false);
-        UserDao n = UserDatabase.getInstance(this).userDao();
+        boolean sex = i.getBooleanExtra("gender", false); // false = perempuan, true = laki-laki
 
-        User user = n.getUser(nama);
-        if (user != null) {
-            tvusername.setText(user.username);
-            if (user.gender) {
+        UserDao userDao = UserDatabase.getInstance(this).userDao();
+        User currentUser = userDao.getUser(); // Ambil user yang sedang login
+
+        if (currentUser != null) {
+            tvusername.setText(currentUser.username);
+            ImgDatabase id = ImgDatabase.getInstance(this);
+            ImgDao dao = id.imgDao();
+            Img existingImg = dao.select();
+
+
+            if (currentUser.gender) {
                 tvgender.setImageResource(R.drawable.male);
             } else {
                 tvgender.setImageResource(R.drawable.remale);
             }
+
+            if (existingImg != null && existingImg.img != null) {
+                try {
+                    InputStream is2 = getAssets().open("imageprofile/" + existingImg.img + ".png");
+                    Bitmap bmp = BitmapFactory.decodeStream(is2);
+                    photoprofile.setImageBitmap(bmp);
+                    is2.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.e("IMG_LOAD", "Gagal memuat gambar: " + existingImg.img, e);
+                    photoprofile.setImageResource(R.drawable.icon_guest);
+                }
+            } else {
+                photoprofile.setImageResource(R.drawable.icon_guest);
+                Toast.makeText(this, "Kamu belum set gambar profil.", Toast.LENGTH_SHORT).show();
+            }
+
         } else {
+            photoprofile.setImageResource(R.drawable.cafeku);
             tvusername.setText("Halo, Guest");
+            photoprofile.setImageResource(R.drawable.icon_guest);
+            tvgender.setImageResource(R.drawable.icon_guest); // opsional
         }
 
 
@@ -226,7 +260,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 R.id.btnkeranjang,
                 R.id.btnvoucher,
                 R.id.rankdetail
-               };
+        };
         Class[] moveto = {
                 MainActivity.class,
                 VoucherActivity.class,
@@ -302,37 +336,50 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
     private void showPopupMenu(View anchor) {
         PopupMenu popup = new PopupMenu(this, anchor);
         popup.getMenuInflater().inflate(R.menu.profile_menu, popup.getMenu());
+        tvgender = findViewById(R.id.gender);
+        tvusername = findViewById(R.id.nameUser);
 
         popup.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
-            Intent i = getIntent();
-            String nama = i.getStringExtra("username");
 
             UserDatabase db = UserDatabase.getInstance(this);
-            UserDao userdao = db.userDao();
-            User exist = (nama != null) ? userdao.getUser(nama) : null;
+            UserDao userDao = db.userDao();
+            User user = userDao.getUser();
+
+            ImgDatabase ib = ImgDatabase.getInstance(this);
+            ImgDao dao = ib.imgDao();
+
 
             if (id == R.id.menu_edit_profile) {
                 showEditProfileDialog();
                 return true;
 
             } else if (id == R.id.menu_login) {
-                if (exist == null) {
+                if (user == null) {
                     Toast.makeText(this, "Silakan login dulu", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Profile.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(this, "Kamu sudah login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Kamu sudah login sebagai " + user.username, Toast.LENGTH_SHORT).show();
                 }
                 return true;
 
             } else if (id == R.id.menu_logout) {
-                if (exist != null) {
-                    userdao.Logout(exist); // pastikan DAO kamu punya method ini
+                if (user != null) {
+                    userDao.logout();
+                    dao.delete();
+                    photoprofile.setImageResource(R.drawable.icon_guest);
+                    tvusername.setText("Hallo,Guest");
+                    tvgender.setImageResource(R.drawable.icon_guest);
                     Toast.makeText(this, "Logout berhasil", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Kamu belum login", Toast.LENGTH_SHORT).show();
                 }
+                return true;
+            } else if (id == R.id.Edit_Img) {
+                showImageChoice();
+                Toast.makeText(this, "Edit IMG", Toast.LENGTH_SHORT).show();
+                Log.d("MENU", "Edit profile clicked");
                 return true;
             }
 
@@ -360,7 +407,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         // klik tombol Save
         btnSave.setOnClickListener(v -> {
             String name = etName.getText().toString();
-            // update profile di halaman utama
+            UserDatabase u = UserDatabase.getInstance(this);
+            u.userDao().updateNama(name);
             tvusername.setText(name);
 
             Toast.makeText(this, "Data tersimpan!", Toast.LENGTH_SHORT).show();
@@ -369,6 +417,116 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         // klik tombol X (close)
         btnClose.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
+
+    private void showImageChoice() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.image_choice, null);
+
+        TextView[] name = {
+                view.findViewById(R.id.name1),
+                view.findViewById(R.id.name2),
+                view.findViewById(R.id.name3),
+                view.findViewById(R.id.name4),
+                view.findViewById(R.id.name5),
+
+        };
+        TextView[] title = {
+                view.findViewById(R.id.title1),
+                view.findViewById(R.id.title2),
+                view.findViewById(R.id.title3),
+                view.findViewById(R.id.title4),
+                view.findViewById(R.id.title5)};
+        TextView[] deskripsi = {
+                view.findViewById(R.id.decs1),
+                view.findViewById(R.id.decs2),
+                view.findViewById(R.id.decs3),
+                view.findViewById(R.id.decs4),
+                view.findViewById(R.id.decs5)};
+        ImageView[] imageViews = {
+                view.findViewById(R.id.img_1),
+                view.findViewById(R.id.img_2),
+                view.findViewById(R.id.img_3),
+                view.findViewById(R.id.img_4),
+                view.findViewById(R.id.img_5)
+        };
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .setCancelable(true)
+                .create();
+
+
+        try {
+            InputStream is = getAssets().open("profileimg.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                imgchoice.add(obj.getString("nama"));
+                titleimg.add(obj.getString("Title"));
+                decs.add(obj.getString("desc"));
+            }
+
+            for (int i =0; i <= imageViews.length  && i < imgchoice.size(); i++) {
+                final int index = i;
+                InputStream imgStream = getAssets().open("imageprofile/" + imgchoice.get(i) + ".png");
+                Bitmap bitmap = BitmapFactory.decodeStream(imgStream);
+                imageViews[i].setImageBitmap(bitmap);
+                imgStream.close();
+
+                title[index].setText(titleimg.get(index));
+                deskripsi[index].setText(decs.get(index));
+                name[index].setText(titleimg.get(index));
+
+                imageViews[i].setOnClickListener(v -> {
+                    ImgDatabase id = ImgDatabase.getInstance(this);
+                    ImgDao dao = id.imgDao();
+                    Img existing = dao.select();
+
+
+                    if (existing != null) {
+                        // update record yang ada
+
+                        dao.update(existing.id,imgchoice.get(index));
+                    } else {
+                        // insert record baru
+                        Img newImg = new Img();
+                        newImg.img =imgchoice.get(index);
+                        dao.insert(newImg);
+                    }
+
+                    // langsung set photoprofile dari asset yang kita pilih
+                    try {
+                        InputStream is2 = getAssets().open("imageprofile/" + imgchoice.get(index) + ".png");
+                        Bitmap bmp = BitmapFactory.decodeStream(is2);
+                        ImageView photoprofile = findViewById(R.id.photoprofile);
+                        Toast.makeText(this,"Photo profile anda diperbarui",Toast.LENGTH_SHORT).show();
+                        photoprofile.setImageBitmap(bmp);
+                        is2.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Log.e("IMG_SAVE", "Gagal load asset after save: " +imgchoice.get(index), e);
+                    }
+
+
+                    Toast.makeText(this, "Gambar disimpan: " + imgchoice.get(index), Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                });
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Gagal memuat data gambar", Toast.LENGTH_SHORT).show();
+        }
 
         dialog.show();
     }
@@ -394,6 +552,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         }
 
     }
+
+
     private void LevelHandler(
             ArrayList<String> namaLevel,
             ArrayList<Integer> level,
@@ -427,7 +587,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();
-            return ;
+            return;
         }
 
 
@@ -449,7 +609,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             }
 
             TextView tvLevelname = findViewById(R.id.levelname);
-            ProgressBar progressbar =findViewById(R.id.progressBar);
+            ProgressBar progressbar = findViewById(R.id.progressBar);
 
 
             int nextMinPoint;
@@ -459,10 +619,10 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 nextMinPoint = minPoint.get(achievedIndex);
             }
             int progress;
-            if (nextMinPoint == requiredPoint){
+            if (nextMinPoint == requiredPoint) {
                 progress = 100;
-            }else {
-                progress = (int) (((float)(userPoint - requiredPoint)/(nextMinPoint - requiredPoint)) * 100);
+            } else {
+                progress = (int) (((float) (userPoint - requiredPoint) / (nextMinPoint - requiredPoint)) * 100);
             }
             progressbar.setProgress(progress);
 
@@ -522,7 +682,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
                             Matrix matrix = new Matrix();
 
-                            ValueAnimator animator = ValueAnimator.ofFloat(0, (float)width * 2);
+                            ValueAnimator animator = ValueAnimator.ofFloat(0, (float) width * 2);
                             animator.setDuration(4000);
                             animator.setRepeatCount(ValueAnimator.INFINITE);
                             animator.setInterpolator(new LinearInterpolator());
@@ -549,7 +709,6 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         }
     }
-
 
 
     private void openGoogleMaps(double latitude, double longitude) {

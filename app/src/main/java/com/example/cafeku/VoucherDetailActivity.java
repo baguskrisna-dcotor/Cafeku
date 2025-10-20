@@ -26,16 +26,20 @@ public class VoucherDetailActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
+        LinearLayout adpColor = findViewById(R.id.adpColor);
+        TextView txtName = findViewById(R.id.nameVoucher);
+        TextView txtDeskrips = findViewById(R.id.deskripsi);
+        ImageView imgVoucher = findViewById(R.id.imgVoucher);
+
+
         Intent intent = getIntent();
         int color = intent.getIntExtra("color",0);
         int image = intent.getIntExtra("img", 0);
         String nama = intent.getStringExtra("name");
         String deskripsi = intent.getStringExtra("deskripsi");
-        LinearLayout adpColor = findViewById(R.id.adpColor);
-        TextView txtName = findViewById(R.id.nameVoucher);
-        TextView txtDeskrips = findViewById(R.id.deskripsi);
-        ImageView imgVoucher = findViewById(R.id.imgVoucher);
+
         adpColor.setBackgroundResource(color);
         txtName.setText(nama);
         int resId = getResources().getIdentifier(String.valueOf(image), "drawable", getPackageName());

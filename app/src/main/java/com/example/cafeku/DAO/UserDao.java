@@ -12,12 +12,15 @@ public interface UserDao {
     @Insert
     void insertUser(User user);
 
-    @Query("SELECT * FROM users WHERE username = :username LIMIT 1")
-    User getUser(String username);
+    @Query("UPDATE users SET username = :newName ")
+    void updateNama( String newName);
+    @Query("SELECT * FROM users LIMIT 1")
+    User getUser();
+
 
     @Query("SELECT * FROM users WHERE gender= :gender LIMIT 1")
     User getGender(Boolean gender);
 
-    @Delete
-    void  Logout(User user);
+    @Query("DELETE FROM users")
+    void logout();
 }

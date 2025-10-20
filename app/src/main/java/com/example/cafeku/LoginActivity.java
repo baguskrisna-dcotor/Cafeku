@@ -11,8 +11,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.cafeku.DAO.ImgDao;
 import com.example.cafeku.DAO.UserDao;
+import com.example.cafeku.database.ImgDatabase;
 import com.example.cafeku.database.UserDatabase;
+import com.example.cafeku.model.Img;
 import com.example.cafeku.model.User;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -60,20 +63,26 @@ public class LoginActivity extends Activity {
                 Toast.makeText(this,"Isi dulu bego",Toast.LENGTH_LONG).show();
                 return ;
             }
-
             UserDatabase db = UserDatabase.getInstance(this);
             UserDao userdao = db.userDao();
+            User existing = userdao.getUser();
 
-            User existing = userdao.getUser(username);
-            if(existing!=null){
-                Toast.makeText(this,"Namalu udah ada ",Toast.LENGTH_LONG).show();
+
+            if (existing != null && existing.username.equals(username)) {
+                Toast.makeText(this, "Namamu sudah ada", Toast.LENGTH_LONG).show();
                 return;
             }
+
+            ImgDatabase ib = ImgDatabase.getInstance(this);
+            ImgDao dao = ib.imgDao();
+            dao.delete();
 
             User newuser = new User(username,password,sex);
             userdao.insertUser(newuser);
             Toast.makeText(this,"Welcome to CAFELI",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(LoginActivity.this, Profile.class);
+            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+            i.putExtra("nama",username);
             intent.putExtra("username", username);
             intent.putExtra("gender",sex);
             startActivity(intent);

@@ -41,19 +41,25 @@
             android:gravity="center|start">
             <LinearLayout
                 android:layout_marginTop="10dp"
-                android:layout_width="320dp"
+                android:layout_width="0dp"
+                android:layout_weight="5"
                 android:layout_height="54dp"
                 android:orientation="vertical"
                 >
 
                 <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="18dp"
+                    android:id="@+id/usernamegreeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginRight="20dp"
                     android:fontFamily="@font/orelaga"
                     android:text="@string/HomeGuest"
+                    android:padding="2sp"
+                    android:gravity="center"
+                    android:background="@drawable/pointhandler"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
 
                 <ViewFlipper
@@ -99,9 +105,10 @@
 
             <ImageView
                 android:layout_gravity="end"
-                android:layout_width="60dp"
-                android:layout_height="59dp"
-                android:layout_marginEnd="20dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="65sp"
+                android:layout_marginEnd="10sp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/cafeku"
                 />
@@ -126,6 +133,7 @@
                 app:iss_placeholder="@color/white"
                 />
 
+
             <ImageView
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
@@ -138,6 +146,7 @@
                 />
 
             <HorizontalScrollView
+                android:id="@+id/vcrview"
                 android:layout_below="@id/image_slider"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
@@ -214,7 +223,25 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:gravity="center"
+                android:layout_margin="10sp"
+                android:layout_below="@id/vcrview"
+                android:background="@drawable/modrngradient2">
 
+                <TextView
+                    android:id="@+id/homeranktxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PLATINUM"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/arvo"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
         </RelativeLayout>
 
 

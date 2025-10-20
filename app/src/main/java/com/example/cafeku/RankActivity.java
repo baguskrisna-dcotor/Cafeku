@@ -2,6 +2,7 @@ package com.example.cafeku; // ganti sesuai package project kamu
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -19,7 +20,9 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -39,19 +42,28 @@ import com.example.cafeku.DAO.PointDao;
 import com.example.cafeku.database.LevelDatabase;
 
 public class RankActivity extends AppCompatActivity {
-    private TextView point;
+    private TextView point, resetpoint,back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rank);
         point = findViewById(R.id.point);
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(v->{
+            Intent i = new Intent(RankActivity.this, Profile.class);
+            startActivity(i);
+        });
+
         ArrayList<String> namaLevel = new ArrayList<>();
         ArrayList<Integer> level = new ArrayList<>();
         ArrayList<Integer> minPoint = new ArrayList<>();
 
+
         LevelHandler(namaLevel, level, minPoint);
         Point p = PointDatabase.getInstance(this).pointDao().getPoints();
-        point.setText(String.valueOf(p !=null ? p.totalPoint       :0));
+        point.setText(String.valueOf(p != null ? p.totalPoint : 0));
     }
 
     private void LevelHandler(
@@ -61,6 +73,7 @@ public class RankActivity extends AppCompatActivity {
     ) {
         LevelDatabase lvldb = LevelDatabase.getInstance(this);
         LevelDao lvldao = lvldb.levelDao();
+
         Point p = PointDatabase.getInstance(this).pointDao().getPoints();
         int userPoint = (p != null ? p.totalPoint : 0);
 
@@ -126,23 +139,24 @@ public class RankActivity extends AppCompatActivity {
             animation.setInterpolator(new DecelerateInterpolator());
             animation.start();
 
+
+
             String imageName = "image_level" + (achievedIndex + 1);
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
             img.setImageResource(resId != 0 ? resId : R.drawable.dummy);
 
-            // ====== Pewarnaan berdasarkan level ======
             if (Objects.equals(currentLevelName, "Keren")) {
                 tvLevelname.setTextColor(Color.parseColor("#B0BEC5"));
-                levelup();
+
             } else if (Objects.equals(currentLevelName, "Ksatria")) {
                 tvLevelname.setTextColor(Color.parseColor("#ECEFF1"));
-                levelup();
+
             } else if (Objects.equals(currentLevelName, "Pangeran")) {
                 tvLevelname.setTextColor(Color.parseColor("#FFD54F"));
-                levelup();
+
             } else if (Objects.equals(currentLevelName, "Raja")) {
                 tvLevelname.setTextColor(Color.parseColor("#D1C4E9"));
-                levelup();
+
             } else if (Objects.equals(currentLevelName, "Mitos")) {
                 TextView tv = tvLevelname;
                 tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
@@ -200,14 +214,42 @@ public class RankActivity extends AppCompatActivity {
             } else if (currentLevel == 4) {
                 tvlevel.setTextColor(Color.parseColor("#673AB7FF"));
             } else {
-                tvLevelname.setTextColor(Color.RED);
+                tvlevel.setTextColor(Color.RED);
             }
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
+            resetpoint = findViewById(R.id.resetpoint);
+            resetpoint.setOnClickListener(v -> {
+                new AlertDialog.Builder(this)
+                        .setTitle("Konfirmasi Reset")
+                        .setMessage("Apakah kamu yakin ingin mereset semua point?")
+                        .setPositiveButton("Ya", (dialog, which) -> {
+                            PointDatabase dp = PointDatabase.getInstance(this);
+                            dp.pointDao().deleteAll();
+
+                            // Reset tampilan awal
+                            progressbar.setProgress(0);
+                            tvlevel.setText(String.valueOf(level.get(0)));
+                            tvLevelname.setText(namaLevel.get(0));
+                            tvMinPoint.setText(String.valueOf(minPoint.get(0)));
+                            img.setImageResource(R.drawable.image_level1);
+                            point.setText("0");
+
+                            // Hapus level tersimpan jika ada
+                            LevelDatabase lvl = LevelDatabase.getInstance(this);
+                            LevelDao dao = lvl.levelDao();
+                            dao.delete();
+
+                            // Jalankan ulang LevelHandler agar tampilan level sinkron
+                            LevelHandler(namaLevel, level, minPoint);
+
+                            Toast.makeText(this, "Point berhasil direset", Toast.LENGTH_SHORT).show();
+                        })
+                        .setNegativeButton("Batal", (dialog, which) -> dialog.dismiss())
+                        .show();
+            });
+
         }
     }
-
-    private void levelup() {
-        // bisa isi efek animasi naik level di sini kalau mau
-    }
 }
+

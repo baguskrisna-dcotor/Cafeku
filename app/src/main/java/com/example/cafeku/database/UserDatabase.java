@@ -22,7 +22,8 @@ public abstract class UserDatabase extends RoomDatabase {
                             UserDatabase.class,
                             "cafeku_db"
                     )
-                    .allowMainThreadQueries() // boleh untuk tes
+                    .allowMainThreadQueries()
+                    // boleh untuk tes
                     .build();
         }
         return instance;

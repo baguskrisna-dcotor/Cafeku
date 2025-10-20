@@ -82,15 +82,19 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        updateTotal(cartItems,r);
-        updateTotalpoint(cartItems);
-
         beli.setOnClickListener(v -> {
-            adapter.clear();
-            Toast.makeText(this, "Keranjang anda sekarang kosong. Terimakasih sudah membeli", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, ThanksActivity.class);
-            startActivity(intent);
+            if (adapter.getItemCount() > 0) {
+                updateTotal(cartItems, r);
+                updateTotalpoint(cartItems);
+                adapter.clear();
+
+                Toast.makeText(this, "Keranjang anda sekarang kosong. Terimakasih sudah membeli", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, ThanksActivity.class));
+            } else {
+                Toast.makeText(this, "Keranjang masih kosong!", Toast.LENGTH_SHORT).show();
+            }
         });
+
     }
 
     private void updateTotal(List<CartItem> items, RadioGroup rg) {
@@ -106,7 +110,7 @@ public class CartActivity extends AppCompatActivity {
 
                 if (radioid == R.id.uservcr1) {
                     // hitung diskon 30%
-                    double discount = totalfinal * 0.30;
+                    double discount = totalfinal * 0.03;
                     totalDiscount = totalfinal - discount;
 
                     // buat teks dengan harga lama dicoret
@@ -120,7 +124,7 @@ public class CartActivity extends AppCompatActivity {
 
                 } else if (radioid == R.id.usevcr2) {
                     // contoh diskon 50%
-                    double discount = totalfinal * 0.25;
+                    double discount = totalfinal * 0.015;
                     totalDiscount = totalfinal - discount;
 
                     String oldPrice = "Rp " + totalfinal;
@@ -133,7 +137,7 @@ public class CartActivity extends AppCompatActivity {
 
                 } else if (radioid == R.id.usevcr3) {
                     // contoh diskon 10%
-                    double discount = totalfinal * 0.15;
+                    double discount = totalfinal * 0.25;
                     totalDiscount = totalfinal - discount;
 
                     String oldPrice = "Rp " + totalfinal;
@@ -164,22 +168,22 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void updateTotalpoint(List<CartItem> items) {
-        int total = 0;
+        int totals = 0;
         dbs = PointDatabase.getInstance(this);
         PointDao p = dbs.pointDao();
         Point point = p.getPoints();
         for (CartItem i : items) {
-            total += i.point * i.quantity;
+            totals += i.point * i.quantity;
         }
         if (point != null) {
-            int newTotal = point.totalPoint + total;
-            p.addpoint(point.id, newTotal);
+            int newTotal = point.totalPoint + totals;
+            p.updatepoint (point.id, newTotal);
         } else {
             Point newPoint = new Point();
-            newPoint.totalPoint = total;
+            newPoint.totalPoint = totals;
             p.insert(newPoint);
         }
-        pointholder.setText(String.valueOf(total));
+        pointholder.setText(String.valueOf(totals));
     }
 
     private void COcheck(List<CartItem> cartItems){

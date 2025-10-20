@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nama": "profile_img1",
+    "Title": "Futuristic Dragon",
+    "desc": "Naga cyber dengan sisik bercahaya biru dan tubuh baja, melambangkan kekuatan serta semangat pantang menyerah dalam menghadapi masa depan."
+  },
+  {
+    "id": 2,
+    "nama": "profile_img2",
+    "Title": "Tree of Cafeku",
+    "desc": "Pohon kehidupan yang tumbuh dari akar teknologi, menyimbolkan keseimbangan antara alam dan kemajuan zaman dalam setiap karya dan ide."
+  },
+  {
+    "id": 3,
+    "nama": "profile_img3",
+    "Title": "Fire Phoenix Cafeku",
+    "desc": "Burung api legendaris yang bangkit dari abu, menggambarkan semangat untuk terus berkembang dan tidak takut memulai kembali dari awal."
+  },
+  {
+    "id": 4,
+    "nama": "profile_img4",
+    "Title": "Cold Blood Dragon Cafeku",
+    "desc": "Naga es yang tenang namun mematikan, mewakili keteguhan hati, kecerdikan, dan kemampuan menjaga kendali dalam situasi sulit."
+  },
+  {
+    "id": 5,
+    "nama": "profile_img5",
+    "Title": "Flash Wolf Cafeku",
+    "desc": "Serigala petir yang bergerak secepat kilat, simbol kecepatan berpikir, ketajaman insting, dan keberanian dalam mengejar tujuan."
+  }
+]

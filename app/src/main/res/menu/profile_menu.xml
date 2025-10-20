@@ -3,5 +3,6 @@
     <item android:id="@+id/menu_edit_profile" android:title="Edit Profile"/>
     <item android:id="@+id/menu_login" android:title="Login"/>
     <item android:id="@+id/menu_logout" android:title="Logout"/>
+    <item android:id="@+id/Edit_Img" android:title="Edit Photo Profile"/>
     <item android:id="@+id/menu_cancel" android:title="Cancel"/>
 </menu>
