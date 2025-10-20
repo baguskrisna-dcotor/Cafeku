@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextView user = findViewById(R.id.usernamegreeting);
         Intent i = new Intent();
-        String nama = i.getStringExtra("nama");
 
         User u = UserDatabase.getInstance(this).userDao().getUser();
 
