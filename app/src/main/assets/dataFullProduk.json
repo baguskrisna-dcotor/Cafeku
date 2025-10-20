@@ -1,0 +1,204 @@
+[
+  {
+    "id": 1,
+    "nama": "Chocolate",
+    "deskripsi": "Minuman cokelat premium yang dibuat dari bubuk kakao pilihan dengan rasa pekat namun lembut. Diseduh dengan susu segar berkualitas sehingga menghasilkan perpaduan manis dan sedikit pahit yang seimbang. Teksturnya creamy dan aromanya menggugah selera, cocok diminum dingin maupun hangat sebagai teman santai.",
+    "harga": 18000,
+    "gambar": "menu_1",
+    "point" : 2,
+    "tipe" : "bestseller"
+  },
+  {
+    "id": 2,
+    "nama": "Matcha",
+    "deskripsi": "Disajikan dari bubuk matcha asli berkualitas tinggi yang digiling halus, menghasilkan rasa khas teh hijau Jepang yang earthy dan menenangkan. Dipadukan dengan susu segar yang membuatnya creamy namun tetap ringan di lidah. Warna hijaunya yang natural serta rasa manis pahit seimbang membuat menu ini populer bagi pecinta matcha.",
+    "harga": 22000,
+    "gambar": "menu_2",
+    "point" : 2
+  },
+  {
+    "id": 3,
+    "nama": "Milk Tea",
+    "deskripsi": "Teh hitam premium yang diracik dengan teknik seduh tepat untuk menghasilkan rasa teh yang kuat namun tetap halus. Dipadukan dengan susu segar sehingga menghadirkan kelembutan creamy dengan manis yang pas. Setiap tegukan menghadirkan sensasi klasik milk tea yang segar, membuatnya cocok diminum kapan saja.",
+    "harga": 12000,
+    "gambar": "menu_3",
+    "point" : 1
+
+  },
+  {
+    "id": 4,
+    "nama": "Strawberry",
+    "deskripsi": "Kombinasi unik antara kopi espresso pekat dan manis segar buah stroberi pilihan. Susunya menambah kelembutan, sementara aroma buah segar memberikan twist menyenangkan di setiap tegukan. Rasanya seimbang antara asam manis stroberi dengan pahit lembut kopi, menjadikannya minuman yang modern, segar, dan instagramable.",
+    "harga": 18000,
+    "gambar": "menu_4",
+    "point" : 2
+  },
+  {
+    "id": 5,
+    "nama": "Red Velvet",
+    "deskripsi": "Minuman ikonik dengan warna merah elegan yang menggoda, dibuat dari bubuk red velvet berkualitas dengan perpaduan susu segar. Teksturnya lembut dan creamy, menghadirkan rasa manis khas red velvet dengan sentuhan cokelat ringan. Daya tarik utamanya ada pada tampilan mewah sekaligus rasa yang manis elegan, cocok untuk menemani momen spesial.",
+    "harga": 22000,
+    "gambar": "menu_5",
+    "point" : 2
+  },
+  {
+    "id": 6,
+    "nama": "Americano",
+    "deskripsi": "Kopi hitam murni hasil ekstraksi espresso berkualitas tinggi yang disajikan dengan tambahan air panas. Rasanya strong, bold, dengan aroma khas kopi panggang yang pekat. Cocok untuk penikmat kopi sejati yang menyukai kesederhanaan namun tetap elegan.",
+    "harga": 22000,
+    "gambar": "menu_6",
+    "point" : 2
+  },
+  {
+    "id": 7,
+    "nama": "Caffe Latte",
+    "deskripsi": "Perpaduan espresso pekat dengan susu segar yang creamy, menghasilkan cita rasa lembut dan seimbang. Lapisan foam tipis di atasnya menambah tekstur halus dan aroma menggoda. Minuman ini pas untuk kamu yang suka kopi dengan sentuhan manis ringan.",
+    "harga": 18000,
+    "gambar": "menu_7",
+    "point" : 2
+  },
+  {
+    "id": 8,
+    "nama": "Cappuccino",
+    "deskripsi": "Kombinasi sempurna antara espresso kuat, susu panas, dan buih susu tebal di atasnya. Ditambah taburan bubuk cokelat atau kayu manis untuk aroma yang khas. Rasanya creamy, hangat, dan bikin nyaman di setiap tegukan.",
+    "harga": 20000,
+    "gambar": "menu_8",
+    "point" : 2
+  },
+  {
+    "id": 9,
+    "nama": " Macchiato",
+    "deskripsi": "Espresso berkualitas dipadukan dengan susu lembut lalu diberi lapisan caramel manis di atasnya. Perpaduan pahit, manis, dan creamy yang pas membuat minuman ini jadi favorit banyak orang. Tampilan cantiknya juga menambah daya tarik untuk dinikmati kapan saja.",
+    "harga": 28000,
+    "gambar": "menu_9",
+    "point" : 3
+  },
+  {
+    "id": 10,
+    "nama": "Espresso",
+    "deskripsi": "Sajian kopi klasik dengan cita rasa paling murni, dibuat dari biji kopi pilihan yang diekstraksi dengan tekanan tinggi. Rasanya kuat, pekat, dan memberikan energi instan. Cocok untuk pecinta kopi yang ingin menikmati keaslian rasa tanpa campuran.",
+    "harga": 20000,
+    "gambar": "menu_10",
+    "point" : 2
+  },
+  {
+    "id": 11,
+    "nama": "Corndog",
+    "deskripsi": "Sosis premium yang dibalut adonan tepung jagung khas, digoreng hingga keemasan dengan tekstur renyah di luar dan lembut di dalam. Bisa ditambahkan lelehan keju mozzarella untuk sensasi gurih yang lumer di mulut. Cocok sebagai camilan hangat yang praktis dan bikin nagih.",
+    "harga": 12000,
+    "gambar": "menu_11",
+    "point" : 1
+  },
+  {
+    "id": 12,
+    "nama": "French Fries",
+    "deskripsi": "Kentang pilihan yang dipotong memanjang lalu digoreng hingga renyah keemasan. Teksturnya crispy di luar dan empuk di dalam, disajikan hangat dengan taburan bumbu atau saus pelengkap. Menu klasik favorit semua kalangan, cocok untuk camilan maupun teman makan utama.",
+    "harga": 7000,
+    "gambar": "menu_12",
+    "point" : 1
+  },
+  {
+    "id": 13,
+    "nama": "Burger",
+    "deskripsi": "Roti bun lembut dengan isian daging sapi juicy yang dipanggang sempurna. Ditambah sayuran segar, irisan tomat, keju leleh, dan saus spesial yang menghadirkan rasa gurih dan nikmat di setiap gigitan. Menu utama yang mengenyangkan sekaligus memanjakan lidah.",
+    "harga": 16000,
+    "gambar": "menu_13",
+    "point" : 2
+  },
+  {
+    "id": 14,
+    "nama": "Hot Dog",
+    "deskripsi": "Sosis panggang berukuran besar yang dibalut roti lembut panjang, dilengkapi saus mustard, mayones, dan saus tomat sesuai selera. Perpaduan rasa gurih, asin, dan manis menciptakan cita rasa khas street food yang bikin nagih. Pas disantap kapan saja.",
+    "harga": 16000,
+    "gambar": "menu_14",
+    "point" : 2
+  },
+  {
+    "id": 15,
+    "nama": "Kentucky",
+    "deskripsi": "Potongan ayam crispy yang dibalut tepung berbumbu khas lalu digoreng hingga renyah sempurna. Dagingnya tetap juicy di dalam dengan cita rasa gurih yang meresap. Menu favorit sepanjang masa yang cocok disantap hangat bersama saus sambal atau mayones.",
+    "harga": 15000,
+    "gambar": "menu_15",
+    "point" : 2
+  },
+  {
+    "id": 16,
+    "nama": "Baguettee",
+    "deskripsi": "Roti baguette renyah dengan aroma khas yang dipadukan unik dengan alpukat segar, espresso pahit-manis, dan sentuhan cokelat. Kombinasi rasa yang tidak biasa tapi bikin nagih, pas buat kamu yang suka mencoba hal baru.",
+    "harga": 30000,
+    "gambar": "menu_16",
+    "point" : 3
+  },
+  {
+    "id": 17,
+    "nama": "Crocodile Bread",
+    "deskripsi": "Roti cokelat lembut berbentuk unik seperti buaya, disajikan hangat dengan lelehan cokelat pekat di dalamnya. Setiap gigitan menghadirkan sensasi manis legit yang bikin suasana makin seru.",
+    "harga": 22000,
+    "gambar": "menu_17",
+    "point" : 2
+  },
+  {
+    "id": 18,
+    "nama": "Croissant",
+    "deskripsi": "Croissant berlapis-lapis dengan tekstur renyah di luar dan lembut di dalam. Dipadukan dengan sentuhan manis segar ala frappe mangga dan topping krim lembut, menciptakan pengalaman rasa yang elegan sekaligus menyegarkan.",
+    "harga": 12000,
+    "gambar": "menu_18",
+    "point" : 2
+  },
+  {
+    "id": 19,
+    "nama": "Donut",
+    "deskripsi": "Donat klasik dengan tekstur empuk dan taburan gula halus di atasnya. Manis sederhana yang selalu jadi favorit, cocok dinikmati kapan saja ditemani secangkir kopi atau teh hangat.",
+    "harga": 5000,
+    "gambar": "menu_19",
+    "point" : 1
+  },
+  {
+    "id": 20,
+    "nama": "Panipuri",
+    "deskripsi": "Camilan khas India berupa bola renyah berisi campuran rasa gurih, manis, dan pedas segar. Disajikan dengan sentuhan modern, berpadu dengan buih susu creamy ala cappuccino untuk pengalaman unik yang jarang ditemui.",
+    "harga": 10000,
+    "gambar": "menu_20",
+    "point" : 1
+  },
+  {
+    "id": 21,
+    "nama": "Paket Diet",
+    "deskripsi": "Paket khusus buat kamu yang ingin tetap sehat tanpa takut lapar. Berisi makanan rendah kalori dengan porsi pas, ditambah minuman segar yang membantu menjaga metabolisme tubuh. Cocok untuk diet sehari-hari tanpa ribet!",
+    "harga": 22000,
+    "gambar": "menu_21",
+    "point" : 3
+  },
+  {
+    "id": 22,
+    "nama": "Paket Hemat",
+    "deskripsi": "Pilihan terbaik buat kamu yang lagi pengen irit tapi tetap kenyang. Dalam satu paket sudah ada makanan dan minuman lengkap dengan rasa enak yang ramah di kantong. Hemat isi dompet, puas di perut!",
+    "harga": 20000,
+    "gambar": "menu_22",
+    "point" : 3
+  },
+  {
+    "id": 23,
+    "nama": "Paket Jumbo",
+    "deskripsi": "Cocok banget buat kamu yang doyan makan banyak! Paket ini berisi makanan dan minuman dengan porsi ekstra besar, bikin kenyang lebih lama. Pas banget buat dibagi bareng teman atau dimakan sendiri kalau lagi super lapar.",
+    "harga": 33000,
+    "gambar": "menu_23",
+    "point" : 4
+  },
+  {
+    "id": 24,
+    "nama": "Paket Korea",
+    "deskripsi": "Paket spesial dengan sentuhan ala Korea yang bikin kamu serasa oppa atau eonni di drama favorit. Berisi makanan dengan cita rasa khas Korea, dipadukan dengan minuman segar yang bikin makanmu makin seru.",
+    "harga": 30000,
+    "gambar": "menu_24",
+    "point" : 3
+  },
+  {
+    "id": 25,
+    "nama": "Paket Urunan",
+    "deskripsi": "Makan bareng jadi makin asik dengan paket ini! Isinya banyak dan bisa dinikmati rame-rame. Cocok buat patungan bareng teman biar tetap hemat, kenyang, dan pastinya seru.",
+    "harga": 54000,
+    "gambar": "menu_25",
+    "point" : 6
+  }
+]

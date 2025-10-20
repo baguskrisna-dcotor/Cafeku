@@ -76,6 +76,7 @@ public class DetailActivity extends AppCompatActivity {
 
         NumberFormat rupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         price.setText(rupiah.format(harga));
+        if (image != null){
         try (InputStream is = getAssets().open(image)) {
             Bitmap bitmap = BitmapFactory.decodeStream(is);
             img.setImageBitmap(bitmap);
@@ -105,6 +106,9 @@ public class DetailActivity extends AppCompatActivity {
             });
         } catch (IOException e) {
             e.printStackTrace();
+        } }
+        else {
+            Toast.makeText(this, "Data tidak ditemukan", Toast.LENGTH_SHORT).show();
         }
     }
 }

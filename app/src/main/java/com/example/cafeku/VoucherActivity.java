@@ -17,6 +17,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class VoucherActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -26,7 +27,7 @@ public class VoucherActivity extends AppCompatActivity {
 
         int[] images = {R.drawable.img_1, R.drawable.img_2, R.drawable.img_3, R.drawable.img_4};
         String[] names = {"Eid Mubarak", "Valentines Day", "Chinese New Year", "Winter"};
-        String[] detail = {"Abis puasa 30 hari langsung dapat diskon 30%!!","Yuk ngopi bareng bubub tercintah pakai diskon ini","Angpao buat ngopi bisa nih mumpung ada diskon","Dingin-dingin enaknya ngopi bareng temen/soulmate kamu nich"};
+        String[] detail = {"Diskon GILA!!!, Semua produk potongan 30%! Buruan sebelum 28 Februari! ","Cinta makin hemat! Semua produk couple diskon 14% cuma sampai 14 Februari!","Gong Xi Fa Cai! Belanja apa aja potongan 15% selama Imlek!!","Harga turun 20%! Nikmati promo dingin-dingin hemat sebelum Februari Terakhir!"};
         int[] color = {R.drawable.vcr_green,R.drawable.vcr_pink,R.drawable.vcr_red,R.drawable.vcr_blue};
 
         super.onCreate(savedInstanceState);

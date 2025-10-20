@@ -176,7 +176,10 @@
                 android:gravity="end"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCheckout"

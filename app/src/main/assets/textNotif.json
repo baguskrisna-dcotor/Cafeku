@@ -16,12 +16,12 @@
 },{
   "id": 4,
   "text": "Paket urunan bikin nongkrong jadi lebih hemat",
-  "dest": "com.example.cafeku.MainActivity",
+  "dest": "com.example.cafeku.DetailActivity",
   "intent": 25
 },{
   "id": 5,
   "text": "Diet bareng yukk pake paket diet",
-  "dest": "com.example.cafeku.MainActivity",
+  "dest": "com.example.cafeku.DetailActivity",
   "intent": 21
 },{
   "id": 6,
@@ -31,7 +31,7 @@
 },{
   "id": 7,
   "text": "Tes ajahh",
-  "dest": "com.example.cafeku.Profile",
-  "intent": -1
+  "dest": "com.example.cafeku.DetailActivity",
+  "intent": 10
 }
 ]
