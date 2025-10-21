@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -110,5 +111,11 @@ public class DetailActivity extends AppCompatActivity {
         else {
             Toast.makeText(this, "Data tidak ditemukan", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void switchDetToko(View view) {
+        Intent intent = new Intent(this, DetailTokoActivity.class);
+        startActivity(intent);
+
     }
 }
