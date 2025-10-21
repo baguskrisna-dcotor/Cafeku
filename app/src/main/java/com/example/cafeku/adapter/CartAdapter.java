@@ -102,7 +102,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return cartItems.size();
     }
 
-    private double getTotal() {
+    public double getTotal() {
         double total = 0;
         for (CartItem i : cartItems) {
             total += i.price * i.quantity;
@@ -110,7 +110,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return total;
     }
 
-    private int getTotalpoint(){
+    public int getTotalpoint(){
         int totalpoint = 0;
         for (CartItem i : cartItems){
             totalpoint += i.point * i.quantity;

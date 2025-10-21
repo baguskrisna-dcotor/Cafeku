@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.sax.StartElementListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -21,9 +24,12 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.example.cafeku.DAO.LevelDao;
+import com.example.cafeku.DAO.PointDao;
 import com.example.cafeku.database.LevelDatabase;
 import com.example.cafeku.database.PointDatabase;
 import com.example.cafeku.database.UserDatabase;
+import com.example.cafeku.model.LevelModel;
+import com.example.cafeku.model.Point;
 import com.example.cafeku.model.User;
 import com.google.android.material.button.MaterialButton;
 
@@ -136,14 +142,59 @@ public class MainActivity extends AppCompatActivity {
         TextView greetingText1 = findViewById(R.id.greetingtext);
         TextView greetingtext2 = findViewById(R.id.greetingtext2);
         TextView greetingtext3 = findViewById(R.id.greetingtext3);
+        ProgressBar pg = findViewById(R.id.progressBar);
         TextView rank = findViewById(R.id.homeranktxt);
+
+        Point p = PointDatabase.getInstance(this).pointDao().getPoints();
+        int userPoint = (p != null ? p.totalPoint : 0);
+
         LevelDao lvl = LevelDatabase.getInstance(this).levelDao();
-        Level p = lvl.select();
-        if (p != null){
-            rank.setText(String.valueOf(p));
-        }else{
-            rank.setText("RANK");
+        LevelModel l = lvl.select();
+
+        if (l != null) {
+            rank.setText(l.LevelName);
+            int progress = 0;
+
+            switch (l.Level) {
+                case 1:
+                    progress = (int) (((float) (userPoint - 0) / (20 - 0)) * 100);
+                    break;
+                case 2:
+                    progress = (int) (((float) (userPoint - 20) / (50 - 20)) * 100);
+                    break;
+                case 3:
+                    progress = (int) (((float) (userPoint - 50) / (100 - 50)) * 100);
+                    break;
+                case 4:
+                    progress = (int) (((float) (userPoint - 100) / (1000 - 100)) * 100);
+                    break;
+                case 5:
+                    progress = 100;
+                    break;
+                default:
+                    progress = 0;
+                    break;
+            }
+
+            // Batasi agar progress selalu di antara 0–100
+            if (progress < 0) progress = 0;
+            if (progress > 100) progress = 100;
+
+            pg.setProgress(progress);
+
+        } else {
+            rank.setText("Keren");
+            pg.setProgress(0);
         }
+
+        rank.setOnClickListener(v->{
+            Intent irank = new Intent(MainActivity.this,RankActivity.class);
+            startActivity(irank);
+        });
+
+
+
+
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 

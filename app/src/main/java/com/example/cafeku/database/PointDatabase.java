@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.cafeku.DAO.PointDao;
 import com.example.cafeku.model.Point;
 
-@Database(entities = {Point.class}, version = 2, exportSchema = false)
+@Database(entities = {Point.class}, version = 3, exportSchema = false)
 public abstract class PointDatabase extends RoomDatabase {
 
     private static volatile PointDatabase INSTANCE;

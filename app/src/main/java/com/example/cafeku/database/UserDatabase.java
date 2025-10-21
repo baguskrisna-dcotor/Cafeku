@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.cafeku.DAO.UserDao;
 import com.example.cafeku.model.User;
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 2)
 public abstract class UserDatabase extends RoomDatabase {
 
     private static UserDatabase instance; //
@@ -23,6 +23,7 @@ public abstract class UserDatabase extends RoomDatabase {
                             "cafeku_db"
                     )
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     // boleh untuk tes
                     .build();
         }

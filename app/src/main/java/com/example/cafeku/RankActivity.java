@@ -9,6 +9,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +45,7 @@ import com.example.cafeku.database.LevelDatabase;
 
 public class RankActivity extends AppCompatActivity {
     private TextView point, resetpoint,back;
+    private MediaPlayer soundeffect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,76 +149,80 @@ public class RankActivity extends AppCompatActivity {
             img.setImageResource(resId != 0 ? resId : R.drawable.dummy);
 
             if (Objects.equals(currentLevelName, "Keren")) {
-                tvLevelname.setTextColor(Color.parseColor("#B0BEC5"));
+                soundeffect = MediaPlayer.create(this,R.raw.lv2);
+                soundeffect.start();
+            tvLevelname.setTextColor(Color.parseColor("#B0BEC5"));
 
             } else if (Objects.equals(currentLevelName, "Ksatria")) {
+                soundeffect = MediaPlayer.create(this,R.raw.lv1);
+                soundeffect.start();
                 tvLevelname.setTextColor(Color.parseColor("#ECEFF1"));
 
             } else if (Objects.equals(currentLevelName, "Pangeran")) {
+                soundeffect = MediaPlayer.create(this,R.raw.lv3);
+                soundeffect.start();
                 tvLevelname.setTextColor(Color.parseColor("#FFD54F"));
 
             } else if (Objects.equals(currentLevelName, "Raja")) {
+                soundeffect = MediaPlayer.create(this,R.raw.lv4);
+                soundeffect.start();
                 tvLevelname.setTextColor(Color.parseColor("#D1C4E9"));
 
             } else if (Objects.equals(currentLevelName, "Mitos")) {
-                TextView tv = tvLevelname;
-                tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                LinearLayout l = findViewById(R.id.rankbg);
+                LinearLayout l2 = findViewById(R.id.rankbg2);
+                l.setBackgroundResource(R.drawable.mitosplaceholder);
+                l2.setBackgroundResource(R.drawable.mitosplaceholder);
+                soundeffect = MediaPlayer.create(this, R.raw.lv5);
+                soundeffect.start();
+                tvLevelname.post(() -> {
+                    TextView tv = tvLevelname;
+                    tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-                tv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        int width = tv.getWidth();
-                        if (width <= 0) return;
+                    int width = tv.getWidth();
+                    if (width <= 0) return;
 
-                        int[] colors = {
-                                Color.parseColor("#8B0000"),
-                                Color.parseColor("#B22222"),
-                                Color.parseColor("#D32F2F"),
-                                Color.parseColor("#E53935"),
-                                Color.parseColor("#F44336"),
-                                Color.parseColor("#FF7043"),
-                                Color.parseColor("#FFD180")
-                        };
+                    // Warna gradasi Divine Gold
+                    int[] colors = {
+                            Color.parseColor("#3B0000"),
+                            Color.parseColor("#7B1113"),
+                            Color.parseColor("#C21807"),
+                            Color.parseColor("#FF1744"),
+                            Color.parseColor("#FFD5D5")
+                    };
 
-                        LinearGradient gradient = new LinearGradient(0, 0, width * 2, 0, colors, null, Shader.TileMode.MIRROR);
-                        Paint paint = tv.getPaint();
-                        paint.setShader(gradient);
+                    // Gradasi horizontal (kiri ke kanan)
+                    LinearGradient gradient = new LinearGradient(
+                            0, 0, width, 0,
+                            colors, null, Shader.TileMode.CLAMP);
 
-                        Matrix matrix = new Matrix();
-                        ValueAnimator animator = ValueAnimator.ofFloat(0, width * 2);
-                        animator.setDuration(4000);
-                        animator.setRepeatCount(ValueAnimator.INFINITE);
-                        animator.setInterpolator(new LinearInterpolator());
+                    Paint paint = tv.getPaint();
+                    paint.setShader(gradient);
 
-                        animator.addUpdateListener(anim -> {
-                            float translateX = (float) anim.getAnimatedValue();
-                            matrix.setTranslate(translateX, 0);
-                            gradient.setLocalMatrix(matrix);
-                            paint.setShader(gradient);
-                            tv.postInvalidateOnAnimation();
-                        });
-                        animator.start();
-                        tv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
+                    tv.invalidate();
                 });
-            }
 
-            // ====== Text display ======
+            }
+                // ====== Text display ======
             tvLevelname.setText(currentLevelName);
-            tvlevel.setText("Level " + currentLevel);
+
             tvMinPoint.setText("of " + nextMinPoint);
 
             if (currentLevel == 1) {
                 tvlevel.setTextColor(Color.GRAY);
+
             } else if (currentLevel == 2) {
                 tvlevel.setTextColor(Color.BLUE);
+
             } else if (currentLevel == 3) {
                 tvlevel.setTextColor(Color.YELLOW);
             } else if (currentLevel == 4) {
                 tvlevel.setTextColor(Color.parseColor("#673AB7FF"));
             } else {
+                tvlevel.setBackgroundResource(R.drawable.mitosplaceholder);
                 tvlevel.setTextColor(Color.RED);
             }
+            tvlevel.setText("Level " + currentLevel);
 
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
             resetpoint = findViewById(R.id.resetpoint);

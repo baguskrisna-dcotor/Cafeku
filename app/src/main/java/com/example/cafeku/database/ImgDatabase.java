@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.cafeku.DAO.ImgDao;
 import com.example.cafeku.model.Img;
 
-@Database(entities = {Img.class}, version = 1, exportSchema = false)
+@Database(entities = {Img.class}, version = 2, exportSchema = false)
 public abstract class ImgDatabase extends RoomDatabase {
 
     private static volatile ImgDatabase INSTANCE;

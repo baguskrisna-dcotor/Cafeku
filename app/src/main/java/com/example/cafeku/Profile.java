@@ -349,6 +349,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             ImgDatabase ib = ImgDatabase.getInstance(this);
             ImgDao dao = ib.imgDao();
 
+            LevelDao level = LevelDatabase.getInstance(this).levelDao();
+
 
             if (id == R.id.menu_edit_profile) {
                 showEditProfileDialog();
@@ -368,6 +370,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 if (user != null) {
                     userDao.logout();
                     dao.delete();
+                    level.delete();
                     photoprofile.setImageResource(R.drawable.icon_guest);
                     tvusername.setText("Hallo,Guest");
                     tvgender.setImageResource(R.drawable.icon_guest);
@@ -603,10 +606,8 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             int currentLevel = level.get(achievedIndex);
             int requiredPoint = minPoint.get(achievedIndex);
 
-            LevelModel exist = lvldao.getLevelById(currentLevel);
-            if (exist == null) {
                 lvldao.insert(new LevelModel(currentLevel, currentLevelName, requiredPoint));
-            }
+
 
             TextView tvLevelname = findViewById(R.id.levelname);
             ProgressBar progressbar = findViewById(R.id.progressBar);
@@ -650,56 +651,31 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
                     break;
                 case "Mitos":
-                    TextView tv = tvLevelname;
+                    tvLevelname.post(() -> {
+                        TextView tv = tvLevelname;
+                        tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-                    tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                        int width = tv.getWidth();
+                        if (width <= 0) return;
 
-                    tv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                        @Override
-                        public void onGlobalLayout() {
-                            int width = tv.getWidth();
-                            if (width <= 0) return;
+                        // Warna gradasi Divine Gold
+                        int[] colors = {
+                                Color.parseColor("#3B0000"),
+                                Color.parseColor("#7B1113"),
+                                Color.parseColor("#C21807"),
+                                Color.parseColor("#FF1744"),
+                                Color.parseColor("#FFD5D5")
+                        };
 
-                            int[] colors = {
-                                    Color.parseColor("#8B0000"), // Dark Red
-                                    Color.parseColor("#B22222"), // Firebrick
-                                    Color.parseColor("#D32F2F"), // Red elegan
-                                    Color.parseColor("#E53935"), // Soft red
-                                    Color.parseColor("#F44336"), // Bright red
-                                    Color.parseColor("#FF7043"), // Reddish orange
-                                    Color.parseColor("#FFD180")  // Soft gold tint
-                            };
+                        // Gradasi horizontal (kiri ke kanan)
+                        LinearGradient gradient = new LinearGradient(
+                                0, 0, width, 0,
+                                colors, null, Shader.TileMode.CLAMP);
 
-                            LinearGradient gradient = new LinearGradient(
-                                    0, 0, width * 2, 0,
-                                    colors,
-                                    null,
-                                    Shader.TileMode.MIRROR
-                            );
+                        Paint paint = tv.getPaint();
+                        paint.setShader(gradient);
 
-                            Paint paint = tv.getPaint();
-                            paint.setShader(gradient);
-
-                            Matrix matrix = new Matrix();
-
-                            ValueAnimator animator = ValueAnimator.ofFloat(0, (float) width * 2);
-                            animator.setDuration(4000);
-                            animator.setRepeatCount(ValueAnimator.INFINITE);
-                            animator.setInterpolator(new LinearInterpolator());
-
-                            animator.addUpdateListener(anim -> {
-                                float translateX = (float) anim.getAnimatedValue();
-                                matrix.setTranslate(translateX, 0);
-                                gradient.setLocalMatrix(matrix);
-                                paint.setShader(gradient);
-                                tv.postInvalidateOnAnimation(); // agar redraw sinkron
-                            });
-
-                            animator.start();
-
-                            // Hapus listener biar gak terus dipanggil
-                            tv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        }
+                        tv.invalidate();
                     });
                     break;
             }
