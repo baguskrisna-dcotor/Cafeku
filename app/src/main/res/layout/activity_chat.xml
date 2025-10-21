@@ -43,31 +43,45 @@
             android:numStars="5"
             android:stepSize="1" />
 
-        <EditText
-            android:id="@+id/etChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Comment"
-            android:textColorHint="@color/textpendukung"
-            android:background="@drawable/profile_voucherdetail"
-            android:padding="8dp"
-            android:minHeight="48dp"/>
-
         <LinearLayout
-            android:id="@+id/btnSend"
             android:layout_width="match_parent"
-            android:layout_height="40sp"
-            android:background="@drawable/modrngradient2"
-            android:layout_marginTop="8dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="15sp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@drawable/border_radius_setting_2">
+            <EditText
+                android:id="@+id/etChat"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:hint="Comment"
+                android:textColorHint="#B1ACAC"
+                android:background="@drawable/profile_voucherdetail"
+                android:padding="8dp"
+                android:minHeight="48dp"/>
+
+            <LinearLayout
+                android:id="@+id/btnSend"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:gravity="center"
-                android:fontFamily="@font/poppins"
-                android:textColor="@android:color/white"
-                android:text="Kirim"/>
+                android:background="@drawable/sendchat"
+               >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/sendimage"
+                    android:scaleType="fitCenter"
+                    />
+
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+        </LinearLayout>
+
+
 
 </LinearLayout>
