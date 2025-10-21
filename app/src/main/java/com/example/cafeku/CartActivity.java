@@ -81,15 +81,15 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        txtTotal.setText("Total: Rp " + adapter.getTotal());
+        updateTotal(cartItems, r);
+
         pointholder.setText("+" + adapter.getTotalpoint() + " Point");
+
 
         beli.setOnClickListener(v -> {
             if (adapter.getItemCount() > 0) {
-                updateTotal(cartItems, r);
                 updateTotalpoint(cartItems);
                 adapter.clear();
-
                 Toast.makeText(this, "Keranjang anda sekarang kosong. Terimakasih sudah membeli", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(this, ThanksActivity.class));
             } else {
@@ -100,72 +100,36 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void updateTotal(List<CartItem> items, RadioGroup rg) {
-        double total = 0;
-        for (CartItem i : items) {
-            total += i.price * i.quantity;
-        }
-        txtTotal.setText("Total: Rp " + total);
-         double totalfinal = total;
 
-            rg.setOnCheckedChangeListener((group, radioid) -> {
-                double totalDiscount ;
+        double totalFinal = adapter.getTotal();
+        txtTotal.setText("Total: Rp " + totalFinal);
 
-                if (radioid == R.id.uservcr1) {
-                    double discount = totalfinal * 0.03;
-                    totalDiscount = totalfinal - discount;
+        rg.setOnCheckedChangeListener((group, radioid) -> {
+            double currentTotal = adapter.getTotal(); // <-- ambil total terbaru
+            double totalDiscount;
 
-                    // buat teks dengan harga lama dicoret
-                    String oldPrice = "Rp " + totalfinal;
-                    String newPrice = "Rp " + totalDiscount;
+            if (radioid == R.id.uservcr1) {
+                totalDiscount = adapter.discon(0.03, currentTotal);
+            } else if (radioid == R.id.usevcr2) {
+                totalDiscount = adapter.discon(0.015, currentTotal);
+            } else if (radioid == R.id.usevcr3) {
+                totalDiscount = adapter.discon(0.25, currentTotal);
+            } else if (radioid == R.id.usevcr4) {
+                totalDiscount = adapter.discon(0.14, currentTotal);
+            } else {
+                Toast.makeText(this, "Lu ganda campuran bro? 😅", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
-                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            String oldPrice = "Rp " + String.format("%.0f", currentTotal);
+            String newPrice = "Rp " + String.format("%.0f", totalDiscount);
 
-                    txtTotal.setText(spannable);
+            SpannableString spannable = new SpannableString(oldPrice + " → " + newPrice);
+            spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                } else if (radioid == R.id.usevcr2) {
-                    // contoh diskon 50%
-                    double discount = totalfinal * 0.015;
-                    totalDiscount = totalfinal - discount;
-
-                    String oldPrice = "Rp " + totalfinal;
-                    String newPrice = "Rp " + totalDiscount;
-
-                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
-                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    txtTotal.setText(spannable);
-
-                } else if (radioid == R.id.usevcr3) {
-                    // contoh diskon 10%
-                    double discount = totalfinal * 0.25;
-                    totalDiscount = totalfinal - discount;
-
-                    String oldPrice = "Rp " + totalfinal;
-                    String newPrice = "Rp " + totalDiscount;
-
-                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
-                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    txtTotal.setText(spannable);
-
-                }else if (radioid == R.id.usevcr4) {
-                    // contoh diskon 10%
-                    double discount = totalfinal * 0.14;
-                    totalDiscount = totalfinal - discount;
-
-                    String oldPrice = "Rp " + totalfinal;
-                    String newPrice = "Rp " + totalDiscount;
-
-                    SpannableString spannable = new SpannableString(oldPrice + "  →  " + newPrice);
-                    spannable.setSpan(new StrikethroughSpan(), 0, oldPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    txtTotal.setText(spannable);
-
-                } else {
-                    Toast.makeText(this, "Lu ganda campuran bro? 😅", Toast.LENGTH_SHORT).show();
-                }
+            txtTotal.setText("Total : :" + spannable);
         });
+
     }
 
     private void updateTotalpoint(List<CartItem> items) {

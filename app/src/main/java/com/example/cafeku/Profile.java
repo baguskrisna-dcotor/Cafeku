@@ -52,10 +52,13 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemChangeListener;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.cafeku.DAO.CartDao;
 import com.example.cafeku.DAO.ImgDao;
 import com.example.cafeku.DAO.LevelDao;
 import com.example.cafeku.DAO.PointDao;
 import com.example.cafeku.DAO.UserDao;
+import com.example.cafeku.adapter.CartAdapter;
+import com.example.cafeku.database.AppDatabase;
 import com.example.cafeku.database.ImgDatabase;
 import com.example.cafeku.database.LevelDatabase;
 import com.example.cafeku.database.UserDatabase;
@@ -86,6 +89,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
     private TextView tvusername, g1, g2;
     private ImageSlider slider;
     private LinearLayout l;
+    private CartAdapter adapter;
     ArrayList<String> namaList1 = new ArrayList<>();
     ArrayList<SlideModel> slideModels = new ArrayList<>();
     ArrayList<String> title1 = new ArrayList<>();
@@ -158,9 +162,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 title2.add(title_2);
             }
 
-
             slider.setImageList(slideModels);
-
             slider.setItemChangeListener(new ItemChangeListener() {
                 @Override
                 public void onItemChanged(int i) {
@@ -213,7 +215,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             photoprofile.setImageResource(R.drawable.cafeku);
             tvusername.setText("Halo, Guest");
             photoprofile.setImageResource(R.drawable.icon_guest);
-            tvgender.setImageResource(R.drawable.icon_guest); // opsional
+            tvgender.setImageResource(R.drawable.cafeku); // opsional
         }
 
 
@@ -350,8 +352,10 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             ImgDao dao = ib.imgDao();
 
             LevelDao level = LevelDatabase.getInstance(this).levelDao();
+            PointDao point = PointDatabase.getInstance(this).pointDao();
 
-
+            AppDatabase dbcart = AppDatabase.getInstance(this);
+            CartDao cartDao = dbcart.cartDao();
             if (id == R.id.menu_edit_profile) {
                 showEditProfileDialog();
                 return true;
@@ -371,10 +375,12 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                     userDao.logout();
                     dao.delete();
                     level.delete();
-                    photoprofile.setImageResource(R.drawable.icon_guest);
-                    tvusername.setText("Hallo,Guest");
-                    tvgender.setImageResource(R.drawable.icon_guest);
+                    point.deleteAll();
+
+                    cartDao.DeleteAll();
+
                     Toast.makeText(this, "Logout berhasil", Toast.LENGTH_SHORT).show();
+                    recreate();
                 } else {
                     Toast.makeText(this, "Kamu belum login", Toast.LENGTH_SHORT).show();
                 }
@@ -391,8 +397,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         popup.show();
     }
-
-
+    
     private void showEditProfileDialog() {
         // Inflate layout custom
         LayoutInflater inflater = LayoutInflater.from(this);

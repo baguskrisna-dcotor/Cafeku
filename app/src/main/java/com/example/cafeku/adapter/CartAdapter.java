@@ -117,6 +117,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         }
         return totalpoint;
     }
+
+    public double discon(double d,double total){
+        double diskon = d * total;
+        double totaldiskon = total-diskon;
+
+        return  totaldiskon;
+    }
     public void clear() {
         db.cartDao().DeleteAll();
         cartItems.clear();
