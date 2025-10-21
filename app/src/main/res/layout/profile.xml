@@ -888,7 +888,8 @@
                         android:text="Detail"
                         android:textColor="#388E3C"
                         android:textSize="10sp"
-                        app:backgroundTint="@null" />
+                        app:backgroundTint="@null"
+                        android:onClick="switchDetToko"/>
 
                 </LinearLayout>
 

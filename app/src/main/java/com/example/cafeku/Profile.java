@@ -479,7 +479,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 decs.add(obj.getString("desc"));
             }
 
-            for (int i =0; i <= imageViews.length  && i < imgchoice.size(); i++) {
+            for (int i = 0; i <= imageViews.length && i < imgchoice.size(); i++) {
                 final int index = i;
                 InputStream imgStream = getAssets().open("imageprofile/" + imgchoice.get(i) + ".png");
                 Bitmap bitmap = BitmapFactory.decodeStream(imgStream);
@@ -499,11 +499,11 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                     if (existing != null) {
                         // update record yang ada
 
-                        dao.update(existing.id,imgchoice.get(index));
+                        dao.update(existing.id, imgchoice.get(index));
                     } else {
                         // insert record baru
                         Img newImg = new Img();
-                        newImg.img =imgchoice.get(index);
+                        newImg.img = imgchoice.get(index);
                         dao.insert(newImg);
                     }
 
@@ -512,12 +512,12 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                         InputStream is2 = getAssets().open("imageprofile/" + imgchoice.get(index) + ".png");
                         Bitmap bmp = BitmapFactory.decodeStream(is2);
                         ImageView photoprofile = findViewById(R.id.photoprofile);
-                        Toast.makeText(this,"Photo profile anda diperbarui",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Photo profile anda diperbarui", Toast.LENGTH_SHORT).show();
                         photoprofile.setImageBitmap(bmp);
                         is2.close();
                     } catch (IOException e) {
                         e.printStackTrace();
-                        Log.e("IMG_SAVE", "Gagal load asset after save: " +imgchoice.get(index), e);
+                        Log.e("IMG_SAVE", "Gagal load asset after save: " + imgchoice.get(index), e);
                     }
 
 
@@ -606,7 +606,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             int currentLevel = level.get(achievedIndex);
             int requiredPoint = minPoint.get(achievedIndex);
 
-                lvldao.insert(new LevelModel(currentLevel, currentLevelName, requiredPoint));
+            lvldao.insert(new LevelModel(currentLevel, currentLevelName, requiredPoint));
 
 
             TextView tvLevelname = findViewById(R.id.levelname);
@@ -703,5 +703,9 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         }
     }
 
+    public void switchDetToko(View view) {
+        Intent intent = new Intent(this, DetailTokoActivity.class);
+        startActivity(intent);
+    }
 }
 

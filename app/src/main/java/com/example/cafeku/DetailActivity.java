@@ -109,6 +109,8 @@ public class DetailActivity extends AppCompatActivity {
         } }
         else {
             Toast.makeText(this, "Data tidak ditemukan", Toast.LENGTH_SHORT).show();
+            Intent error = new Intent(this, errorPage.class);
+            startActivity(error);
         }
     }
 

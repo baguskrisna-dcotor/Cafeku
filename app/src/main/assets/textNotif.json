@@ -28,10 +28,5 @@
   "text": "Rayakan idul fitri dengan diskon 30%",
   "dest": "com.example.cafeku.VoucherActivity",
   "intent": -1
-},{
-  "id": 7,
-  "text": "Tes ajahh",
-  "dest": "com.example.cafeku.DetailActivity",
-  "intent": 10
 }
 ]

@@ -63,18 +63,22 @@ public class notificationHelper {
         Intent intent = new Intent(context, contextDest);
         if(idIntent != -1){
             int index = idIntent - 1;
-            if (index != -1){
-
-            intent.putExtra("name", NamaProduk.get(index));
-            intent.putExtra("deskripsi", DeskripsiProduk.get(index));
-            intent.putExtra("harga", HargaProduk.get(index));
-            intent.putExtra("gambar", GambarProduk.get(index) + ".png");
-            intent.putExtra("point", PointProduk.get(index));
+            if (index != -1) {
+                intent.putExtra("name", NamaProduk.get(index));
+                intent.putExtra("deskripsi", DeskripsiProduk.get(index));
+                intent.putExtra("harga", HargaProduk.get(index));
+                intent.putExtra("gambar", GambarProduk.get(index) + ".png");
+                intent.putExtra("point", PointProduk.get(index));
             }
 
         }
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                context,
+                idIntent != -1 ? idIntent : (int) System.currentTimeMillis(),
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
 
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, notificationHelper.CHANNEL_ID)

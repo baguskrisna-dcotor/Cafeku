@@ -22,6 +22,9 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="28">
         <activity
+            android:name=".errorPage"
+            android:exported="false" />
+        <activity
             android:name=".DetailTokoActivity"
             android:exported="false" />
         <activity
