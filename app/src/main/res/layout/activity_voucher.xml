@@ -11,15 +11,11 @@
     android:background="@color/white">
 
 
-    />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_above="@id/nvBAR">
-
-
-
+        android:layout_above="@id/nvBAR"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,6 +23,7 @@
             android:paddingBottom="20dp"
             >
             <ImageView
+                android:layout_marginTop="20dp"
                 android:id="@+id/banner_vcr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

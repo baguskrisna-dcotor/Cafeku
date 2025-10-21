@@ -81,6 +81,8 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        txtTotal.setText("Total: Rp " + adapter.getTotal());
+        pointholder.setText("+" + adapter.getTotalpoint() + " Point");
 
         beli.setOnClickListener(v -> {
             if (adapter.getItemCount() > 0) {
@@ -103,13 +105,12 @@ public class CartActivity extends AppCompatActivity {
             total += i.price * i.quantity;
         }
         txtTotal.setText("Total: Rp " + total);
-        final double totalfinal = total;
+         double totalfinal = total;
 
             rg.setOnCheckedChangeListener((group, radioid) -> {
-                double totalDiscount = totalfinal;
+                double totalDiscount ;
 
                 if (radioid == R.id.uservcr1) {
-                    // hitung diskon 30%
                     double discount = totalfinal * 0.03;
                     totalDiscount = totalfinal - discount;
 

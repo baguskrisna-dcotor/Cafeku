@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:background="#3F6A40">
 <LinearLayout
+    android:id="@+id/rankbg2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rankgradient"
+    android:background="@drawable/gradienthighlight"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -73,7 +74,7 @@
                         android:alpha="0.9"
                         android:background="@drawable/highlight"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/image_level3" />
+                        android:src="@drawable/image_level5" />
                 </LinearLayout>
 
                 <TextView
@@ -98,6 +99,7 @@
                     android:src="@drawable/greenline" />
 
                 <LinearLayout
+                    android:id="@+id/rankbg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradienthighlight"

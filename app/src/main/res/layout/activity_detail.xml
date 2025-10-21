@@ -24,7 +24,7 @@
         android:layout_height="700dp"
         android:layout_margin="20dp"
         android:background="@drawable/gradientprofile"
-        android:padding="10dp"
+        android:padding="7dp"
         android:alpha="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +123,7 @@
                     android:layout_height="30sp"
                     android:fontFamily="@font/nunitosans"
                     android:text="Detail produk"
+                    android:textColor="@color/textpendukung"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

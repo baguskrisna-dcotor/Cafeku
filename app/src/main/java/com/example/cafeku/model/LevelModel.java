@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(tableName = "Level_table")
+@Entity(tableName = "level_table")
 public class LevelModel implements Serializable {
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "Level")

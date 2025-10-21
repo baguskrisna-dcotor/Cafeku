@@ -11,9 +11,9 @@ import com.example.cafeku.DAO.LevelDao;
 import com.example.cafeku.model.CartItem;
 import com.example.cafeku.model.LevelModel;
 
-@Database(entities = {LevelModel.class}, version = 1)
+@Database(entities = {LevelModel.class}, version = 4, exportSchema = false)
 public abstract class LevelDatabase extends RoomDatabase {
-    private static LevelDatabase instance;
+    private static volatile LevelDatabase instance;
 
     public abstract LevelDao levelDao();
 
@@ -28,3 +28,4 @@ public abstract class LevelDatabase extends RoomDatabase {
         return instance;
     }
 }
+

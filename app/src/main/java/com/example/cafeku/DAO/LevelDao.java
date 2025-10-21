@@ -25,10 +25,10 @@ public interface LevelDao {
     @Query("SELECT * FROM level_table WHERE Level = :level LIMIT 1")
     LevelModel getLevelById(int level);
 
-    @Query("SELECT Level FROM Level_table")
+    @Query("SELECT Level FROM level_table")
     List<Integer> getAllPointLevels();
 
-    @Query("SELECT * FROM level_table LIMIT 1")
-    Level select();
+    @Query("SELECT * FROM level_table ORDER BY Level DESC LIMIT 1")
+    LevelModel select();
 }
 
