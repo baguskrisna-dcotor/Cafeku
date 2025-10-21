@@ -1,6 +1,8 @@
 package com.example.cafeku;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,5 +23,10 @@ public class DetailTokoActivity extends AppCompatActivity {
             return insets;
         });
 
+        LinearLayout movebtn = findViewById(R.id.comment);
+        movebtn.setOnClickListener(v->{
+            Intent i = new Intent(DetailTokoActivity.this, ChatActivity.class);
+            startActivity(i);
+        });
     }
 }

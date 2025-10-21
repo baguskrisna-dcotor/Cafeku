@@ -134,6 +134,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nunitosans"
                     android:text="Lorem ipsum "
+                    android:justificationMode="inter_word"
                     android:textSize="13sp" />
 
             </LinearLayout>
