@@ -79,7 +79,7 @@ public class LoginActivity extends Activity {
 
             User newuser = new User(username,password,sex);
             userdao.insertUser(newuser);
-            Toast.makeText(this,"Welcome to CAFELI",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Welcome to CAFEKU",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(LoginActivity.this, Profile.class);
             Intent i = new Intent(LoginActivity.this,MainActivity.class);
             i.putExtra("nama",username);

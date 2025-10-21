@@ -15,10 +15,10 @@
         android:layout_height="100dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="90dp"
-        android:background="@drawable/profile_img"
+        android:background="@drawable/circle_navbar"
         android:clipToOutline="true"
         android:elevation="20dp"
-        android:src="@drawable/anime_badas"
+        android:src="@drawable/icon_guest"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

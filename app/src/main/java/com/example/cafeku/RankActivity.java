@@ -227,21 +227,15 @@ public class RankActivity extends AppCompatActivity {
             Log.d("LevelHandler", "✅ User naik ke level " + currentLevelName);
             resetpoint = findViewById(R.id.resetpoint);
             resetpoint.setOnClickListener(v -> {
+
+
                 new AlertDialog.Builder(this)
                         .setTitle("Konfirmasi Reset")
                         .setMessage("Apakah kamu yakin ingin mereset semua point?")
                         .setPositiveButton("Ya", (dialog, which) -> {
                             PointDatabase dp = PointDatabase.getInstance(this);
                             dp.pointDao().deleteAll();
-
-                            // Reset tampilan awal
-                            progressbar.setProgress(0);
-                            tvlevel.setText(String.valueOf(level.get(0)));
-                            tvLevelname.setText(namaLevel.get(0));
-                            tvMinPoint.setText(String.valueOf(minPoint.get(0)));
-                            img.setImageResource(R.drawable.image_level1);
-                            point.setText("0");
-
+                            recreate();
                             // Hapus level tersimpan jika ada
                             LevelDatabase lvl = LevelDatabase.getInstance(this);
                             LevelDao dao = lvl.levelDao();
