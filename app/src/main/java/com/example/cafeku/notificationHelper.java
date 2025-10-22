@@ -36,30 +36,37 @@ public class notificationHelper {
     public static ArrayList<Integer> PointProduk = new ArrayList<>();
 
 
+    // ini chanel yang digunakan notifikasi (penting)
     public static final String CHANNEL_ID = "cafeku_channel";
 
     public notificationHelper(Context context){
         JSONgetList(context, Id, NamaProduk, DeskripsiProduk, HargaProduk, GambarProduk, PointProduk);
     }
+
     public static void showNotification(Context context, String message, Class<?> contextDest) {
         showNotification(context, message, contextDest, -1);
     }
 
 
+    // Menampilkan notifikasi ke pengguna
     public static void showNotification(Context context, String message, Class<?> contextDest, int idIntent) {
 
+        //mengecek apakah android versi Oreo atau lebih baru
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     notificationHelper.CHANNEL_ID,
                     "Cafeku Channel",
                     NotificationManager.IMPORTANCE_DEFAULT
             );
+            //Layanan sistem untuk mengatur notifikasi
             NotificationManager manager = context.getSystemService(NotificationManager.class);
+            //Mendaftarkan channel ke android
             if (manager != null) {
                 manager.createNotificationChannel(channel);
             }
         }
 
+        //intent yang akan dijalankan ketika notifikasi diklik
         Intent intent = new Intent(context, contextDest);
         if(idIntent != -1){
             int index = idIntent - 1;
@@ -81,6 +88,7 @@ public class notificationHelper {
         );
 
 
+        //Set konyen yang akan ditampilkan dalam notifikasi
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, notificationHelper.CHANNEL_ID)
                 .setSmallIcon(R.drawable.cafeku)
                 .setContentTitle("CAFEKU")
@@ -91,6 +99,7 @@ public class notificationHelper {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
+        //mengecek apakah android versi Tiramisu atau lebih baru
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
                         != PackageManager.PERMISSION_GRANTED) {
