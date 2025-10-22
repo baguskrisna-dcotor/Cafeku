@@ -3,6 +3,7 @@ package com.example.cafeku;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,11 @@ public class DetailTokoActivity extends AppCompatActivity {
             return insets;
         });
 
+
+        LinearLayout review = findViewById(R.id.movetokomen);
+        review.setOnClickListener(v->{
+            startActivity(new Intent(DetailTokoActivity.this, ChatActivity.class));
+        });
         String from = getIntent().getStringExtra("from");
 
         ImageView back = findViewById(R.id.back);

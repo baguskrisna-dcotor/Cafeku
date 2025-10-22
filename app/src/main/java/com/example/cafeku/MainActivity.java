@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.sax.StartElementListener;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -89,17 +90,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_main);
         new notificationHelper(getApplicationContext());
 
-        loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList, point);
-        loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
-        loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);
-        loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4, point4);
-        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
 
-
+//        Integer list untuk menyimpan semua layout di laman cafeku seperti gambar,nama,harga dan container yang membungkus itu semua
         int[] parent1 = {R.id.katalog1, R.id.katalog2, R.id.katalog3, R.id.katalog4, R.id.katalog5};
         int[] imgIds1 = {R.id.imgMenu1, R.id.imgMenu2, R.id.imgMenu3, R.id.imgMenu4, R.id.imgMenu5};
         int[] txtIds1 = {R.id.txtMenu1, R.id.txtMenu2, R.id.txtMenu3, R.id.txtMenu4, R.id.txtMenu5};
@@ -121,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
         int[] txtIds5 = {R.id.txtMenu21, R.id.txtMenu22, R.id.txtMenu23, R.id.txtMenu24, R.id.txtMenu25};
         int[] btnIds5 = {R.id.btnMenu21, R.id.btnMenu22, R.id.btnMenu23, R.id.btnMenu24, R.id.btnMenu25};
 
+//      fungsi untuk load data json berisi data dari setiap produk dan disimpan di array list untuk dikirim ke detail
+        loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList, point);
+        loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
+        loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);
+        loadJsonToList("datakatalog4.json", idList4, namaList4, deskripsiList4, hargaList4, gambarList4, point4);
+        loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
+
+//        fungsi untuk setup semua data ke layout
         setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList, point);
         setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
         setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);
@@ -128,20 +131,15 @@ public class MainActivity extends AppCompatActivity {
         setupProduk(parent5, imgIds5, txtIds5, btnIds5, idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
 
         TextView user = findViewById(R.id.usernamegreeting);
-        Intent i = new Intent();
-
+//Menngambil dari data base yang sudah disimpan  nama user setelah login
         User u = UserDatabase.getInstance(this).userDao().getUser();
-
         if(u != null){
             user.setText(u.username);
         }else{
            user.setText("Hello,Guest");
         }
 
-
-        TextView greetingText1 = findViewById(R.id.greetingtext);
-        TextView greetingtext2 = findViewById(R.id.greetingtext2);
-        TextView greetingtext3 = findViewById(R.id.greetingtext3);
+//        setup rank user dengan nama dan progresnya
         ProgressBar pg = findViewById(R.id.progressBar);
         TextView rank = findViewById(R.id.homeranktxt);
 
@@ -154,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
         if (l != null) {
             rank.setText(l.LevelName);
             int progress = 0;
-
+// progres dimbil dari point user dikurangi jumlah point yang dibutuhkan saat ini dibagi point
+// yang dibutuhkan untuk naik level dikurangi point yang dibuthkan dilevel ini lalu dikali 100 untuk mend
             switch (l.Level) {
                 case 1:
                     progress = (int) (((float) (userPoint - 0) / (20 - 0)) * 100);
@@ -193,8 +192,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
+//Greeting Berdasarkan Waktu
+        TextView greetingText1 = findViewById(R.id.greetingtext);
+        TextView greetingtext2 = findViewById(R.id.greetingtext2);
+        TextView greetingtext3 = findViewById(R.id.greetingtext3);
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
@@ -320,15 +321,18 @@ public class MainActivity extends AppCompatActivity {
                                 ArrayList<Integer> point) {
         try {
             InputStream is = getAssets().open(fileName);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
+            int size = is.available();       // Mengecek ukuran file (dalam byte)
+            byte[] buffer = new byte[size];  // Membuat array byte sebesar ukuran file
+            is.read(buffer);                 // Membaca seluruh isi file ke array
+            is.close();                      // Menutup file agar tidak terjadi memory leak
 
+//Ubah byte menjadi teks JSON Mengonversi byte array menjadi String (teks JSON utuh) dengan encoding UTF-8.
             String json = new String(buffer, "UTF-8");
+//            Membuat objek JSONArray
             JSONArray jsonArray = new JSONArray(json);
 
             for (int i = 0; i < jsonArray.length(); i++) {
+//                Mengambil satu objek produk dari JSON dengan (i)
                 JSONObject obj = jsonArray.getJSONObject(i);
 
                 idList.add(obj.getInt("id"));
@@ -338,7 +342,9 @@ public class MainActivity extends AppCompatActivity {
                 gambarList.add(obj.getString("gambar"));
                 point.add(obj.getInt("point"));
             }
+//            Menangani error
         } catch (Exception e) {
+            Log.e("JSON", "Error loading JSON file " + fileName, e);
             e.printStackTrace();
         }
     }
