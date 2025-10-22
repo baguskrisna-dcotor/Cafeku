@@ -85,7 +85,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
         if (username != null && username.username != null){
             holder.tvName.setText(username.username);
         }else{
-            holder.tvName.setText(chat.id);
+            holder.tvName.setText(String.valueOf(chat.id));
         }
         String currentDate = new SimpleDateFormat("EEEE, dd MMMM yyyy").format(new Date());
         holder.tvdate.setText(currentDate);

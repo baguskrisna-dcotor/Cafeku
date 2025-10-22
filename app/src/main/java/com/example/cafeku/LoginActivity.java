@@ -50,7 +50,7 @@ public class LoginActivity extends Activity {
             } else if (radioid == R.id.Male) {
                 gender.set(true);
             }else {
-                Toast.makeText(this,"Lu ganda campuran bro?",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"gender?",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -60,7 +60,7 @@ public class LoginActivity extends Activity {
             Boolean sex = gender.get().booleanValue();
 
             if(username.isEmpty()|| password.isEmpty() ){
-                Toast.makeText(this,"Isi dulu bego",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Isi dulu",Toast.LENGTH_LONG).show();
                 return ;
             }
             UserDatabase db = UserDatabase.getInstance(this);
@@ -80,18 +80,17 @@ public class LoginActivity extends Activity {
             User newuser = new User(username,password,sex);
             userdao.insertUser(newuser);
             Toast.makeText(this,"Welcome to CAFEKU",Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(LoginActivity.this, Profile.class);
-            Intent i = new Intent(LoginActivity.this,MainActivity.class);
-            i.putExtra("nama",username);
-            intent.putExtra("username", username);
-            intent.putExtra("gender",sex);
+            Intent intent = new Intent(LoginActivity.this, CheckActivity.class);
+            Intent i =new Intent(LoginActivity.this, Profile.class);
+            i.putExtra("username", username);
+            i.putExtra("gender",sex);
             startActivity(intent);
             finish();
         });
 
         guest.setOnClickListener(V->{
             Intent i = new Intent(LoginActivity.this, Profile.class);
-            Toast.makeText(this,"Lu pakai guest ya jinx",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Lu pakai guest ya ",Toast.LENGTH_SHORT).show();
             startActivity(i);
         });
 
