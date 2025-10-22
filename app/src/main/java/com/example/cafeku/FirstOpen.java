@@ -30,6 +30,7 @@ public class FirstOpen extends AppCompatActivity {
 //    apk akan langsung ke main activity
 
     private static final int PERMISSION_REQUEST_CODE = 101;
+    public static boolean hasClick = false;
     ArrayList<String> textNotif = new ArrayList<>();
     ArrayList<String> destNotif = new ArrayList<>();
 

@@ -108,8 +108,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         setContentView(R.layout.profile);
         double latitude = -7.797068;
         double longitude = 110.370529;
-        final int[] scroll = {0};
-        final int[] speed = {3};
+
 
         tvusername = findViewById(R.id.nameUser);
         btnMore = findViewById(R.id.settingbutton);
@@ -121,18 +120,20 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         l = findViewById(R.id.rankdetail);
         photoprofile = findViewById(R.id.photoprofile);
 
-
+        final int[] scroll = {0};//variabel array satu elemen untuk menyimpan posisi scroll
+        final int[] speed = {3};//Variabel ini menyimpan kecepatan scroll.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 scroll[0] += 3; // geser 5px setiap loop
-                h.smoothScrollTo(scroll[0], 0);
+                h.smoothScrollTo(scroll[0], 0);//Menggeser tampilan HorizontalScrollView (h) ke posisi scroll[0] (vertical) dan 0 (horizontal).
 
 
+//Mengecek apakah posisi scroll sudah sampai ujung kanan dari konten
                 if (scroll[0] >= h.getChildAt(0).getWidth()) {
                     scroll[0] = 0; // ulang ke awal
                 }
-
+//Menjadwalkan ulang Runnable ini untuk dijalankan lagi setelah speed[0] milidetik.==
                 handler.postDelayed(this, speed[0]);
             }
         }, speed[0]);
@@ -286,7 +287,9 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         // Lokasi Cafe
         LatLng cafeLocation = new LatLng(-7.15, 111.88);
+        //digunakan untuk menambahkan penanda (marker) pada posisi tertentu di peta.
         mMap.addMarker(new MarkerOptions().position(cafeLocation).title("Cafeku"));
+        //Memindahkan Kamera ke Lokasi Marker
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cafeLocation, 15));
     }
 
@@ -373,7 +376,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
             } else if (id == R.id.menu_logout) {
                 if (user != null) {
                     userDao.logout();
-                    dao.delete();
+                    dao.deleteAll();
                     level.delete();
                     point.deleteAll();
 
@@ -484,7 +487,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
                 decs.add(obj.getString("desc"));
             }
 
-            for (int i = 0; i <= imageViews.length && i < imgchoice.size(); i++) {
+            for (int i = 0; i < imageViews.length && i < imgchoice.size(); i++) {
                 final int index = i;
                 InputStream imgStream = getAssets().open("imageprofile/" + imgchoice.get(i) + ".png");
                 Bitmap bitmap = BitmapFactory.decodeStream(imgStream);
@@ -503,7 +506,6 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
                     if (existing != null) {
                         // update record yang ada
-
                         dao.update(existing.id, imgchoice.get(index));
                     } else {
                         // insert record baru
@@ -533,7 +535,6 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Gagal memuat data gambar", Toast.LENGTH_SHORT).show();
         }
 
         dialog.show();
@@ -656,32 +657,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
                     break;
                 case "Mitos":
-                    tvLevelname.post(() -> {
-                        TextView tv = tvLevelname;
-                        tv.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-
-                        int width = tv.getWidth();
-                        if (width <= 0) return;
-
-                        // Warna gradasi Divine Gold
-                        int[] colors = {
-                                Color.parseColor("#3B0000"),
-                                Color.parseColor("#7B1113"),
-                                Color.parseColor("#C21807"),
-                                Color.parseColor("#FF1744"),
-                                Color.parseColor("#FFD5D5")
-                        };
-
-                        // Gradasi horizontal (kiri ke kanan)
-                        LinearGradient gradient = new LinearGradient(
-                                0, 0, width, 0,
-                                colors, null, Shader.TileMode.CLAMP);
-
-                        Paint paint = tv.getPaint();
-                        paint.setShader(gradient);
-
-                        tv.invalidate();
-                    });
+                    tvLevelname.setTextColor(Color.parseColor("#3B0000"));
                     break;
             }
 

@@ -38,6 +38,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/specialsbg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/profile_gradient_voucher"
@@ -59,6 +60,27 @@
                     android:layout_marginStart="10dp"
                     android:paddingStart="10dp"
                     android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/menuspecial"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/pointhandler"
+                        android:padding="3dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:visibility="gone"
+                        >
+                        <TextView
+                           
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textColor="@color/aurora_polar_end"
+                            android:fontFamily="@font/poppins"
+                          android:text="  Menu Special  "
+                            />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/detailName"

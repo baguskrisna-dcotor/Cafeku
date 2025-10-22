@@ -72,7 +72,7 @@ public class notificationHelper {
             }
 
         }
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
                 idIntent != -1 ? idIntent : (int) System.currentTimeMillis(),

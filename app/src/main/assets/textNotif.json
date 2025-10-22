@@ -10,19 +10,19 @@
   "intent": -1
 },{
   "id": 3,
-  "text": "Kopi bareng doi boleh dihh mumpung ada diskon",
-  "dest": "com.example.cafeku.VoucherActivity",
+  "text": "Setup Photo profile baru yuk",
+  "dest": "com.example.cafeku.Profile",
   "intent": -1
 },{
   "id": 4,
   "text": "Paket urunan bikin nongkrong jadi lebih hemat",
-  "dest": "com.example.cafeku.DetailActivity",
-  "intent": 25
+  "dest": "com.example.cafeku.MainActivity",
+  "intent": -1
 },{
   "id": 5,
   "text": "Diet bareng yukk pake paket diet",
-  "dest": "com.example.cafeku.DetailActivity",
-  "intent": 21
+  "dest": "com.example.cafeku.MainActivity",
+  "intent": -1
 },{
   "id": 6,
   "text": "Rayakan idul fitri dengan diskon 30%",

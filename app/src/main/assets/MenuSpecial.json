@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1001,
+    "nama": "Mie Ayam",
+    "deskripsi": "Mie Ayam khas Indonesia dengan rasa gurih yang menggugah selera. Disajikan dengan mie kenyal, potongan ayam berbumbu manis gurih, sawi hijau segar, dan kuah kaldu ayam yang harum. Makanan hangat yang pas disantap kapan saja, terutama saat cuaca dingin.",
+    "harga": 15000,
+    "gambar": "mie_ayam",
+    "point": 3
+  },
+  {
+    "id": 1002,
+    "nama": "Es Teh",
+    "deskripsi": "Es Teh manis segar dengan aroma melati yang menenangkan. Dihidangkan dingin dengan es batu melimpah, memberikan sensasi segar di setiap tegukan. Rasanya seimbang dan cocok jadi teman makan segala menu.",
+    "harga": 4000,
+    "gambar": "es_teh",
+    "point": 2
+  },
+  {
+    "id": 1003,
+    "nama": "Bakso Jumbo",
+    "deskripsi": "Bakso sapi ukuran besar dengan tekstur kenyal dan rasa gurih daging asli. Disajikan lengkap bersama mie, tahu, pangsit, dan kuah kaldu sapi yang kaya rasa. Tambahkan sambal dan jeruk nipis biar rasanya makin mantap!",
+    "harga": 20000,
+    "gambar": "bakso_jumbo",
+    "point": 3
+  },
+  {
+    "id": 1004,
+    "nama": "Es Teh Kampul",
+    "deskripsi": "Minuman khas Jawa yang memadukan teh hitam dengan perasan jeruk kampul (keprok). Rasanya manis segar dengan sentuhan asam alami yang menyegarkan tenggorokan. Paling nikmat diminum siang hari.",
+    "harga": 4500,
+    "gambar": "es_teh_kampul",
+    "point": 2
+  },
+  {
+    "id": 1005,
+    "nama": "Mie Ayam Bakso",
+    "deskripsi": "Kombinasi sempurna mie ayam gurih dan bakso sapi kenyal dalam satu mangkuk. Kuah kaldunya gurih pekat, ayamnya lembut, dan baksonya padat berisi rasa. Menu favorit yang mengenyangkan dan bikin puas.",
+    "harga": 17000,
+    "gambar": "mie_ayam_bakso",
+    "point": 3
+  }
+]

@@ -47,7 +47,7 @@ public class ChatActivity extends AppCompatActivity {
 
         db = ChatDatabase.getInstance(this);
         loadChat();
-
+//fungsi untuk mengirim komentar user
         btnSend.setOnClickListener(v -> {
             String message = etChat.getText().toString().trim();
             int rating = (int) ratingBar.getRating();
@@ -57,25 +57,33 @@ public class ChatActivity extends AppCompatActivity {
                 return;
             }
 
+            //menambahkan chat ke database
             Chat newChat = new Chat(0, message, rating);
             db.chatDao().insert(newChat);
+            //setelah dikirim kolom chat dan rating akan di refresh lagi ke default
             etChat.setText("");
             ratingBar.setRating(0);
+
             loadChat();
         });
     }
 
     private void loadChat() {
         chatList = db.chatDao().getAllItems();
+        //Membuat adapter baru (ChatAdapter) dan memberikan aksi hapus komentar saat item di klik atau dihapus.
 
         adapter = new ChatAdapter(this, chatList, chat -> {
-            db.chatDao().deleteById(chat.id);
+            //Memberi tahu apa data yang mau ditampilkan (chatList),
+            //Menyediakan aksi kalau data dihapus (listener),
+            //Menyiapkan layout dan ViewHolder lewat ChatAdapter.
+            db.chatDao().deleteById(chat.id);//menghapus dari databse
             Toast.makeText(this, "Komentar dihapus", Toast.LENGTH_SHORT).show();
+            //refresh dan load chat kembali setelah penghapusan
             loadChat();
         });
 
-        recyclerChat.setLayoutManager(new LinearLayoutManager(this));
-        recyclerChat.setAdapter(adapter);
+        recyclerChat.setLayoutManager(new LinearLayoutManager(this));//Secara vertikal (LinearLayoutManager)
+        recyclerChat.setAdapter(adapter);//“mengambil data” dari adapter
     }
 
 }

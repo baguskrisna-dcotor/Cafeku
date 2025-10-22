@@ -84,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> gambarList5 = new ArrayList<>();
     ArrayList<Integer> point5 = new ArrayList<>();
 
+    ArrayList<Integer> idListS = new ArrayList<>();
+    ArrayList<String> namaListS = new ArrayList<>();
+    ArrayList<String> deskripsiListS = new ArrayList<>();
+    ArrayList<Integer> hargaListS = new ArrayList<>();
+    ArrayList<String> gambarListS = new ArrayList<>();
+    ArrayList<Integer> pointS = new ArrayList<>();
+
 
 
     @Override
@@ -115,8 +122,13 @@ public class MainActivity extends AppCompatActivity {
         int[] imgIds5 = {R.id.imgMenu21, R.id.imgMenu22, R.id.imgMenu23, R.id.imgMenu24, R.id.imgMenu25};
         int[] txtIds5 = {R.id.txtMenu21, R.id.txtMenu22, R.id.txtMenu23, R.id.txtMenu24, R.id.txtMenu25};
         int[] btnIds5 = {R.id.btnMenu21, R.id.btnMenu22, R.id.btnMenu23, R.id.btnMenu24, R.id.btnMenu25};
+        int[] parentS = {R.id.katalogs1, R.id.katalogs2, R.id.katalogs3, R.id.katalogs4, R.id.katalogs5};
+        int[] imgIdsS = {R.id.imgMenus1, R.id.imgMenus2, R.id.imgMenus3, R.id.imgMenus4, R.id.imgMenus5};
+        int[] txtIdsS = {R.id.txtMenus1, R.id.txtMenus2, R.id.txtMenus3, R.id.txtMenus4, R.id.txtMenus5};
+        int[] btnIdsS = {R.id.btnMenus1, R.id.btnMenus2, R.id.btnMenus3, R.id.btnMenus4, R.id.btnMenus5};
 
 //      fungsi untuk load data json berisi data dari setiap produk dan disimpan di array list untuk dikirim ke detail
+        loadJsonToList("MenuSpecial.json", idListS, namaListS, deskripsiListS, hargaListS, gambarListS, pointS);
         loadJsonToList("datakatalog1.json", idList, namaList, deskripsiList, hargaList, gambarList, point);
         loadJsonToList("datakatalog2.json", idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
         loadJsonToList("datakatalog3.json", idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);
@@ -124,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         loadJsonToList("datakatalog5.json", idList5, namaList5, deskripsiList5, hargaList5, gambarList5, point5);
 
 //        fungsi untuk setup semua data ke layout
+        setupProduk(parentS, imgIdsS, txtIdsS, btnIdsS, idListS, namaListS, deskripsiListS, hargaListS, gambarListS, pointS);
         setupProduk(parent1, imgIds1, txtIds1, btnIds1, idList, namaList, deskripsiList, hargaList, gambarList, point);
         setupProduk(parent2, imgIds2, txtIds2, btnIds2, idList2, namaList2, deskripsiList2, hargaList2, gambarList2, point2);
         setupProduk(parent3, imgIds3, txtIds3, btnIds3, idList3, namaList3, deskripsiList3, hargaList3, gambarList3, point3);

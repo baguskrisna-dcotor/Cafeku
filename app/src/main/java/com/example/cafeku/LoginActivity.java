@@ -43,9 +43,13 @@ public class LoginActivity extends Activity {
 
         AtomicReference<Boolean> gender = new AtomicReference<>();
 
+        //memberikan fugnsi listener agar sistem dapat mengambil data dari opsi mana yang user pilih
         options.setOnCheckedChangeListener((group,radioid)->{
 
+            //Kita sudah punya variabel boolean untuk menyimpan gender user
             if(radioid == R.id.Female){
+                //jika yang dipilih user adalah radio button dengan id female maka gender aka bernilai false yang berarti Perempuan
+                //begitu juga sebaliknya
                 gender.set(false);
             } else if (radioid == R.id.Male) {
                 gender.set(true);
@@ -55,10 +59,12 @@ public class LoginActivity extends Activity {
         });
 
         btnlogin.setOnClickListener(v ->{
+            //ketika user login semua data yang user berikan akan masuk ke variabel lokal di dalam listener ini
             String username = etusername.getText().toString().trim();
             String password = etpw.getText().toString().trim();
             Boolean sex = gender.get().booleanValue();
 
+            //mengecek apkah user sudah mengisi atau belum
             if(username.isEmpty()|| password.isEmpty() ){
                 Toast.makeText(this,"Isi dulu",Toast.LENGTH_LONG).show();
                 return ;
@@ -75,7 +81,7 @@ public class LoginActivity extends Activity {
 
             ImgDatabase ib = ImgDatabase.getInstance(this);
             ImgDao dao = ib.imgDao();
-            dao.delete();
+            dao.deleteAll();
 
             User newuser = new User(username,password,sex);
             userdao.insertUser(newuser);

@@ -24,5 +24,5 @@ public interface ImgDao {
     void update(int id, String name);
 
     @Query("DELETE FROM img_table")
-    void delete();
+    void deleteAll();
 }

@@ -26,7 +26,7 @@ import java.util.Locale;
 public class DetailActivity extends AppCompatActivity {
 
 
-    private LinearLayout buybtn;
+    private LinearLayout buybtn,s,menuspecial;
 
     private PointDatabase db;
     private TextView pointhandler,name,price,description;
@@ -36,12 +36,15 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+
         ImageView img = findViewById(R.id.detailImage);
          name = findViewById(R.id.detailName);
          price = findViewById(R.id.detailPrice);
          description = findViewById(R.id.deskripsi);
          buybtn = findViewById(R.id.buybtn);
          pointhandler = findViewById(R.id.txtCartpoint);
+         s = findViewById(R.id.specialsbg);
+         menuspecial = findViewById(R.id.menuspecial);
 
 
         // Ambil data dari intent
@@ -51,7 +54,21 @@ public class DetailActivity extends AppCompatActivity {
         int harga = intent.getIntExtra("harga", 0);
         String deskripsi = intent.getStringExtra("deskripsi");
         int point = intent.getIntExtra("point",0);
+        int id = intent.getIntExtra("id",0);
 
+
+
+
+        if(id > 1000) {
+            s.setBackgroundResource(R.drawable.rainbow);
+            menuspecial.setVisibility(LinearLayout.VISIBLE);
+            Toast.makeText(this, "Menu Specials ", Toast.LENGTH_SHORT).show();
+            if (FirstOpen.hasClick == false){
+                String textNotifS = "yuk langsung check out "+ nama + "-nya mumpung di penawaran spesial!";
+                notificationHelper.showNotification(this, textNotifS, CartActivity.class);
+                FirstOpen.hasClick = true;
+            }
+        }
         pointhandler.setText(String.valueOf(point));
 
         db = PointDatabase.getInstance(this);
@@ -74,7 +91,7 @@ public class DetailActivity extends AppCompatActivity {
 
 
 
-// mengubah forman int biasa menjaid format rupiah dengan library di android studio
+// mengubah forman int biasa menjadi format rupiah dengan library di android studio
         NumberFormat rupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         price.setText(rupiah.format(harga));
 
