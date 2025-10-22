@@ -2,7 +2,7 @@ package com.example.cafeku;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +23,24 @@ public class DetailTokoActivity extends AppCompatActivity {
             return insets;
         });
 
-        LinearLayout movebtn = findViewById(R.id.comment);
-        movebtn.setOnClickListener(v->{
-            Intent i = new Intent(DetailTokoActivity.this, ChatActivity.class);
-            startActivity(i);
+        String from = getIntent().getStringExtra("from");
+
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            switch (from){
+                case "DetailActivity":
+                    getIntent(MainActivity.class);
+                    break;
+                case "Profile":
+                    getIntent(Profile.class);
+                    break;
+            }
         });
+    }
+    private void getIntent(Class<?> nameActivity){
+        Intent intent = new Intent(this, nameActivity);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

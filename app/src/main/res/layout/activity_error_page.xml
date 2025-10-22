@@ -64,7 +64,10 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:background="@drawable/detail_chart"
-        android:onClick="backHome"/>
+        android:onClick="backHome"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
 
 
 </RelativeLayout>

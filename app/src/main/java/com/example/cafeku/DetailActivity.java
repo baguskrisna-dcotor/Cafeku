@@ -116,6 +116,7 @@ public class DetailActivity extends AppCompatActivity {
 
     public void switchDetToko(View view) {
         Intent intent = new Intent(this, DetailTokoActivity.class);
+        intent.putExtra("from", "DetailActivity");
         startActivity(intent);
 
     }
