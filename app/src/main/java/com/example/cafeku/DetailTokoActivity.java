@@ -26,6 +26,9 @@ public class DetailTokoActivity extends AppCompatActivity {
         String from = getIntent().getStringExtra("from");
 
         ImageView back = findViewById(R.id.back);
+
+        //Mengecek dari mana user masuk.
+        //Apakah dari detailActivity atau profile
         back.setOnClickListener(v -> {
             switch (from){
                 case "DetailActivity":
@@ -37,6 +40,9 @@ public class DetailTokoActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Method untuk berpindah Activity sesuai parameter yang dimasukkan hasil switch case di atas.
+    //Menggunakan Intent
     private void getIntent(Class<?> nameActivity){
         Intent intent = new Intent(this, nameActivity);
 

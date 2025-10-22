@@ -24,6 +24,11 @@ import java.util.Random;
 
 public class FirstOpen extends AppCompatActivity {
 
+
+    //Activity ini untuk menampilkan notifikasi pertama kali aplikasi di buka dan meminta akses notifikasi pertama kali
+//    jika user menolak di izin pertama maka aplikasi akan meminta izin untuk ke 2 kalinya jika ditolak lagi
+//    apk akan langsung ke main activity
+
     private static final int PERMISSION_REQUEST_CODE = 101;
     ArrayList<String> textNotif = new ArrayList<>();
     ArrayList<String> destNotif = new ArrayList<>();
@@ -45,6 +50,7 @@ public class FirstOpen extends AppCompatActivity {
     }
 
     @Override
+    //ini template dari android untuk mengecek izin
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 

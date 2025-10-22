@@ -36,6 +36,7 @@ public class VoucherActivity extends AppCompatActivity {
         tambahProduk(imgIds, imgIds, txtIds, images, names, detail, color);
     }
 public void tambahProduk(int[] clickable, int[] imgId, int[] txtId, int[] image, String[] name, String[] det, int[] color) {
+        //loop untuk mengatur gambar dan nama terurut dari array yang dibuat
     for (int i = 0; i < name.length; i++) {
         int index = i;
         ImageView img = findViewById(imgId[i]);
@@ -45,7 +46,7 @@ public void tambahProduk(int[] clickable, int[] imgId, int[] txtId, int[] image,
         img.setImageResource(image[i]);
         txtTittle.setText(name[i]);
 
-
+        //membuat klik pada gambar dan menggunakan extra untuk mengirim data ke detail
         clickAble.setOnClickListener(v -> {
             Intent intent = new Intent(this, VoucherDetailActivity.class);
             intent.putExtra("img", image[index]);
@@ -57,6 +58,8 @@ public void tambahProduk(int[] clickable, int[] imgId, int[] txtId, int[] image,
     }
 }
 
+
+//ini fungsi untuk switch ke activity lain ketika di klik (awal)
     public void switchHome(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
