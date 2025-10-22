@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 public class notificationHelper {
 
+    //Deklarasi variabel yang akan digunakan untuk menyimpan data produk dan textNotifikasi dari json
     public static ArrayList<Integer> Id = new ArrayList<>();
     public static ArrayList<String> NamaProduk = new ArrayList<>();
     public static ArrayList<Integer> HargaProduk = new ArrayList<>();
@@ -36,11 +37,14 @@ public class notificationHelper {
     public static ArrayList<Integer> PointProduk = new ArrayList<>();
 
 
+    //deklarasi variabel untuk channel id notifikasi
     public static final String CHANNEL_ID = "cafeku_channel";
 
+    //konstruktor untuk mengambil data produk dari json
     public notificationHelper(Context context){
         JSONgetList(context, Id, NamaProduk, DeskripsiProduk, HargaProduk, GambarProduk, PointProduk);
     }
+    //fungsi untuk menampilkan notifikasi
     public static void showNotification(Context context, String message, Class<?> contextDest) {
         showNotification(context, message, contextDest, -1);
     }
@@ -48,6 +52,7 @@ public class notificationHelper {
 
     public static void showNotification(Context context, String message, Class<?> contextDest, int idIntent) {
 
+        //membuat channel notifikasi jika versi android diatas oreo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     notificationHelper.CHANNEL_ID,
@@ -55,12 +60,17 @@ public class notificationHelper {
                     NotificationManager.IMPORTANCE_DEFAULT
             );
             NotificationManager manager = context.getSystemService(NotificationManager.class);
+
+            //membuat channel notifikasi jika belum ada
             if (manager != null) {
                 manager.createNotificationChannel(channel);
             }
         }
 
+        //Membuat fungsi intent untuk notifikasi yang akan ditampilkan
         Intent intent = new Intent(context, contextDest);
+
+        //menampah extra untuk intent yang akan ditampilkan tapi masih error g tw kenapa😂
         if(idIntent != -1){
             int index = idIntent - 1;
             if (index != -1) {
@@ -72,7 +82,10 @@ public class notificationHelper {
             }
 
         }
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //menambahkan flag untuk intent yang akan ditampilkan
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        //membuat pending intent untuk intent yang akan ditampilkan. pending intent akan berjalan ketika notifikasi di klik
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
                 idIntent != -1 ? idIntent : (int) System.currentTimeMillis(),
@@ -80,7 +93,7 @@ public class notificationHelper {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
-
+        // membuat notifikasi dengan builder
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, notificationHelper.CHANNEL_ID)
                 .setSmallIcon(R.drawable.cafeku)
                 .setContentTitle("CAFEKU")
@@ -91,6 +104,7 @@ public class notificationHelper {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
+        //menampilkan notifikasi jika versi android diatas tiramisu
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
                         != PackageManager.PERMISSION_GRANTED) {
@@ -100,6 +114,7 @@ public class notificationHelper {
         notificationManager.notify((int) System.currentTimeMillis(), builder.build());
     }
 
+    //Mendapat arraylist dari json
     private void JSONgetList(Context context, ArrayList<Integer> id , ArrayList<String> NamaProduk, ArrayList<String> DeskripsiProduk, ArrayList<Integer> HargaProduk, ArrayList<String> GambarProduk, ArrayList<Integer> Point) {
 
         try {
@@ -119,6 +134,7 @@ public class notificationHelper {
             String file = new String(buffer, "UTF-8");
             JSONArray JSONarray = new JSONArray(file);
 
+            //loop untuk memasukkan data dari json ke arraylist
             for(int i = 0; i < JSONarray.length(); i++){
                 JSONObject object = JSONarray.getJSONObject(i);
                 id.add(object.getInt("id"));
@@ -133,12 +149,4 @@ public class notificationHelper {
             e.printStackTrace();
         }
 }
-    public static int findID(int id){
-        for(int i = 0; i < Id.size(); i++){
-            if(Id.get(i) == id) {
-                return i;
-            }
-}
-        return -1;
-    }
 }

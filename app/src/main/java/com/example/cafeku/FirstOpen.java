@@ -38,14 +38,25 @@ public class FirstOpen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //Mengecek notifikasi
         cekIzinNotifikasi();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            // Tidak masalah izin ditolak atau diterima —> tetap lanjut
+            JSONgetList(textNotif, destNotif);
+            randomMessage(textNotif.toArray(new String[0]), destNotif.toArray(new String[0]));
+            lanjutmain();
+        }
+    }
     private void cekIzinNotifikasi() {
+        //Mengecek versi Android >= Tiramisu (33)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
                         != PackageManager.PERMISSION_GRANTED) {
@@ -57,8 +68,21 @@ public class FirstOpen extends AppCompatActivity {
             // Izin sudah ada → tampilkan notif random
             JSONgetList(textNotif, destNotif);
             randomMessage(textNotif.toArray(new String[0]), destNotif.toArray(new String[0]));
+            lanjutmain();
         }
     }
+
+    //Fungsi untuk melanjutkan ke main Activity
+    private void lanjutmain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+
+
+    //fungsi untuk mengambil data dari JSON dengan nama "textNotif.json" yang berada di dir assets
 
     private void JSONgetList(ArrayList<String> textList, ArrayList<String> destList) {
         try {
@@ -81,6 +105,8 @@ public class FirstOpen extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    //fungsi untuk menampilkan notifikasi secara random dari array yang ada
     private void randomMessage(String[] textList, String[] destList){
         if (textList == null || destList == null || textList.length == 0 || destList.length == 0) {
             return;
