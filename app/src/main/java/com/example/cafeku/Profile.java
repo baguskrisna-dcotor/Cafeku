@@ -81,7 +81,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
-public class Profile extends AppCompatActivity implements OnMapReadyCallback {
+public class Profile extends BaseActivity implements OnMapReadyCallback {
     Handler handler = new Handler();
     private HorizontalScrollView h;
     private GoogleMap mMap;
@@ -108,6 +108,20 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
         setContentView(R.layout.profile);
         double latitude = -7.797068;
         double longitude = 110.370529;
+
+        boolean fromLoading = getIntent().getBooleanExtra("fromLoading", false);
+        if (fromLoading) {
+            View rootView = findViewById(android.R.id.content);
+            rootView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    rootView.getViewTreeObserver().removeOnPreDrawListener(this);
+                    markReady(); // akan mengirim broadcast
+                    return true;
+                }
+            });
+        }
+
 
 
         tvusername = findViewById(R.id.nameUser);
@@ -657,7 +671,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
 
                     break;
                 case "Mitos":
-                    tvLevelname.setTextColor(Color.parseColor("#3B0000"));
+                    tvLevelname.setTextColor(Color.parseColor("#ff0000"));
                     break;
             }
 
@@ -685,8 +699,7 @@ public class Profile extends AppCompatActivity implements OnMapReadyCallback {
     }
 
     public void switchDetToko(View view) {
-        Intent intent = new Intent(this, DetailTokoActivity.class);
-        startActivity(intent);
+        goToWithLoading(new Intent(this,DetailTokoActivity.class));
     }
 }
 

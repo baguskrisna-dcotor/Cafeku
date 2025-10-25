@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF1E8"
+    android:background="#FFF9E6"
     tools:context=".MainActivity">
 
 
@@ -220,6 +220,7 @@
             </HorizontalScrollView>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/vcrview"

@@ -44,7 +44,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.logging.Level;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     static final int PERMISSION_REQUEST_CODE = 101;
     ArrayList<Integer> idList = new ArrayList<>();
@@ -161,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
 
         LevelDao lvl = LevelDatabase.getInstance(this).levelDao();
         LevelModel l = lvl.select();
-
         if (l != null) {
             rank.setText(l.LevelName);
             int progress = 0;
@@ -170,18 +169,23 @@ public class MainActivity extends AppCompatActivity {
             switch (l.Level) {
                 case 1:
                     progress = (int) (((float) (userPoint - 0) / (20 - 0)) * 100);
+                    rank.setTextColor(Color.parseColor("#B0BEC5"));
                     break;
                 case 2:
                     progress = (int) (((float) (userPoint - 20) / (50 - 20)) * 100);
+                    rank.setTextColor(Color.parseColor("#ECEFF1"));
                     break;
                 case 3:
                     progress = (int) (((float) (userPoint - 50) / (100 - 50)) * 100);
+                    rank.setTextColor(Color.parseColor("#FFD54F"));
                     break;
                 case 4:
                     progress = (int) (((float) (userPoint - 100) / (1000 - 100)) * 100);
+                    rank.setTextColor(Color.parseColor("#D1C4E9"));
                     break;
                 case 5:
                     progress = 100;
+                    rank.setTextColor(Color.parseColor("#ff0000"));
                     break;
                 default:
                     progress = 0;
@@ -268,8 +272,8 @@ public class MainActivity extends AppCompatActivity {
             Class<?> destinationfinal = destination[i];
 
             imageclick.setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, destinationfinal);
-                startActivity(intent);
+                goToWithLoading(new Intent(this, destinationfinal));
+
             });
         }
     }

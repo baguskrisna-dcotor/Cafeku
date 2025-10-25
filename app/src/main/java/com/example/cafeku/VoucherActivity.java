@@ -21,6 +21,8 @@ public class VoucherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+
         // data data
         int[] imgIds = {R.id.imgVoucher1, R.id.imgVoucher2, R.id.imgVoucher3, R.id.imgVoucher4};
         int[] txtIds = {R.id.titleVoucher1, R.id.titleVoucher2, R.id.titleVoucher3, R.id.titleVoucher4};
@@ -34,6 +36,10 @@ public class VoucherActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_voucher);
         tambahProduk(imgIds, imgIds, txtIds, images, names, detail, color);
+        LinearLayout move = findViewById(R.id.movetocart);
+        move.setOnClickListener(v-> {
+            startActivity(new Intent(this, CartActivity.class));
+        });
     }
 public void tambahProduk(int[] clickable, int[] imgId, int[] txtId, int[] image, String[] name, String[] det, int[] color) {
         //loop untuk mengatur gambar dan nama terurut dari array yang dibuat

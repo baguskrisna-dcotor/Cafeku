@@ -1,5 +1,6 @@
 package com.example.cafeku.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -19,7 +20,9 @@ public class User {
     public Boolean gender;
 
 
-
+    public int getId() {
+        return id;
+    }
     public User(String username, String password,Boolean gender) {
         this.username = username;
         this.password = password;

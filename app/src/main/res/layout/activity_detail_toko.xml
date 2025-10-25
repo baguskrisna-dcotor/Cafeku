@@ -63,7 +63,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="10dp"
             android:gravity="center"
             >
             <TextView
@@ -80,40 +79,34 @@
                 android:id="@+id/comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                <ImageView
-                    android:id="@+id/star1"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/star_yes"/>
-                <ImageView
-                    android:id="@+id/star2"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/star_yes"/>
-                <ImageView
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp">
+                <RatingBar
+                    android:id="@+id/tokorating"
+                    android:isIndicator="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:numStars="5"
+                    android:stepSize="1"/>
 
-                    android:id="@+id/star3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/star_yes"/>
-                <ImageView
-                    android:id="@+id/star4"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/star_yes"/>
-                <ImageView
-                    android:id="@+id/star5"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/star_yes"/>
+                <TextView
+                    android:id="@+id/textrating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RATING CAFEKU "
+                    android:textColor="@color/aurora_classic_start"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/movetokomen"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -129,7 +122,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Review"
+                    android:text="Komen"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
@@ -145,6 +138,86 @@
             android:textColor="#772A00"
             android:includeFontPadding="false"
             />
+
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/addrating"
+            android:background="@drawable/detail_chart"
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berikan Rating anda Untuk CAFEKU"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/arvo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RatingBar
+                    android:id="@+id/userrating"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:numStars="5"
+                    android:stepSize="1"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sendrating"
+                    android:layout_width="100dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_radius_setting_2"
+                    app:backgroundTint="@null"
+                    android:text="KIRIM"
+                    android:textColor="@color/green_royal_start"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/beforelogin"
+            android:padding="10dp"
+            android:background="@drawable/border_radius_setting_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+            <TextView
+                android:textColor="@color/black"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGIN UNTUK MELIHAN RATING CAFEKU"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_guest"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

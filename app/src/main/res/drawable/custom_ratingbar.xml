@@ -1,0 +1,31 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background (ikon kosong) -->
+    <item android:id="@android:id/background">
+        <bitmap
+            android:src="@drawable/star_no"
+            android:gravity="center"
+            android:antialias="true"
+            android:filter="true"
+            android:dither="true" />
+    </item>
+
+    <!-- Secondary progress (opsional) -->
+    <item android:id="@android:id/secondaryProgress">
+        <bitmap
+            android:src="@drawable/image_level5"
+            android:gravity="center"
+            android:antialias="true"
+            android:filter="true" />
+    </item>
+
+    <!-- Progress (ikon terisi) -->
+    <item android:id="@android:id/progress">
+        <bitmap
+            android:src="@drawable/rating"
+            android:gravity="center"
+            android:antialias="true"
+            android:filter="true" />
+    </item>
+
+</layer-list>

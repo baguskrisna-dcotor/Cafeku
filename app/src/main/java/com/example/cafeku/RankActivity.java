@@ -144,6 +144,7 @@ public class RankActivity extends AppCompatActivity {
 
             //Otomatis ambil gambar dari drawable/image_level1, drawable/image_level2, dst.
             String imageName = "image_level" + (achievedIndex + 1);
+
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
             img.setImageResource(resId != 0 ? resId : R.drawable.dummy);
             //set warna dan suara untuk setiap level
@@ -175,7 +176,7 @@ public class RankActivity extends AppCompatActivity {
                 l2.setBackgroundResource(R.drawable.mitosplaceholder);
                 soundeffect = MediaPlayer.create(this, R.raw.lv5);
                 soundeffect.start();
-                tvLevelname.setTextColor(Color.parseColor("#3B0000"));
+                tvLevelname.setTextColor(Color.parseColor("#ff0000"));
             }
             // ====== Text display ======
             tvLevelname.setText(currentLevelName);
